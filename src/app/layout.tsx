@@ -14,10 +14,47 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const title = "VOLTA | WhatsApp convertido en sistema operativo para tu negocio";
+const description =
+  "VOLTA conecta soluciones sobre WhatsApp para atender, vender, gestionar turnos, pedidos, comprobantes y operacion con mas orden.";
+const socialImage = "/voltaLOGO.png";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.VERCEL_URL;
+
+const metadataBase = new URL(
+  siteUrl ? (siteUrl.startsWith("http") ? siteUrl : `https://${siteUrl}`) : "http://localhost:3000",
+);
+
 export const metadata: Metadata = {
-  title: "VOLTA | WhatsApp convertido en sistema operativo para tu negocio",
-  description:
-    "VOLTA conecta soluciones sobre WhatsApp para atender, vender, gestionar turnos, pedidos, comprobantes y operacion con mas orden.",
+  metadataBase,
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    locale: "es_AR",
+    images: [
+      {
+        url: socialImage,
+        width: 1200,
+        height: 630,
+        alt: "VOLTA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [socialImage],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

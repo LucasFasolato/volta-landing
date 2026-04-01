@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { CONTENT } from "@/data/landing-content";
 
 export const Navbar = () => {
@@ -18,14 +19,10 @@ export const Navbar = () => {
           <nav className="flex items-center justify-between gap-4">
             <Link
               href="#top"
-              className="flex items-center gap-3 text-white transition-opacity hover:opacity-90"
+              className="transition-transform duration-300 ease-out hover:scale-[1.015] hover:opacity-95"
+              aria-label="VOLTA"
             >
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-[0.72rem] font-bold tracking-[0.24em] text-primary">
-                V
-              </span>
-              <span className="font-headline text-lg font-bold tracking-[-0.05em] md:text-xl">
-                VOLTA
-              </span>
+              <BrandLogo priority />
             </Link>
 
             <div className="hidden items-center gap-7 lg:flex">

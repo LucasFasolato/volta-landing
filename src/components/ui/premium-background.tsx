@@ -32,17 +32,11 @@ export const PremiumBackground = ({
   const pointerX = useMotionValue(INITIAL_POINTER.x);
   const pointerY = useMotionValue(INITIAL_POINTER.y);
 
-  const smoothX = useSpring(pointerX, { stiffness: 70, damping: 24, mass: 0.4 });
-  const smoothY = useSpring(pointerY, { stiffness: 70, damping: 24, mass: 0.4 });
+  const smoothX = useSpring(pointerX, { stiffness: 52, damping: 22, mass: 0.55 });
+  const smoothY = useSpring(pointerY, { stiffness: 52, damping: 22, mass: 0.55 });
 
-  const spotlightLeft = useTransform(smoothX, (value) => `${value * 100}%`);
-  const spotlightTop = useTransform(smoothY, (value) => `${value * 100}%`);
-  const centerLeft = useTransform(smoothX, (value) => `${(0.5 + (value - 0.5) * 0.22) * 100}%`);
-  const centerTop = useTransform(smoothY, (value) => `${(0.46 + (value - 0.5) * 0.18) * 100}%`);
-
-  const spotlightBackground = `radial-gradient(circle at center, rgba(0, 245, 138, ${
-    variant === "hero" ? 0.12 : 0.1
-  }) 0%, rgba(0, 245, 138, 0.05) 24%, rgba(255, 255, 255, 0.018) 42%, transparent 76%)`;
+  const centerLeft = useTransform(smoothX, (value) => `${(0.5 + (value - 0.5) * 0.16) * 100}%`);
+  const centerTop = useTransform(smoothY, (value) => `${(0.46 + (value - 0.5) * 0.12) * 100}%`);
 
   const updatePointer = useEffectEvent((clientX: number, clientY: number) => {
     const rect = rootRef.current?.getBoundingClientRect();
@@ -97,33 +91,21 @@ export const PremiumBackground = ({
 
       <motion.div
         className={cn(
-          "absolute h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]",
-          variant === "cta" && "h-[30rem] w-[30rem]",
-        )}
-        style={{
-          left: spotlightLeft,
-          top: spotlightTop,
-          background: spotlightBackground,
-        }}
-      />
-
-      <motion.div
-        className={cn(
-          "absolute h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[170px]",
-          variant === "cta" && "h-[21rem] w-[21rem]",
+          "absolute h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px]",
+          variant === "cta" && "h-[14rem] w-[14rem] blur-[95px]",
         )}
         style={{
           left: centerLeft,
           top: centerTop,
           background:
-            "radial-gradient(circle at center, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 34%, transparent 72%)",
+            "radial-gradient(circle at center, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.012) 18%, rgba(20,28,38,0.18) 42%, rgba(7,9,13,0.2) 56%, transparent 74%)",
         }}
       />
 
       <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/8 bg-white/[0.02]" />
       <div className="absolute inset-x-[18%] top-[20%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute bottom-[16%] right-[10%] h-40 w-40 rounded-full bg-primary/4 blur-[150px]" />
-      <div className="absolute left-[8%] top-[52%] h-52 w-52 rounded-full bg-accent-blue/5 blur-[180px]" />
+      <div className="absolute bottom-[16%] right-[10%] h-40 w-40 rounded-full bg-primary/3 blur-[170px]" />
+      <div className="absolute left-[8%] top-[52%] h-52 w-52 rounded-full bg-accent-blue/4 blur-[200px]" />
     </div>
   );
 };

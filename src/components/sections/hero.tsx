@@ -3,34 +3,31 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MockPhone } from "@/components/ui/mock-phone";
+import { MockCarousel } from "@/components/ui/mock-carousel";
 import { PremiumBackground } from "@/components/ui/premium-background";
 import { CONTENT } from "@/data/landing-content";
 
 export const Hero = () => {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden pb-16 pt-28 md:pb-20 md:pt-36 lg:min-h-screen"
-    >
+    <section id="top" className="relative pb-16 pt-28 md:pb-20 md:pt-36 lg:min-h-screen">
       <PremiumBackground variant="hero" className="opacity-90" />
 
       <div className="container-shell relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,0.95fr)] lg:gap-10">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(18rem,21.5rem)] lg:items-center lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-[40rem]"
+            className="max-w-[42rem] overflow-visible"
           >
             <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
               <span className="inline-flex h-2 w-2 rounded-full bg-primary shadow-[0_0_18px_rgba(0,245,138,0.75)]" />
               {CONTENT.hero.badge}
             </div>
 
-            <div className="mt-7">
+            <div className="mt-7 overflow-visible">
               <p className="section-kicker">{CONTENT.hero.kicker}</p>
-              <h1 className="mt-5 max-w-4xl font-headline text-[clamp(3.2rem,7vw,6.4rem)] leading-[1.02] tracking-[-0.065em] font-bold text-white">
+              <h1 className="mt-5 max-w-[11ch] text-balance font-headline text-[clamp(3rem,7vw,6.2rem)] leading-[1.08] tracking-[-0.055em] font-bold text-white">
                 {CONTENT.hero.title}{" "}
                 <span className="text-primary text-glow">{CONTENT.hero.titleHighlight}</span>
               </h1>
@@ -83,7 +80,7 @@ export const Hero = () => {
             transition={{ duration: 0.85, delay: 0.12, ease: "easeOut" }}
             className="flex justify-center lg:justify-end"
           >
-            <MockPhone />
+            <MockCarousel />
           </motion.div>
         </div>
       </div>

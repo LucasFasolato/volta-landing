@@ -1,30 +1,33 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-plus-jakarta",
   display: "swap",
 });
 
-const manrope = Manrope({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VOLTA | Automatizá tu WhatsApp y vendé en automático",
+  title: "VOLTA | WhatsApp convertido en infraestructura comercial",
   description:
-    "VOLTA convierte WhatsApp en un sistema de ventas que responde, organiza y guía a tus clientes sin intervención constante.",
+    "VOLTA convierte WhatsApp en una capa operativa que responde, ordena y ejecuta acciones para vender mas con menos carga manual.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${manrope.variable} dark`}>
+    <html
+      lang="es"
+      className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} dark`}
+    >
       <body className="min-h-screen bg-background text-on-surface">
         {children}
       </body>

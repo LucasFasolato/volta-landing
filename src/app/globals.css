@@ -3,23 +3,24 @@
 @custom-variant hover (&:hover);
 
 :root {
-  --background: #131317;
-  --surface: #131317;
-  --surface-container-lowest: #0e0e12;
-  --surface-container-low: #1b1b1f;
-  --surface-container: #1f1f23;
-  --surface-container-high: #2a292e;
-  --surface-container-highest: #353439;
+  --background: #07090d;
+  --surface: #090c11;
+  --surface-container-lowest: #0b1016;
+  --surface-container-low: #111720;
+  --surface-container: #151d28;
+  --surface-container-high: #1b2532;
+  --surface-container-highest: #223041;
 
-  --on-surface: #e4e1e7;
-  --on-surface-variant: #b9cbb9;
-  --outline-variant: #3b4b3d;
+  --on-surface: #f5f7fb;
+  --on-surface-variant: #97a7ba;
+  --outline-variant: rgba(190, 211, 235, 0.12);
 
-  --primary: #00ff88;
-  --primary-dim: #00e479;
-  --secondary: #4dffb8;
+  --primary: #00f58a;
+  --primary-dim: #00cf73;
+  --secondary: #8efac6;
+  --accent-blue: #6ca9ff;
 
-  --shadow-ambient: rgba(228, 225, 231, 0.06);
+  --shadow-ambient: rgba(0, 0, 0, 0.34);
 }
 
 @theme {
@@ -38,12 +39,13 @@
   --color-primary: var(--primary);
   --color-primary-dim: var(--primary-dim);
   --color-secondary: var(--secondary);
+  --color-accent-blue: var(--accent-blue);
 
-  --font-headline: var(--font-manrope), sans-serif;
-  --font-body: var(--font-inter), sans-serif;
+  --font-headline: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-plus-jakarta), sans-serif;
 
-  --tracking-editorial: -0.04em;
-  --tracking-instrument: 0.10em;
+  --tracking-editorial: -0.05em;
+  --tracking-instrument: 0.16em;
 }
 
 @layer base {
@@ -56,28 +58,44 @@
   }
 
   body {
+    min-height: 100vh;
     background:
-      radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.06), transparent 28%),
-      radial-gradient(circle at 80% 10%, rgba(77, 255, 184, 0.04), transparent 24%),
-      linear-gradient(180deg, #131317 0%, #101015 100%);
+      radial-gradient(circle at 16% 14%, rgba(0, 245, 138, 0.1), transparent 28%),
+      radial-gradient(circle at 84% 10%, rgba(108, 169, 255, 0.08), transparent 24%),
+      linear-gradient(180deg, #07090d 0%, #080b11 42%, #070a10 100%);
     color: var(--on-surface);
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-plus-jakarta), sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-manrope), sans-serif;
+  ::selection {
+    background: rgba(0, 245, 138, 0.28);
+    color: #f7fff9;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 @utility glass-panel {
-  background-color: rgba(31, 31, 35, 0.72);
-  backdrop-filter: blur(20px);
+  background-color: rgba(9, 12, 17, 0.74);
+  backdrop-filter: blur(22px);
 }
 
 @utility ghost-border {
-  border: 1px solid rgba(59, 75, 61, 0.18);
+  border: 1px solid rgba(190, 211, 235, 0.12);
 }
 
 @utility glow-ambient {
@@ -90,30 +108,34 @@
 }
 
 @utility text-glow {
-  text-shadow: 0 0 24px rgba(0, 255, 136, 0.18);
+  text-shadow: 0 0 30px rgba(0, 245, 138, 0.16);
 }
 
 @utility bg-gradient-cta {
-  background-image: linear-gradient(135deg, #00ff88, #4dffb8);
+  background-image: linear-gradient(135deg, #b5ffe0 0%, #00f58a 48%, #00cf73 100%);
 }
 
 @utility ambient-shadow {
-  box-shadow: 0 20px 80px 0 rgba(228, 225, 231, 0.06);
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 @utility section-padding {
-  padding-block: 7rem;
+  padding-block: clamp(5.5rem, 10vw, 8.5rem);
 }
 
-@utility editorial-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+@utility fine-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
 @layer components {
   .container-shell {
     width: 100%;
-    max-width: 80rem;
+    max-width: 86rem;
     margin-inline: auto;
     padding-inline: 1.5rem;
   }
@@ -125,43 +147,67 @@
   }
 
   .surface-card {
-    background-color: var(--surface-container-low);
-    border: 1px solid rgba(59, 75, 61, 0.14);
-    border-radius: 1.75rem;
+    border-radius: 1.9rem;
+    border: 1px solid rgba(190, 211, 235, 0.1);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+      rgba(17, 23, 32, 0.92);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.03),
+      0 28px 80px rgba(0, 0, 0, 0.2);
     transition:
-      background-color 200ms ease-out,
-      transform 200ms ease-out,
-      border-color 200ms ease-out;
+      transform 240ms ease,
+      border-color 240ms ease,
+      background-color 240ms ease,
+      box-shadow 240ms ease;
   }
 
   .surface-card:hover {
-    background-color: var(--surface-container);
     transform: translateY(-2px);
-    border-color: rgba(59, 75, 61, 0.24);
+    border-color: rgba(190, 211, 235, 0.16);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 34px 90px rgba(0, 0, 0, 0.24);
   }
 
   .section-kicker {
-    font-size: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.72rem;
     line-height: 1;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-weight: 800;
-    color: var(--primary);
+    font-weight: 700;
+    color: rgba(190, 211, 235, 0.72);
+  }
+
+  .section-kicker::before {
+    content: "";
+    display: inline-block;
+    width: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 245, 138, 0.86), transparent);
   }
 
   .section-title {
-    font-family: var(--font-manrope), sans-serif;
-    font-size: clamp(2rem, 4vw, 3.75rem);
-    line-height: 0.98;
-    letter-spacing: -0.04em;
-    font-weight: 800;
+    font-size: clamp(2.5rem, 5vw, 4.75rem);
+    line-height: 0.94;
+    letter-spacing: -0.06em;
+    font-weight: 700;
     color: white;
   }
 
   .section-copy {
-    color: rgba(228, 225, 231, 0.72);
-    font-size: 1rem;
-    line-height: 1.75;
-    max-width: 42rem;
+    color: rgba(151, 167, 186, 0.92);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.8;
+    max-width: 44rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

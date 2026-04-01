@@ -1,33 +1,42 @@
 "use client";
 
-import { CONTENT } from "@/data/landing-content";
 import { motion } from "framer-motion";
+import { CONTENT } from "@/data/landing-content";
 
 export const Metrics = () => {
   return (
-    <section id="beneficios" className="section-padding bg-surface-container-lowest">
+    <section id="impacto" className="section-padding relative overflow-hidden bg-surface">
       <div className="container-shell">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-12">
-          {CONTENT.metrics.map((metric, idx) => (
-            <motion.div
+        <div className="mb-12 max-w-3xl">
+          <p className="section-kicker">Impacto comercial</p>
+          <h2 className="section-title mt-5">Mas control, mas velocidad, mas conversion.</h2>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-2">
+          {CONTENT.metrics.map((metric, index) => (
+            <motion.article
               key={metric.label}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="text-center"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="surface-card rounded-[2rem] p-6 md:p-8"
             >
-              <div
-                className={`font-headline text-5xl md:text-6xl font-black tracking-[-0.04em] ${
-                  idx === 0 || idx === 3 ? "text-primary text-glow" : "text-white"
-                }`}
-              >
-                {metric.value}
+              <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <div className="font-headline text-[clamp(3rem,6vw,4.75rem)] font-bold tracking-[-0.07em] text-white">
+                    {metric.value}
+                  </div>
+                  <div className="mt-2 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    {metric.label}
+                  </div>
+                </div>
+
+                <div className="max-w-sm text-sm leading-7 text-on-surface-variant md:text-base">
+                  {metric.detail}
+                </div>
               </div>
-              <div className="mt-3 text-[11px] uppercase tracking-[0.12em] font-bold text-on-surface-variant">
-                {metric.label}
-              </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

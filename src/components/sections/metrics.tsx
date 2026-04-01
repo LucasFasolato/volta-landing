@@ -5,11 +5,11 @@ import { CONTENT } from "@/data/landing-content";
 
 export const Metrics = () => {
   return (
-    <section id="beneficios" className="section-padding relative overflow-hidden bg-surface-container-lowest">
+    <section id="beneficios" className="section-padding relative overflow-hidden bg-surface">
       <div className="container-shell">
         <div className="max-w-3xl">
           <p className="section-kicker">Beneficios</p>
-          <h2 className="section-title mt-5">Por que esto importa para tu negocio.</h2>
+          <h2 className="section-title mt-5">Mas orden para vender, atender y operar.</h2>
         </div>
 
         <div className="mt-10 grid gap-4 lg:grid-cols-3">

@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "VOLTA | WhatsApp convertido en sistema de ventas",
+  title: "VOLTA | WhatsApp convertido en sistema operativo para tu negocio",
   description:
-    "VOLTA responde, ordena y convierte conversaciones de WhatsApp en ventas, pedidos o turnos con menos carga manual.",
+    "VOLTA conecta soluciones sobre WhatsApp para atender, vender, gestionar turnos, pedidos, comprobantes y operacion con mas orden.",
 };
 
 export default function RootLayout({

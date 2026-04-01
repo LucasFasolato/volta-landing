@@ -2,6 +2,7 @@ export const CONTENT = {
   nav: {
     links: [
       { label: "Problema", href: "#problema" },
+      { label: "Soluciones", href: "#soluciones" },
       { label: "Como funciona", href: "#como-funciona" },
       { label: "Beneficios", href: "#beneficios" },
     ],
@@ -9,84 +10,107 @@ export const CONTENT = {
   },
 
   hero: {
-    badge: "Sistema de ventas por WhatsApp",
-    kicker: "VOLTA convierte chats en ventas",
-    title: "Tu WhatsApp puede vender",
-    titleHighlight: "sin depender del celular.",
+    badge: "WhatsApp como canal. VOLTA como sistema.",
+    kicker: "Soluciones conectadas a WhatsApp",
+    title: "Converti WhatsApp en",
+    titleHighlight: "un sistema para tu negocio.",
     subtitle:
-      "VOLTA responde al instante, ordena conversaciones y lleva cada chat hacia una venta, pedido o turno.",
+      "VOLTA adapta flujos para atender, vender, tomar pedidos, gestionar turnos, recibir comprobantes y ordenar la operacion.",
     ctaPrimary: "Solicitar demo",
-    ctaSecondary: "Como funciona",
-    microcopy: "Implementacion guiada  -  respuesta 24/7  -  foco en conversion",
+    ctaSecondary: "Ver soluciones",
+    microcopy: "Implementacion guiada  -  atencion 24/7  -  operacion mas ordenada",
     proof: [
-      { value: "24/7", label: "responde" },
-      { value: "<20s", label: "primer contacto" },
-      { value: "mas orden", label: "menos caos" },
+      { value: "Atiende", label: "sin demora" },
+      { value: "Ordena", label: "todo en un flujo" },
+      { value: "Opera", label: "con menos carga" },
     ],
   },
 
   problem: {
-    title: "Sin sistema, WhatsApp te quita tiempo y ventas.",
+    title: "WhatsApp solo no alcanza para operar bien.",
     subtitle:
-      "El problema no es recibir mensajes. El problema es responder tarde, mezclar todo y depender del celular para que el negocio avance.",
+      "Cuando todo entra por el chat y nada se ordena detras, se traban ventas, turnos, pedidos, comprobantes y tareas del equipo.",
     cards: [
       {
-        title: "Se enfria la venta",
-        desc: "Si tardas en responder, el cliente sigue de largo.",
+        title: "Todo entra por el mismo lugar",
+        desc: "Consultas, pedidos y gestiones terminan mezclados en un solo inbox.",
         icon: "losses",
       },
       {
-        title: "Se mezcla todo",
-        desc: "Consultas, pedidos y turnos terminan en el mismo caos.",
+        title: "La operacion pierde claridad",
+        desc: "Sin un sistema, cada mensaje depende de que alguien lo vea y actue a tiempo.",
         icon: "chaos",
       },
       {
-        title: "Tu equipo carga con todo",
-        desc: "Sin automatizacion, crecer implica mas desgaste.",
+        title: "Escalar suma carga manual",
+        desc: "Crecer por WhatsApp sin orden suele significar mas celular y mas desgaste.",
         icon: "phone",
       },
     ],
   },
 
+  solutions: [
+    {
+      title: "Ventas y atencion",
+      desc: "Respuestas utiles, consultas guiadas y derivacion cuando hace falta.",
+    },
+    {
+      title: "Turnos y reservas",
+      desc: "Confirmacion, reprogramacion y seguimiento desde el mismo canal.",
+    },
+    {
+      title: "Pedidos y entregas",
+      desc: "Toma de pedidos, validacion y salida mas clara para el equipo.",
+    },
+    {
+      title: "Comprobantes y validacion",
+      desc: "Recepcion de archivos por WhatsApp y control ordenado para operar.",
+    },
+    {
+      title: "Panel y operacion",
+      desc: "Lo que entra por WhatsApp termina en una vista util para gestionar mejor.",
+    },
+  ],
+
   steps: [
     {
-      title: "El cliente escribe",
-      desc: "VOLTA responde en segundos y evita que la conversacion se enfrie.",
+      title: "El contacto entra por WhatsApp",
+      desc: "Puede venir de una consulta, una landing, un pedido, un turno o un comprobante.",
     },
     {
-      title: "VOLTA ordena",
-      desc: "Detecta que necesita el cliente y guia el siguiente paso.",
+      title: "VOLTA clasifica y resuelve",
+      desc: "Responde, organiza y activa el flujo correcto segun lo que necesita cada negocio.",
     },
     {
-      title: "Tu negocio avanza",
-      desc: "La salida es clara: venta, pedido, turno o derivacion.",
+      title: "Tu equipo recibe una salida clara",
+      desc: "La conversacion termina en una accion concreta y mas facil de operar.",
     },
   ],
 
   metrics: [
     {
-      value: "Mas rapido",
-      label: "menos demora",
-      detail: "Respuestas inmediatas para no perder conversaciones valiosas.",
-    },
-    {
       value: "Mas orden",
-      label: "menos carga",
-      detail: "Pedidos, turnos y consultas dejan de competir en el mismo inbox.",
+      label: "para la operacion",
+      detail: "WhatsApp deja de ser solo un chat y pasa a tener un flujo mas claro.",
     },
     {
-      value: "Mas ventas",
-      label: "mejor conversion",
-      detail: "Cada chat tiene un siguiente paso claro en lugar de quedar colgado.",
+      value: "Menos carga",
+      label: "para el equipo",
+      detail: "Se reducen tareas repetitivas, seguimientos manuales y dependencia del celular.",
+    },
+    {
+      value: "Mas casos resueltos",
+      label: "desde un mismo canal",
+      detail: "Atencion, ventas, turnos, pedidos y gestion pueden convivir mejor en un sistema.",
     },
   ],
 
   cta: {
-    title: "Si WhatsApp es tu canal de venta, tiene que operar como sistema.",
+    title: "Si tu negocio usa WhatsApp, VOLTA puede volverlo mucho mas util.",
     subtitle:
-      "Solicita una demo y mira como VOLTA puede responder, ordenar y convertir mejor que una gestion manual.",
+      "Solicita una demo y mira como podemos adaptar una solucion para atender, vender, gestionar y operar mejor desde el mismo canal.",
     button: "Quiero ver VOLTA",
     microcopy: "Demo guiada  -  diagnostico rapido  -  sin compromiso",
-    notes: ["Mas claridad", "Menos carga", "Mejor conversion"],
+    notes: ["Atencion", "Turnos", "Pedidos", "Operacion"],
   },
 } as const;

@@ -4,6 +4,7 @@ import { Footer } from "@/components/sections/footer";
 import { Hero } from "@/components/sections/hero";
 import { Metrics } from "@/components/sections/metrics";
 import { Problem } from "@/components/sections/problem";
+import { Solutions } from "@/components/sections/solutions";
 import { Steps } from "@/components/sections/steps";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <Hero />
         <Problem />
+        <Solutions />
         <Steps />
         <Metrics />
         <Cta />

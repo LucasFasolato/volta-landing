@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, CalendarCheck2, Clock3 } from "lucide-react";
+import { ArrowRight, ClipboardCheck, Clock3, LayoutPanelTop } from "lucide-react";
 
 const cycleLength = 4;
 
@@ -28,9 +28,11 @@ export const MockPhone = () => {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
-                  Conversacion activa
+                  WhatsApp conectado
                 </p>
-                <h3 className="mt-1 text-base font-semibold text-white">Cliente listo para comprar</h3>
+                <h3 className="mt-1 text-base font-semibold text-white">
+                  Atencion, turnos y gestion
+                </h3>
               </div>
               <div className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-primary">
                 18 s
@@ -38,7 +40,7 @@ export const MockPhone = () => {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {["Stock listo", "Prioridad alta", "Venta en curso"].map((item) => (
+              {["Consultas", "Turnos", "Comprobantes"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-white/7 bg-white/[0.03] px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.15em] text-on-surface-variant"
@@ -57,7 +59,7 @@ export const MockPhone = () => {
               animate={{ opacity: step >= 0 ? 1 : 0, y: step >= 0 ? 0 : 12 }}
               className="relative max-w-[80%] self-start rounded-[1.25rem] rounded-bl-md border border-white/5 bg-[#111a23] px-3.5 py-3 text-sm text-white"
             >
-              Hola, quiero pedir 4 equipos y coordinar entrega hoy.
+              Hola, quiero reprogramar mi turno y mandar el comprobante.
               <div className="mt-2 text-[0.64rem] text-white/40">10:14</div>
             </motion.div>
 
@@ -66,9 +68,9 @@ export const MockPhone = () => {
               animate={{ opacity: step >= 1 ? 1 : 0, y: step >= 1 ? 0 : 12 }}
               className="relative max-w-[88%] self-end rounded-[1.25rem] rounded-br-md border border-primary/14 bg-primary/[0.12] px-3.5 py-3 text-sm text-primary"
             >
-              Ya revise stock y entrega. Te paso la opcion para cerrar ahora.
+              Perfecto. Ya recibimos el comprobante y te muestro los horarios disponibles.
               <div className="mt-3 flex flex-wrap gap-2">
-                {["Stock ok", "Entrega hoy", "Pago listo"].map((chip) => (
+                {["Comprobante ok", "Turno en curso", "Respuesta automatica"].map((chip) => (
                   <span
                     key={chip}
                     className="rounded-full border border-primary/14 bg-black/20 px-2.5 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.14em] text-primary/90"
@@ -82,9 +84,9 @@ export const MockPhone = () => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: step >= 2 ? 1 : 0, y: step >= 2 ? 0 : 12 }}
-              className="relative max-w-[72%] self-start rounded-[1.25rem] rounded-bl-md border border-white/5 bg-[#111a23] px-3.5 py-3 text-sm text-white"
+              className="relative max-w-[76%] self-start rounded-[1.25rem] rounded-bl-md border border-white/5 bg-[#111a23] px-3.5 py-3 text-sm text-white"
             >
-              Perfecto, mandamelo y lo confirmo.
+              Manana a las 10:30 me sirve.
               <div className="mt-2 text-[0.64rem] text-white/40">10:15</div>
             </motion.div>
 
@@ -102,19 +104,19 @@ export const MockPhone = () => {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                      Venta encaminada
+                      Operacion resuelta
                     </p>
-                    <div className="mt-1 text-lg font-semibold text-white">$1.480.000 ARS</div>
+                    <div className="mt-1 text-lg font-semibold text-white">Turno confirmado</div>
                   </div>
                   <ArrowRight className="mt-1 h-4 w-4 text-primary" />
                 </div>
 
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   {[
-                    "Presupuesto listo",
-                    "Pago sugerido",
-                    "Entrega priorizada",
-                    "Seguimiento claro",
+                    "Comprobante validado",
+                    "Panel actualizado",
+                    "Seguimiento listo",
+                    "Historial guardado",
                   ].map((item) => (
                     <div
                       key={item}
@@ -139,13 +141,20 @@ export const MockPhone = () => {
               </div>
               <div className="rounded-2xl border border-white/7 bg-white/[0.03] px-3 py-2">
                 <div className="flex items-center gap-1.5">
-                  <CalendarCheck2 className="h-3.5 w-3.5 text-primary" />
-                  Salida
+                  <LayoutPanelTop className="h-3.5 w-3.5 text-primary" />
+                  Panel
                 </div>
-                <div className="mt-1 text-xs text-white">Lista</div>
+                <div className="mt-1 text-xs text-white">Actualizado</div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="absolute -bottom-3 right-2 rounded-[1.2rem] border border-white/8 bg-black/35 px-3.5 py-3 backdrop-blur md:right-4">
+        <div className="flex items-center gap-2 text-[0.64rem] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+          <ClipboardCheck className="h-3.5 w-3.5 text-primary" />
+          Operacion conectada
         </div>
       </div>
     </div>

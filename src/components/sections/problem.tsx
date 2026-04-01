@@ -12,7 +12,10 @@ const icons = {
 
 export const Problem = () => {
   return (
-    <section id="problema" className="section-padding relative overflow-hidden bg-surface-container-lowest">
+    <section
+      id="problema"
+      className="section-padding relative overflow-hidden bg-surface-container-lowest"
+    >
       <div className="container-shell">
         <div className="max-w-3xl">
           <p className="section-kicker">El problema</p>

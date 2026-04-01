@@ -8,11 +8,11 @@ const icons = [MessageSquareText, Bot, CheckCircle2];
 
 export const Steps = () => {
   return (
-    <section id="como-funciona" className="section-padding relative overflow-hidden bg-surface">
+    <section id="como-funciona" className="section-padding relative overflow-hidden bg-surface-container-lowest">
       <div className="container-shell">
         <div className="max-w-3xl">
           <p className="section-kicker">Como funciona</p>
-          <h2 className="section-title mt-5">Tres pasos para vender mejor por WhatsApp.</h2>
+          <h2 className="section-title mt-5">WhatsApp entra. VOLTA organiza. Tu negocio opera mejor.</h2>
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">

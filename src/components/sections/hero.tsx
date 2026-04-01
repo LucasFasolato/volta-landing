@@ -21,7 +21,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-[38rem]"
+            className="max-w-[40rem]"
           >
             <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
               <span className="inline-flex h-2 w-2 rounded-full bg-primary shadow-[0_0_18px_rgba(0,245,138,0.75)]" />
@@ -45,7 +45,7 @@ export const Hero = () => {
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
-                href="#como-funciona"
+                href="#soluciones"
                 variant="secondary"
                 className="px-6 py-4 text-sm md:text-base"
               >

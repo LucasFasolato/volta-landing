@@ -8,7 +8,7 @@ import { CONTENT } from "@/data/landing-content";
 
 export const Cta = () => {
   return (
-    <section id="demo" className="section-padding relative overflow-hidden bg-surface">
+    <section id="demo" className="section-padding relative overflow-hidden bg-surface-container-lowest">
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

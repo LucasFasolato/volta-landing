@@ -37,18 +37,12 @@ export const PremiumBackground = ({
 
   const spotlightLeft = useTransform(smoothX, (value) => `${value * 100}%`);
   const spotlightTop = useTransform(smoothY, (value) => `${value * 100}%`);
-  const reverseLeft = useTransform(smoothX, (value) => `${(1 - value) * 100}%`);
-  const reverseTop = useTransform(smoothY, (value) => `${(1 - value) * 100}%`);
-  const centerLeft = useTransform(smoothX, (value) => `${(0.5 + (value - 0.5) * 0.45) * 100}%`);
-  const centerTop = useTransform(smoothY, (value) => `${(0.5 + (value - 0.5) * 0.3) * 100}%`);
+  const centerLeft = useTransform(smoothX, (value) => `${(0.5 + (value - 0.5) * 0.22) * 100}%`);
+  const centerTop = useTransform(smoothY, (value) => `${(0.46 + (value - 0.5) * 0.18) * 100}%`);
 
   const spotlightBackground = `radial-gradient(circle at center, rgba(0, 245, 138, ${
-    variant === "hero" ? 0.2 : 0.16
-  }) 0%, rgba(0, 245, 138, 0.08) 28%, transparent 68%)`;
-
-  const accentBackground = `radial-gradient(circle at center, rgba(108, 169, 255, ${
-    variant === "hero" ? 0.16 : 0.1
-  }) 0%, rgba(108, 169, 255, 0.05) 32%, transparent 72%)`;
+    variant === "hero" ? 0.12 : 0.1
+  }) 0%, rgba(0, 245, 138, 0.05) 24%, rgba(255, 255, 255, 0.018) 42%, transparent 76%)`;
 
   const updatePointer = useEffectEvent((clientX: number, clientY: number) => {
     const rect = rootRef.current?.getBoundingClientRect();
@@ -103,8 +97,8 @@ export const PremiumBackground = ({
 
       <motion.div
         className={cn(
-          "absolute h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl",
-          variant === "cta" && "h-[28rem] w-[28rem]",
+          "absolute h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]",
+          variant === "cta" && "h-[30rem] w-[30rem]",
         )}
         style={{
           left: spotlightLeft,
@@ -115,33 +109,21 @@ export const PremiumBackground = ({
 
       <motion.div
         className={cn(
-          "absolute h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl",
-          variant === "cta" && "h-[22rem] w-[22rem]",
-        )}
-        style={{
-          left: reverseLeft,
-          top: reverseTop,
-          background: accentBackground,
-        }}
-      />
-
-      <motion.div
-        className={cn(
-          "absolute h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]",
-          variant === "cta" && "h-[18rem] w-[18rem]",
+          "absolute h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[170px]",
+          variant === "cta" && "h-[21rem] w-[21rem]",
         )}
         style={{
           left: centerLeft,
           top: centerTop,
           background:
-            "radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 32%, transparent 72%)",
+            "radial-gradient(circle at center, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 34%, transparent 72%)",
         }}
       />
 
       <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/8 bg-white/[0.02]" />
-      <div className="absolute inset-x-[18%] top-[20%] h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-      <div className="absolute bottom-[16%] right-[10%] h-40 w-40 rounded-full bg-primary/6 blur-[120px]" />
-      <div className="absolute left-[8%] top-[52%] h-52 w-52 rounded-full bg-accent-blue/8 blur-[150px]" />
+      <div className="absolute inset-x-[18%] top-[20%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-[16%] right-[10%] h-40 w-40 rounded-full bg-primary/4 blur-[150px]" />
+      <div className="absolute left-[8%] top-[52%] h-52 w-52 rounded-full bg-accent-blue/5 blur-[180px]" />
     </div>
   );
 };

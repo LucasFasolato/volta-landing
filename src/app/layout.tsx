@@ -24,7 +24,11 @@ const siteUrl =
   process.env.VERCEL_URL;
 
 const metadataBase = new URL(
-  siteUrl ? (siteUrl.startsWith("http") ? siteUrl : `https://${siteUrl}`) : "http://localhost:3000",
+  siteUrl
+    ? siteUrl.startsWith("http")
+      ? siteUrl
+      : `https://${siteUrl}`
+    : "http://localhost:3000",
 );
 
 export const metadata: Metadata = {
@@ -52,9 +56,15 @@ export const metadata: Metadata = {
     images: [socialImage],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
     shortcut: "/favicon.ico",
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

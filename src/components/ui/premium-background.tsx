@@ -39,6 +39,8 @@ export const PremiumBackground = ({
   const spotlightTop = useTransform(smoothY, (value) => `${value * 100}%`);
   const reverseLeft = useTransform(smoothX, (value) => `${(1 - value) * 100}%`);
   const reverseTop = useTransform(smoothY, (value) => `${(1 - value) * 100}%`);
+  const centerLeft = useTransform(smoothX, (value) => `${(0.5 + (value - 0.5) * 0.45) * 100}%`);
+  const centerTop = useTransform(smoothY, (value) => `${(0.5 + (value - 0.5) * 0.3) * 100}%`);
 
   const spotlightBackground = `radial-gradient(circle at center, rgba(0, 245, 138, ${
     variant === "hero" ? 0.2 : 0.16
@@ -120,6 +122,19 @@ export const PremiumBackground = ({
           left: reverseLeft,
           top: reverseTop,
           background: accentBackground,
+        }}
+      />
+
+      <motion.div
+        className={cn(
+          "absolute h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]",
+          variant === "cta" && "h-[18rem] w-[18rem]",
+        )}
+        style={{
+          left: centerLeft,
+          top: centerTop,
+          background:
+            "radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 32%, transparent 72%)",
         }}
       />
 

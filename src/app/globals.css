@@ -1,27 +1,167 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant hover (&:hover);
+
+:root {
+  --background: #131317;
+  --surface: #131317;
+  --surface-container-lowest: #0e0e12;
+  --surface-container-low: #1b1b1f;
+  --surface-container: #1f1f23;
+  --surface-container-high: #2a292e;
+  --surface-container-highest: #353439;
+
+  --on-surface: #e4e1e7;
+  --on-surface-variant: #b9cbb9;
+  --outline-variant: #3b4b3d;
+
+  --primary: #00ff88;
+  --primary-dim: #00e479;
+  --secondary: #4dffb8;
+
+  --shadow-ambient: rgba(228, 225, 231, 0.06);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline-variant: var(--outline-variant);
+
+  --color-primary: var(--primary);
+  --color-primary-dim: var(--primary-dim);
+  --color-secondary: var(--secondary);
+
+  --font-headline: var(--font-manrope), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  --tracking-editorial: -0.04em;
+  --tracking-instrument: 0.10em;
+}
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-on-surface font-body antialiased selection:bg-primary selection:text-[#003919] overflow-x-hidden;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.06), transparent 28%),
+      radial-gradient(circle at 80% 10%, rgba(77, 255, 184, 0.04), transparent 24%),
+      linear-gradient(180deg, #131317 0%, #101015 100%);
+    color: var(--on-surface);
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-manrope), sans-serif;
   }
 }
 
-@layer utilities {
-  .glass-panel {
-    @apply bg-surface-container-low/40 backdrop-blur-xl border border-white/[0.03];
-  }
-  
-  .glow-ambient {
-    @apply absolute rounded-full mix-blend-screen opacity-20 blur-[120px] pointer-events-none;
+@utility glass-panel {
+  background-color: rgba(31, 31, 35, 0.72);
+  backdrop-filter: blur(20px);
+}
+
+@utility ghost-border {
+  border: 1px solid rgba(59, 75, 61, 0.18);
+}
+
+@utility glow-ambient {
+  position: absolute;
+  border-radius: 9999px;
+  mix-blend-mode: screen;
+  opacity: 0.18;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+@utility text-glow {
+  text-shadow: 0 0 24px rgba(0, 255, 136, 0.18);
+}
+
+@utility bg-gradient-cta {
+  background-image: linear-gradient(135deg, #00ff88, #4dffb8);
+}
+
+@utility ambient-shadow {
+  box-shadow: 0 20px 80px 0 rgba(228, 225, 231, 0.06);
+}
+
+@utility section-padding {
+  padding-block: 7rem;
+}
+
+@utility editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+@layer components {
+  .container-shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
   }
 
-  .text-glow {
-    text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  @media (min-width: 768px) {
+    .container-shell {
+      padding-inline: 2rem;
+    }
   }
 
-  .ghost-border {
-    @apply border border-outline-variant/15;
+  .surface-card {
+    background-color: var(--surface-container-low);
+    border: 1px solid rgba(59, 75, 61, 0.14);
+    border-radius: 1.75rem;
+    transition:
+      background-color 200ms ease-out,
+      transform 200ms ease-out,
+      border-color 200ms ease-out;
+  }
+
+  .surface-card:hover {
+    background-color: var(--surface-container);
+    transform: translateY(-2px);
+    border-color: rgba(59, 75, 61, 0.24);
+  }
+
+  .section-kicker {
+    font-size: 0.7rem;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .section-title {
+    font-family: var(--font-manrope), sans-serif;
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+    color: white;
+  }
+
+  .section-copy {
+    color: rgba(228, 225, 231, 0.72);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 42rem;
   }
 }

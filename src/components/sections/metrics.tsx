@@ -1,25 +1,30 @@
 "use client";
+
 import { CONTENT } from "@/data/landing-content";
 import { motion } from "framer-motion";
 
 export const Metrics = () => {
   return (
-    <section className="py-32 bg-surface-container-lowest">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+    <section id="beneficios" className="section-padding bg-surface-container-lowest">
+      <div className="container-shell">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-12">
           {CONTENT.metrics.map((metric, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              key={metric.label}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="text-center space-y-2"
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className="text-center"
             >
-              <div className={`text-5xl md:text-7xl font-headline font-black ${idx === 0 || idx === 3 ? 'text-primary' : 'text-white'}`}>
+              <div
+                className={`font-headline text-5xl md:text-6xl font-black tracking-[-0.04em] ${
+                  idx === 0 || idx === 3 ? "text-primary text-glow" : "text-white"
+                }`}
+              >
                 {metric.value}
               </div>
-              <div className="text-xs uppercase tracking-widest font-bold text-on-surface-variant">
+              <div className="mt-3 text-[11px] uppercase tracking-[0.12em] font-bold text-on-surface-variant">
                 {metric.label}
               </div>
             </motion.div>

@@ -5,37 +5,30 @@ import { CONTENT } from "@/data/landing-content";
 
 export const Metrics = () => {
   return (
-    <section id="impacto" className="section-padding relative overflow-hidden bg-surface">
+    <section id="beneficios" className="section-padding relative overflow-hidden bg-surface-container-lowest">
       <div className="container-shell">
-        <div className="mb-12 max-w-3xl">
-          <p className="section-kicker">Impacto comercial</p>
-          <h2 className="section-title mt-5">Mas control, mas velocidad, mas conversion.</h2>
+        <div className="max-w-3xl">
+          <p className="section-kicker">Beneficios</p>
+          <h2 className="section-title mt-5">Por que esto importa para tu negocio.</h2>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {CONTENT.metrics.map((metric, index) => (
             <motion.article
               key={metric.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="surface-card rounded-[2rem] p-6 md:p-8"
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="surface-card rounded-[1.8rem] p-5 md:p-6"
             >
-              <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                <div>
-                  <div className="font-headline text-[clamp(3rem,6vw,4.75rem)] font-bold tracking-[-0.07em] text-white">
-                    {metric.value}
-                  </div>
-                  <div className="mt-2 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                    {metric.label}
-                  </div>
-                </div>
-
-                <div className="max-w-sm text-sm leading-7 text-on-surface-variant md:text-base">
-                  {metric.detail}
-                </div>
+              <div className="text-[1.7rem] font-headline font-bold tracking-[-0.05em] text-white md:text-[2rem]">
+                {metric.value}
               </div>
+              <div className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-primary">
+                {metric.label}
+              </div>
+              <div className="mt-4 text-sm leading-7 text-on-surface-variant">{metric.detail}</div>
             </motion.article>
           ))}
         </div>

@@ -8,16 +8,15 @@ export const Footer = () => {
               VOLTA
             </div>
             <div className="mt-1 max-w-md text-xs leading-6 text-on-surface-variant/80">
-              Infraestructura comercial para negocios que venden, coordinan y convierten por
-              WhatsApp.
+              Sistema de ventas para negocios que usan WhatsApp como canal principal.
             </div>
           </div>
 
           <div className="flex flex-wrap gap-5 text-[0.72rem] font-semibold uppercase tracking-[0.16em]">
-            <span>Security</span>
-            <span>Privacy</span>
-            <span>System status</span>
-            <span>Commercial ops</span>
+            <span>Venta</span>
+            <span>Orden</span>
+            <span>Respuesta</span>
+            <span>Conversion</span>
           </div>
         </div>
       </div>

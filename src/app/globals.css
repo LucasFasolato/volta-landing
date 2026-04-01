@@ -122,7 +122,7 @@
 }
 
 @utility section-padding {
-  padding-block: clamp(5.5rem, 10vw, 8.5rem);
+  padding-block: clamp(4.5rem, 8vw, 7rem);
 }
 
 @utility fine-grid {
@@ -192,8 +192,8 @@
 
   .section-title {
     font-size: clamp(2.5rem, 5vw, 4.75rem);
-    line-height: 0.94;
-    letter-spacing: -0.06em;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
     font-weight: 700;
     color: white;
   }
@@ -201,7 +201,7 @@
   .section-copy {
     color: rgba(151, 167, 186, 0.92);
     font-size: clamp(1rem, 1.6vw, 1.15rem);
-    line-height: 1.8;
+    line-height: 1.7;
     max-width: 44rem;
   }
 }

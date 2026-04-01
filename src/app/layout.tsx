@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "VOLTA | WhatsApp convertido en infraestructura comercial",
+  title: "VOLTA | WhatsApp convertido en sistema de ventas",
   description:
-    "VOLTA convierte WhatsApp en una capa operativa que responde, ordena y ejecuta acciones para vender mas con menos carga manual.",
+    "VOLTA responde, ordena y convierte conversaciones de WhatsApp en ventas, pedidos o turnos con menos carga manual.",
 };
 
 export default function RootLayout({

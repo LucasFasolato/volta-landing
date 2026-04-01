@@ -14,8 +14,8 @@ export const Navbar = () => {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="container-shell"
       >
-        <div className="glass-panel ambient-shadow rounded-[1.6rem] border border-white/10 px-4 py-3 md:px-6 md:py-4">
-          <nav className="flex items-center justify-between gap-5">
+        <div className="glass-panel ambient-shadow rounded-[1.45rem] border border-white/10 px-4 py-3 md:px-6">
+          <nav className="flex items-center justify-between gap-4">
             <Link
               href="#top"
               className="flex items-center gap-3 text-white transition-opacity hover:opacity-90"
@@ -28,7 +28,7 @@ export const Navbar = () => {
               </span>
             </Link>
 
-            <div className="hidden items-center gap-8 lg:flex">
+            <div className="hidden items-center gap-7 lg:flex">
               {CONTENT.nav.links.map((item) => (
                 <Link
                   key={item.label}
@@ -40,17 +40,9 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
-              <Link
-                href="#impacto"
-                className="hidden text-sm text-on-surface-variant transition-colors hover:text-white md:inline"
-              >
-                Ver impacto
-              </Link>
-              <Button href="#demo" variant="primary" className="px-5 py-3 text-xs md:text-sm">
-                {CONTENT.nav.cta}
-              </Button>
-            </div>
+            <Button href="#demo" variant="primary" className="px-5 py-3 text-xs md:text-sm">
+              {CONTENT.nav.cta}
+            </Button>
           </nav>
         </div>
       </motion.div>

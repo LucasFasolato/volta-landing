@@ -1,11 +1,10 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Cta } from "@/components/sections/cta";
-import { Features } from "@/components/sections/features";
 import { Footer } from "@/components/sections/footer";
 import { Hero } from "@/components/sections/hero";
 import { Metrics } from "@/components/sections/metrics";
-import { OperatingLayer } from "@/components/sections/operating-layer";
 import { Problem } from "@/components/sections/problem";
+import { Steps } from "@/components/sections/steps";
 
 export default function Home() {
   return (
@@ -13,10 +12,9 @@ export default function Home() {
       <Navbar />
       <main className="overflow-x-hidden">
         <Hero />
-        <OperatingLayer />
         <Problem />
+        <Steps />
         <Metrics />
-        <Features />
         <Cta />
       </main>
       <Footer />

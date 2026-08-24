@@ -14,9 +14,9 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const title = "VOLTA | WhatsApp convertido en sistema operativo para tu negocio";
+const title = "VOLTA | Tu próximo paso online";
 const description =
-  "VOLTA conecta soluciones sobre WhatsApp para atender, vender, gestionar turnos, pedidos, comprobantes y operacion con mas orden.";
+  "Productos digitales simples y profesionales para vender online, mostrar tu trabajo y gestionar reservas. Conocé VOLTA Store, Portfolio y Booking.";
 const socialImage = "/voltaLOGO.png";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||

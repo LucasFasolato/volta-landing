@@ -17,7 +17,6 @@ const spaceGrotesk = Space_Grotesk({
 const title = "VOLTA | Tu próximo paso online";
 const description =
   "Productos digitales simples y profesionales para vender online, mostrar tu trabajo y gestionar reservas. Conocé VOLTA Store, Portfolio y Booking.";
-const socialImage = "/voltaLOGO.png";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||
@@ -40,31 +39,16 @@ export const metadata: Metadata = {
     description,
     type: "website",
     locale: "es_AR",
-    images: [
-      {
-        url: socialImage,
-        width: 1200,
-        height: 630,
-        alt: "VOLTA",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title,
     description,
-    images: [socialImage],
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
   },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

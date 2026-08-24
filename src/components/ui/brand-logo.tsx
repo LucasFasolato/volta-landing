@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-
 type BrandLogoProps = {
   className?: string;
   imageClassName?: string;
@@ -10,36 +7,23 @@ type BrandLogoProps = {
 };
 
 export const BrandLogo = ({
-  className,
-  imageClassName,
-  labelClassName,
+  className = "",
+  imageClassName = "",
+  labelClassName = "",
   showLabel = true,
-  priority = false,
 }: BrandLogoProps) => {
   return (
-    <span className={cn("flex items-center gap-3", className)}>
+    <span className={`flex items-center gap-3 ${className}`}>
       <span
-        className={cn(
-          "relative block h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-black/40 shadow-[0_10px_24px_rgba(0,0,0,0.22)]",
-          imageClassName,
-        )}
+        aria-hidden="true"
+        className={`relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-primary/25 bg-primary/[0.08] shadow-[0_10px_30px_rgba(0,245,138,0.08)] ${imageClassName}`}
       >
-        <Image
-          src="/voltaLOGO.png"
-          alt="VOLTA"
-          fill
-          priority={priority}
-          sizes="40px"
-          className="object-cover"
-        />
+        <span className="absolute inset-[3px] rounded-[0.62rem] border border-white/8 bg-[#07110d]" />
+        <span className="relative font-headline text-[0.92rem] font-black tracking-[-0.12em] text-primary">V</span>
+        <span className="absolute bottom-[7px] right-[7px] h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(0,245,138,0.9)]" />
       </span>
       {showLabel && (
-        <span
-          className={cn(
-            "font-headline text-lg font-bold tracking-[-0.05em] text-white md:text-xl",
-            labelClassName,
-          )}
-        >
+        <span className={`font-headline text-lg font-bold tracking-[-0.05em] text-white md:text-xl ${labelClassName}`}>
           VOLTA
         </span>
       )}

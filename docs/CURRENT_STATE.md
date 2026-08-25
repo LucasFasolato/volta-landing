@@ -73,7 +73,7 @@ Key commits: `fd16933`, `e521c0a`, `4c9ac80` plus preceding deployment-hardening
 
 - Store has an authoritative production destination in the global registry and Store Product OS.
 - Booking and Portfolio do **not** currently have authoritative `production_url` values in the global registry; do not guess Vercel URLs.
-- The Vercel account currently lists `volta-landing` and `volta-store-template`, but not Booking/Portfolio projects.
+- In the connected Vercel team used for this review, Booking/Portfolio projects were not visible. This is **not** proof that they are not deployed elsewhere; the actionable fact is only that no authoritative public destination is currently registered.
 - Product facts are hard-coded in `src/app/page.tsx`; product drift remains a real risk.
 
 ## Known debt / risks

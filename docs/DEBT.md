@@ -1,8 +1,11 @@
 # VOLTA Corporate — Material Debt
 
-| ID | Priority | Area | Impact | Resolution | Status |
+| ID | Priority | Area | Evidence / impact | Resolution | Status |
 |---|---|---|---|---|---|
 | CORP-DEBT-001 | P2 | Documentation | Repository README was generic create-next-app boilerplate and provided no VOLTA context. | Replaced during Product OS adoption. | RESOLVED |
-| CORP-DEBT-002 | P1 | Content operations | Product copy/links/previews can drift from fast-moving product repositories. | Establish product-state/registry review before material corporate updates and after major product launches. | OPEN |
+| CORP-DEBT-002 | P1 | Content operations | Product facts and lifecycle labels are hard-coded in `src/app/page.tsx` while Store/Booking/Portfolio evolve independently. Corporate copy/previews can drift from authoritative product state. | Require registry/Product OS review for material corporate changes; later consider a small typed/build-time product manifest when the registry contract is stable. | OPEN |
+| CORP-DEBT-003 | P1 | Deployment | Vercel project `volta-landing` reports `live: false`; August 2026 pushes to `main` stopped creating deployments. Latest production (`dpl_4WjEspxUq1eom885SjiHG7wvysRJ`) was shipped by a manual connector/bootstrap flow and has no Git commit metadata. This weakens reproducibility and traceability. | Repair GitHub→Vercel integration, prove a normal `main` deploy with commit metadata and retire the workaround. | OPEN |
+| CORP-DEBT-004 | P2 | Code hygiene | The current page uses `src/app/page.tsx`, `globals.css`, `layout.tsx` and `brand-logo.tsx`, but the repo still contains the older WhatsApp-era section tree, `landing-content.ts`, old UI/layout helpers and empty placeholder files. Searches also show Framer Motion/utility dependencies are retained by that legacy tree. This creates false sources of truth and maintenance noise. | Confirm no current imports, delete legacy files/assets/dependencies in one cleanup change, then run lint/build. | OPEN |
+| CORP-DEBT-005 | P1 | Conversion / cross-product dependency | Store has an authoritative production URL, but the global registry and adopted Booking/Portfolio Product OS do not currently expose authoritative public production URLs. Corporate therefore cannot safely route visitors externally to those products. | Product owners register/verify stable public destinations; corporate updates CTAs only after that evidence exists. | OPEN |
 
-Do not create speculative technical debt for this lightweight site without evidence.
+Do not create speculative technical debt for this lightweight site without repository, product-OS or production evidence.

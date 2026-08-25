@@ -17,8 +17,7 @@ function forbidText(source, text, label) {
 requireText(page, "Tu próximo paso,", "hero");
 requireText(page, "https://www.voltastore.app", "Store route");
 requireText(page, "https://volta-portfolio-psi.vercel.app", "Portfolio route");
-requireText(page, 'key: "booking"', "Booking product");
-requireText(page, 'href: "#contacto"', "Booking intentional internal route");
+requireText(page, "https://volta-booking.vercel.app", "Booking route");
 requireText(page, 'status: "En evolución"', "Booking lifecycle label");
 requireText(layout, "VOLTA | Tu próximo paso, online.", "metadata title");
 requireText(layout, "VOLTA Store, Portfolio y Booking", "metadata product map");

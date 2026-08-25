@@ -8,9 +8,12 @@ Restore the normal GitHub → Vercel production path so a `main` commit produces
 **Done when:** a normal `main` change deploys successfully, Vercel records the Git commit metadata, the production alias updates, and the workaround is no longer required.
 
 ### Reconcile product destinations
-Store is correctly routed to `https://www.voltastore.app`. Portfolio is now authoritatively registered at `https://volta-portfolio-psi.vercel.app` and should be wired into Corporate in the next runtime change. Booking still needs an authoritative public destination registered in its Product OS/global registry before an external CTA is enabled.
+Store is correctly routed to `https://www.voltastore.app`. Portfolio and Booking now also have authoritative production destinations in VOLTA OS:
 
-**Do not guess project URLs.** Until a destination is authoritative, keeping the CTA internal is intentional.
+- Portfolio → `https://volta-portfolio-psi.vercel.app`
+- Booking → `https://volta-booking.vercel.app`
+
+The remaining work is a deliberate Corporate runtime update: wire those CTAs externally and re-evaluate Booking's current `En evolución` label against its reconciled Product OS.
 
 ### Remove legacy landing implementation
 Confirm no current imports depend on the WhatsApp-era component/content tree, then remove unused sections, old layout/UI helpers, stale content and dependencies that exist only for that implementation.
@@ -32,7 +35,7 @@ Add the smallest useful automated check for this site:
 Create a lightweight operating check against `volta-os/ecosystem/REGISTRY.yaml` and adopted product states after material product launches. Prefer build-time/manual checks before runtime coupling.
 
 ### Conversion clarity
-Improve the path from corporate discovery to product action once all product destinations are real. Evaluate privacy-respecting corporate analytics only when it will answer specific conversion questions.
+Improve the path from corporate discovery to product action now that all current product destinations are real. Evaluate privacy-respecting corporate analytics only when it will answer specific conversion questions.
 
 ## LATER
 
@@ -49,3 +52,4 @@ Consider generating part of the corporate product manifest from the global regis
 
 - **CORP-INIT-001 — Product OS Adoption** — shipped 2026-08-25.
 - **CORP-INIT-002 — Main 2.0 Ecosystem Rebuild** — shipped 2026-08-25; current production experience.
+- **Cross-product destination dependency** — Store, Portfolio and Booking all have authoritative production URLs registered in VOLTA OS.

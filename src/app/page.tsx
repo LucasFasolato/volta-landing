@@ -48,8 +48,8 @@ const products = [
     description:
       "Disponibilidad real, servicios, profesionales y horarios en una experiencia clara para quien reserva y para quien administra.",
     points: ["Reservas online", "Agenda y disponibilidad", "Gestión simple"],
-    href: "#contacto",
-    external: false,
+    href: "https://volta-booking.vercel.app",
+    external: true,
     status: "En evolución",
   },
 ] as const;

@@ -35,8 +35,8 @@ const products = [
     description:
       "Proyectos, experiencia y legajos en una presencia profesional que se adapta a tu identidad y funciona especialmente bien en mobile.",
     points: ["Proyectos y legajos", "Identidad personalizable", "Experiencia mobile"],
-    href: "#contacto",
-    external: false,
+    href: "https://volta-portfolio-psi.vercel.app",
+    external: true,
     status: "Disponible",
   },
   {
@@ -48,8 +48,8 @@ const products = [
     description:
       "Disponibilidad real, servicios, profesionales y horarios en una experiencia clara para quien reserva y para quien administra.",
     points: ["Reservas online", "Agenda y disponibilidad", "Gestión simple"],
-    href: "#contacto",
-    external: false,
+    href: "https://volta-booking.vercel.app",
+    external: true,
     status: "En evolución",
   },
 ] as const;

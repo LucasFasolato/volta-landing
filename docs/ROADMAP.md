@@ -8,7 +8,7 @@ Restore the normal GitHub → Vercel production path so a `main` commit produces
 **Done when:** a normal `main` change deploys successfully, Vercel records the Git commit metadata, the production alias updates, and the workaround is no longer required.
 
 ### Reconcile product destinations
-Store is correctly routed to `https://www.voltastore.app`. Portfolio and Booking need authoritative public destinations registered in their Product OS/global registry before corporate external CTAs are enabled.
+Store is correctly routed to `https://www.voltastore.app`. Portfolio is now authoritatively registered at `https://volta-portfolio-psi.vercel.app` and should be wired into Corporate in the next runtime change. Booking still needs an authoritative public destination registered in its Product OS/global registry before an external CTA is enabled.
 
 **Do not guess project URLs.** Until a destination is authoritative, keeping the CTA internal is intentional.
 

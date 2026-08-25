@@ -8,14 +8,24 @@ There is no application database, auth flow or server-side product state in this
 
 ## Current implementation
 
-The production page is primarily composed in:
+The active runtime is intentionally small:
 
-- `src/app/page.tsx` — current corporate information architecture, product summaries and visual mockups;
+- `src/app/page.tsx` — corporate information architecture, product summaries, routes and visual mockups;
 - `src/app/globals.css` — corporate visual system and responsive behavior;
 - `src/app/layout.tsx` — fonts, metadata and favicon configuration;
-- `src/components/ui/brand-logo.tsx` — current deployment-safe VOLTA mark.
+- `src/components/ui/brand-logo.tsx` — deployment-safe VOLTA mark.
 
 The current page is static/prerendered. Product metadata is hard-coded in `page.tsx`; it is not dynamically sourced from `volta-os`.
+
+`CORP-INIT-003` removed the retired WhatsApp-first section/content/UI source tree after repository search confirmed it was not imported by Main 2.0. Do not recreate a parallel component tree without a concrete need.
+
+## Current product routing in `main`
+
+- Store → `https://www.voltastore.app`
+- Portfolio → `https://volta-portfolio-psi.vercel.app`
+- Booking → `https://volta-booking.vercel.app`
+
+These values were reconciled against VOLTA OS/Product OS before wiring. Booking remains labeled `En evolución`, reflecting its `ACTIVE / production-oriented` lifecycle rather than treating a deployment URL as proof of completed product maturity.
 
 ## Current page flow
 
@@ -28,18 +38,40 @@ The current page is static/prerendered. Product metadata is hard-coded in `page.
 7. Three-step process: `Elegí → Hacelo tuyo → Ponelo online`.
 8. Product-oriented closing CTA and footer.
 
+## Quality gate
+
+`main` includes two layers of low-cost verification:
+
+- `scripts/verify-corporate.mjs` — asserts the approved headline, authoritative product routes, metadata/favicon contracts, mobile/reduced-motion CSS presence and retirement of known legacy files;
+- `.github/workflows/corporate-quality.yml` — Node 24, `npm ci`, corporate verification, lint and production build on `main` pushes and future PRs.
+
+First `main` execution: GitHub Actions run `32897006491`, conclusion `success` for clean install, corporate verification, lint and build.
+
+Available local commands:
+
+```bash
+npm run verify:corporate
+npm run lint
+npm run build
+npm run check
+```
+
+`next build` performs the TypeScript production check.
+
 ## Production reality
 
 - Vercel project: `volta-landing`.
 - Public production URL: `https://volta-landing-delta.vercel.app`.
-- Latest verified production deployment during this review: `dpl_4WjEspxUq1eom885SjiHG7wvysRJ` (`READY`).
-- That deployment serves the Main 2.0 runtime corresponding to code commit `4c9ac8071a33b5994b67ef161e7fc91ca9687025`; later repository commits before this review were documentation/Product OS only.
+- Latest verified production deployment: `dpl_4WjEspxUq1eom885SjiHG7wvysRJ` (`READY`).
+- Production has **not yet received** code merge `6e05ebefba6441f892c9926bbceab0416e2f8a63`.
 
 ### Deployment caveat
 
-The normal GitHub → Vercel production path is not currently trustworthy. During the August 2026 rebuild, pushes to `main` stopped producing new Vercel deployments. The connected Vercel project currently reports `live: false`, and the latest successful production deployment has no Git commit metadata because it was created through a manual connector/bootstrap workaround that fetched the authoritative `main` source during build.
+The normal GitHub → Vercel production path remains unhealthy. Merge `6e05ebef` did not create a Vercel deployment, independently confirming the prior August failure mode.
 
-Treat this as an operational debt, not as the desired deployment architecture. Repairing Git-linked production deploys should restore commit traceability and remove the workaround.
+A manual API deployment attempted after the green quality gate was rejected by Vercel with `402 payment_required` because the Hobby `api-deployments-free-per-day` quota was exhausted (100/100). The reported reset is approximately 2026-08-26 17:45 Argentina time.
+
+This is operational debt, not desired architecture. A successful manual deployment can publish a release but does not repair Git-linked traceability.
 
 ## Cross-repository truth dependencies
 
@@ -47,33 +79,23 @@ Use these sources rather than duplicating truth locally:
 
 - `LucasFasolato/volta-os/core/VOLTA.md` — ecosystem definition;
 - `LucasFasolato/volta-os/core/BRAND.md` — global communication/brand rules;
-- `LucasFasolato/volta-os/ecosystem/REGISTRY.yaml` — lifecycle/repository/known production destinations;
+- `LucasFasolato/volta-os/ecosystem/REGISTRY.yaml` — lifecycle/repository/production destinations;
 - Store/Booking/Portfolio `volta.product.yaml` and `docs/CURRENT_STATE.md` — product-specific capability and state.
 
 If a product changes materially, corporate copy/previews/links should be reviewed for drift.
 
-## Legacy implementation still present
+## Residual dependency cleanup
 
-The repository still contains an older component/content tree from the WhatsApp-first landing (`src/components/sections/*`, old layout/UI helpers and `src/data/landing-content.ts`). Those files are not the current page architecture and should not be treated as product truth. They also keep dependencies such as Framer Motion/utility helpers alive in the package graph even though Main 2.0 does not need them directly.
+The old source modules are gone, but `clsx`, `framer-motion` and `tailwind-merge` remain in the package manifest/lock. No current Main 2.0 source references to them were found during `CORP-INIT-003`. Remove them only together with a lockfile regeneration and a green quality gate; see `CORP-DEBT-004`.
 
-See `DEBT.md` before reusing or deleting them.
+## Shipping verification
 
-## Verification
+Before shipping corporate changes:
 
-Available repository checks:
-
-```bash
-npm run lint
-npm run build
-```
-
-`next build` performs the TypeScript production check. There is no standalone `typecheck` or test script today.
-
-Before shipping corporate changes, additionally verify:
-
-- desktop and mobile layout;
-- fixed navigation and anchor offsets;
-- authoritative product destinations;
-- metadata/title/description/favicon;
-- no unsupported availability or metric claims;
-- final production alias and rendered content after deployment.
+- run the Corporate quality gate;
+- verify desktop and mobile layout for material visual changes;
+- verify fixed navigation and anchor offsets;
+- verify authoritative product destinations;
+- verify metadata/title/description/favicon;
+- avoid unsupported availability or metric claims;
+- verify the final production alias and rendered content after deployment.

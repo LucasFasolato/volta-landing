@@ -1,14 +1,18 @@
 # VOLTA Corporate — Guardrails
 
-## Source-of-truth precedence
+## Source-of-truth authority
 
-When chat, docs, code and production disagree, use this order for the question being answered:
+There is no single source that outranks every other source for every question. Use the authoritative source for the domain being changed:
 
-1. **Current repository implementation** for what `main` contains and how the site is coded.
-2. **Vercel project/deployment evidence** for what production actually serves and how it was deployed.
-3. **`volta-os`** for global VOLTA definition, brand doctrine, registry and lifecycle vocabulary.
-4. **The corresponding Product OS/current implementation** for Store/Booking/Portfolio-specific capabilities and state.
-5. **Conversation history** only as historical intent; verify it before promoting it into current truth.
+| Question | Authority |
+|---|---|
+| What does this repository currently implement? | Current `main` code and Git history. |
+| What does the public corporate site actually serve? | Vercel production deployment/domain evidence. |
+| What is VOLTA, which branches exist and what is their lifecycle/naming? | `volta-os` global doctrine and registry. |
+| What can Store/Booking/Portfolio truthfully claim? | The corresponding Product OS plus current product implementation. |
+| What was intended historically? | Conversation/history only as input; verify it before promoting it into current truth. |
+
+If two sources appear to conflict, describe the conflict explicitly and resolve it against the correct domain authority rather than silently choosing the more convenient statement.
 
 Corporate represents VOLTA; it does not redefine it.
 

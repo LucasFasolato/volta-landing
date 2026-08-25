@@ -14,9 +14,9 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const title = "VOLTA | Tu próximo paso online";
+const title = "VOLTA | Tu próximo paso, online.";
 const description =
-  "Productos digitales simples y profesionales para vender online, mostrar tu trabajo y gestionar reservas. Conocé VOLTA Store, Portfolio y Booking.";
+  "VOLTA crea productos digitales simples y profesionales para vender, mostrar tu trabajo y gestionar reservas. Conocé VOLTA Store, Portfolio y Booking.";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||
@@ -59,9 +59,7 @@ export default function RootLayout({
       lang="es"
       className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} dark`}
     >
-      <body className="min-h-screen bg-background text-on-surface">
-        {children}
-      </body>
+      <body className="min-h-screen bg-background text-on-surface">{children}</body>
     </html>
   );
 }

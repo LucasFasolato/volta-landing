@@ -1,0 +1,29 @@
+product:
+  id: corporate
+  prefix: CORP
+  name: VOLTA Corporate
+  type: corporate_site
+  lifecycle: production
+  os_version: "1.0"
+repository:
+  full_name: LucasFasolato/volta-landing
+  default_branch: main
+  production_branch: main
+stack:
+  framework: nextjs-app-router
+  language: typescript
+  deployment: vercel
+critical_flows:
+  - ecosystem_storytelling
+  - product_discovery
+  - product_navigation
+  - conversion_cta
+  - metadata_seo
+operating:
+  current_state: docs/CURRENT_STATE.md
+  roadmap: docs/ROADMAP.md
+  guardrails: docs/GUARDRAILS.md
+  debt: docs/DEBT.md
+  handoff: docs/HANDOFF.md
+security:
+  secrets_in_git: false

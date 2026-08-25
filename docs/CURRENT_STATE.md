@@ -24,7 +24,7 @@ Current approved corporate headline:
 The page publicly presents three customer-facing branches:
 
 - **VOLTA Store** — production commerce/storefront product; corporate CTA links to `https://www.voltastore.app`.
-- **VOLTA Portfolio** — production/active portfolio product; corporate CTA intentionally stays in-page because no authoritative public production URL is registered yet.
+- **VOLTA Portfolio** — production/active portfolio product. VOLTA OS now registers `https://volta-portfolio-psi.vercel.app` as its verified production URL; the current Corporate runtime has not yet been updated to use that external destination.
 - **VOLTA Booking** — active, production-oriented booking product; corporate UI labels it `En evolución` and keeps the CTA in-page because no authoritative public production URL is registered yet.
 
 **VOLTA Automatization** remains an incubation direction with provisional naming in the global registry and is intentionally not presented as a generally available corporate product.
@@ -68,19 +68,21 @@ Key commits: `fd16933`, `e521c0a`, `4c9ac80` plus preceding deployment-hardening
 - Adopted VOLTA OS v1.0.
 - Replaced starter documentation.
 - Formalized `represent, not redefine` governance.
+- Reconciled the corporate Product OS against Git/Vercel/product history.
+- Central registry reconciliation subsequently verified Portfolio's public production destination.
 
 ## Verified operating constraints
 
 - Store has an authoritative production destination in the global registry and Store Product OS.
-- Booking and Portfolio do **not** currently have authoritative `production_url` values in the global registry; do not guess Vercel URLs.
-- In the connected Vercel team used for this review, Booking/Portfolio projects were not visible. This is **not** proof that they are not deployed elsewhere; the actionable fact is only that no authoritative public destination is currently registered.
+- Portfolio now has an authoritative production destination in the global registry: `https://volta-portfolio-psi.vercel.app`.
+- Booking still does **not** have an authoritative `production_url` in the global registry; do not guess a Vercel URL while its Product OS reconciliation is still in review.
 - Product facts are hard-coded in `src/app/page.tsx`; product drift remains a real risk.
 
 ## Known debt / risks
 
 1. **Git → Vercel production automation is not healthy.** The project reports `live: false`; August pushes stopped creating deployments. Current production was shipped through a manual connector/bootstrap workaround and lacks Git commit metadata in Vercel.
 2. **Legacy WhatsApp-era implementation remains in the repository** as unused sections, content, UI helpers and dependencies.
-3. **Portfolio/Booking conversion destinations are incomplete** until authoritative public URLs are registered.
+3. **Cross-product destinations remain partially incomplete.** Portfolio is now verified centrally but the Corporate runtime still needs to wire its external CTA; Booking still lacks an authoritative public URL.
 4. Corporate product copy can drift from the faster-moving product repositories.
 
 See `DEBT.md` for evidence and resolution criteria.
@@ -90,7 +92,8 @@ See `DEBT.md` for evidence and resolution criteria.
 These are not claimed bugs; they are unclosed validation items:
 
 - repair the Git-linked Vercel flow and prove a normal `main` commit deploys with Git metadata;
-- register/verify public destinations for Portfolio and Booking before external corporate linking;
+- update the Portfolio CTA to its newly registered production URL in the next Corporate runtime change;
+- register/verify Booking's public destination before external Corporate linking;
 - record a deliberate mobile/cross-browser regression pass after future material visual changes rather than assuming responsive CSS alone is sufficient.
 
 ## Active Product OS work
@@ -100,11 +103,11 @@ No product initiative is currently active. `CORP-INIT-001` (Product OS adoption)
 ## Next recommended direction
 
 1. Repair and simplify deployment traceability.
-2. Reconcile public product destinations and claims against the registry/product OS.
+2. Wire Portfolio's now-authoritative destination and keep Booking internal until its URL is verified.
 3. Remove the unused WhatsApp-era component/content/dependency tree after confirming no imports remain.
 4. Add a lightweight corporate quality gate for build/lint/critical links/metadata once the deploy path is stable.
 5. Continue visual/conversion refinement only from real product capability and evidence.
 
 ## Last operating agent
 
-ChatGPT agent performed the full chat/repository/Git/production consolidation into VOLTA OS on 2026-08-25.
+ChatGPT agent performed the full chat/repository/Git/production consolidation into VOLTA OS on 2026-08-25; central VOLTA OS reconciliation then synchronized newly verified cross-product destinations.

@@ -1,16 +1,9 @@
 # VOLTA Corporate — Handoff
 
+No unresolved handoff is currently recorded.
+
 ```yaml
-active_work:
-  - owner: chatgpt-agent
-    branch: chore/corp-INIT-001-volta-os-adoption
-    scope: connect corporate landing to VOLTA OS and product registries
-    related_paths:
-      - README.md
-      - AGENTS.md
-      - volta.product.yaml
-      - docs/**
-    status: verifying
+active_work: []
 ```
 
-Soft ownership only.
+Use this file only for current cross-agent continuation context.

@@ -9,6 +9,10 @@ repository:
   full_name: LucasFasolato/volta-landing
   default_branch: main
   production_branch: main
+production:
+  public_url: https://volta-landing-delta.vercel.app
+  deployment: vercel
+  project_name: volta-landing
 stack:
   framework: nextjs-app-router
   language: typescript

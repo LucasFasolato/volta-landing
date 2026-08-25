@@ -2,25 +2,50 @@
 
 ## NOW
 
-### CORP-INIT-001 — Product OS Adoption
-Connect corporate storytelling to the global VOLTA source of truth and adopted product repositories.
+### Repair production deployment traceability
+Restore the normal GitHub → Vercel production path so a `main` commit produces a traceable production deployment without the manual connector/bootstrap workaround.
 
-### Product-link/content reconciliation
-Verify current Store/Booking/Portfolio claims, previews and destinations against their Product OS state.
+**Done when:** a normal `main` change deploys successfully, Vercel records the Git commit metadata, the production alias updates, and the workaround is no longer required.
+
+### Reconcile product destinations
+Store is correctly routed to `https://www.voltastore.app`. Portfolio and Booking need authoritative public destinations registered in their Product OS/global registry before corporate external CTAs are enabled.
+
+**Do not guess project URLs.** Until a destination is authoritative, keeping the CTA internal is intentional.
+
+### Remove legacy landing implementation
+Confirm no current imports depend on the WhatsApp-era component/content tree, then remove unused sections, old layout/UI helpers, stale content and dependencies that exist only for that implementation.
+
+Target evidence includes `src/components/sections/*`, old layout/UI files, `src/data/landing-content.ts` and dependencies such as Framer Motion/utility helpers that are not used by Main 2.0.
 
 ## NEXT
 
-### Ecosystem clarity
-Make it immediately obvious that VOLTA is one ecosystem with distinct products sharing the same philosophy of simplifying complex digital operations.
+### Lightweight corporate quality gate
+Add the smallest useful automated check for this site:
 
-### Conversion paths
-Ensure each visitor can quickly identify the right product and reach its relevant landing/demo/signup path with minimal friction.
+- lint;
+- production build/TypeScript;
+- critical product-link assertions;
+- metadata/title/description sanity;
+- optionally a small responsive smoke test if it remains cheap to maintain.
 
-### Social proof / credibility
-Introduce proof only when real evidence exists: live products, credible demos, customer outcomes or measurable usage. Avoid fabricated testimonials/metrics.
+### Product-drift review
+Create a lightweight operating check against `volta-os/ecosystem/REGISTRY.yaml` and adopted product states after material product launches. Prefer build-time/manual checks before runtime coupling.
+
+### Conversion clarity
+Improve the path from corporate discovery to product action once all product destinations are real. Evaluate privacy-respecting corporate analytics only when it will answer specific conversion questions.
 
 ## LATER
 
-- new product sections as new VOLTA products reach sufficient maturity;
-- dynamic registry-driven product metadata only after the registry contract proves stable;
-- richer case studies when real customer evidence exists.
+### Credibility / social proof
+Add proof only when it is real and attributable: live products, customer outcomes, measurable usage or credible case studies. Never backfill the page with invented metrics/testimonials.
+
+### New VOLTA branches
+Add new public product sections only when the global registry marks the branch mature enough for customer-facing representation. `VOLTA Automatization` remains incubation/provisional today.
+
+### Registry-driven metadata
+Consider generating part of the corporate product manifest from the global registry only after its contract is stable. Corporate runtime must not depend on unrelated product availability.
+
+## COMPLETED
+
+- **CORP-INIT-001 — Product OS Adoption** — shipped 2026-08-25.
+- **CORP-INIT-002 — Main 2.0 Ecosystem Rebuild** — shipped 2026-08-25; current production experience.

@@ -26,10 +26,14 @@ Corporate represents VOLTA; it does not redefine it.
 ## Product representation
 
 - Product claims, statuses and previews must reflect current authoritative product state.
-- Store may link to `https://www.voltastore.app` because the destination is registered and verified.
-- Do **not** guess Booking or Portfolio deployment URLs. Keep CTAs internal until an authoritative public URL is registered/verified.
+- Current verified product destinations are:
+  - Store → `https://www.voltastore.app`;
+  - Portfolio → `https://volta-portfolio-psi.vercel.app`;
+  - Booking → `https://volta-booking.vercel.app`.
+- Revalidate destinations against VOLTA OS/Product OS after material product changes rather than guessing replacements.
 - A product may appear publicly only when its lifecycle and proposition are mature enough to represent without caveat.
 - Real product previews are preferred over fictional dashboards or capability theater.
+- Booking remains labeled `En evolución` until its Product OS lifecycle supports a stronger public claim.
 
 ## Claims / credibility
 
@@ -37,6 +41,14 @@ Corporate represents VOLTA; it does not redefine it.
 - Social proof enters only with real evidence that can survive verification.
 - Avoid generic claims that imply capabilities beyond the product shown.
 - Technology, automation and AI are means; user/business outcomes are the headline.
+
+## Measurement
+
+- Analytics must answer a named product question; do not add tracking merely because it is available.
+- Current Corporate question: **which VOLTA product does a visitor choose, and from which CTA placement?**
+- Track only the product key and placement needed to answer that question.
+- Do not attach names, emails, phone numbers, free text, account identifiers or other personal data to Corporate analytics events.
+- Prefer the existing Vercel delivery stack over introducing a separate analytics vendor for this lightweight site.
 
 ## Brand / UX
 
@@ -48,21 +60,21 @@ Corporate represents VOLTA; it does not redefine it.
 
 ## Architecture
 
-- Keep the corporate runtime lightweight; do not introduce a backend/database merely to centralize marketing copy.
+- Keep the corporate runtime lightweight; do not introduce a backend/database merely to centralize marketing copy or analytics.
 - If registry-driven metadata is introduced, prefer build-time/static behavior with graceful fallback and no dependency on product runtime health.
-- Do not reuse legacy WhatsApp-era modules as current truth merely because they remain in the tree; verify imports and intent first.
+- Do not recreate retired WhatsApp-era component/content trees without a concrete current need.
 
 ## Shipping
 
 Before shipping material changes:
 
-- run `npm run lint` and `npm run build`;
-- verify desktop and mobile layouts;
-- verify fixed navigation/anchor behavior;
+- run `npm run verify:corporate`, `npm run lint` and `npm run build` (or `npm run check`);
+- verify desktop and mobile layouts for material visual changes;
+- verify fixed navigation/anchor behavior when navigation changes;
 - verify every external product destination against an authoritative source;
 - verify metadata/title/description/favicon;
 - inspect final production output after deployment;
-- until `CORP-DEBT-003` is resolved, explicitly verify the Vercel production alias because Git-linked auto-deploy cannot be assumed.
+- confirm the Git-triggered Vercel deployment corresponds to the intended `main` commit.
 
 ## Agent autonomy
 
@@ -72,6 +84,7 @@ Agents may autonomously:
 - correct stale product links/labels when authoritative evidence exists;
 - improve minor copy clarity without changing positioning;
 - remove verified dead code/dependencies with checks;
+- add narrowly scoped measurement that follows the Measurement guardrail;
 - update Product OS to reflect verified current reality.
 
 Human approval is required for:

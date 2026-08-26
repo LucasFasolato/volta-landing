@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { ProductIntentAnalytics } from "@/components/analytics/product-intent-analytics";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -59,7 +61,11 @@ export default function RootLayout({
       lang="es"
       className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} dark`}
     >
-      <body className="min-h-screen bg-background text-on-surface">{children}</body>
+      <body className="min-h-screen bg-background text-on-surface">
+        {children}
+        <ProductIntentAnalytics />
+        <Analytics />
+      </body>
     </html>
   );
 }

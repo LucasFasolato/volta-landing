@@ -19,7 +19,9 @@ The current page is static/prerendered. Product metadata is hard-coded in `page.
 
 `CORP-INIT-003` removed the retired WhatsApp-first section/content/UI source tree after repository search confirmed it was not imported by Main 2.0. Do not recreate a parallel component tree without a concrete need.
 
-## Current product routing in `main`
+## Current product routing
+
+Production and `main` route:
 
 - Store → `https://www.voltastore.app`
 - Portfolio → `https://volta-portfolio-psi.vercel.app`
@@ -43,9 +45,7 @@ These values were reconciled against VOLTA OS/Product OS before wiring. Booking 
 `main` includes two layers of low-cost verification:
 
 - `scripts/verify-corporate.mjs` — asserts the approved headline, authoritative product routes, metadata/favicon contracts, mobile/reduced-motion CSS presence and retirement of known legacy files;
-- `.github/workflows/corporate-quality.yml` — Node 24, `npm ci`, corporate verification, lint and production build on `main` pushes and future PRs.
-
-First `main` execution: GitHub Actions run `32897006491`, conclusion `success` for clean install, corporate verification, lint and build.
+- `.github/workflows/corporate-quality.yml` — Node 24, `npm ci`, corporate verification, lint and production build on `main` pushes and PRs.
 
 Available local commands:
 
@@ -58,20 +58,24 @@ npm run check
 
 `next build` performs the TypeScript production check.
 
-## Production reality
+## Production delivery
 
 - Vercel project: `volta-landing`.
 - Public production URL: `https://volta-landing-delta.vercel.app`.
-- Latest verified production deployment: `dpl_4WjEspxUq1eom885SjiHG7wvysRJ` (`READY`).
-- Production has **not yet received** code merge `6e05ebefba6441f892c9926bbceab0416e2f8a63`.
+- Verified deployment: `dpl_FCoZtPH6LapDkRHFqxRjHZeMbyJp`.
+- Deployment state: `READY`.
+- Deployment source: `git`.
+- Git branch: `main`.
+- Git commit: `9cb4fc29dd5c1d9be307ed6bb3a9aad5210ed714`.
+- Production alias was promoted without alias errors.
 
-### Deployment caveat
+The build cloned the GitHub repository, installed dependencies, compiled Next.js 16.2.2, passed TypeScript and generated the static pages. Public verification returned HTTP 200 with the approved headline, metadata and all three external product destinations.
 
-The normal GitHub → Vercel production path remains unhealthy. Merge `6e05ebef` did not create a Vercel deployment, independently confirming the prior August failure mode.
+### Git integration status
 
-A manual API deployment attempted after the green quality gate was rejected by Vercel with `402 payment_required` because the Hobby `api-deployments-free-per-day` quota was exhausted (100/100). The reported reset is approximately 2026-08-26 17:45 Argentina time.
+GitHub → Vercel production delivery is currently healthy and traceable.
 
-This is operational debt, not desired architecture. A successful manual deployment can publish a release but does not repair Git-linked traceability.
+During August 2026 it temporarily stopped producing deployments. The repository was reconnected in Vercel, and an initial retry was still blocked by the Hobby build-rate limit. After that limit cleared, a normal `main` push created `dpl_FCoZtPH6LapDkRHFqxRjHZeMbyJp` with full Git repository/branch/commit metadata and updated the production alias. `CORP-DEBT-003` is therefore resolved.
 
 ## Cross-repository truth dependencies
 

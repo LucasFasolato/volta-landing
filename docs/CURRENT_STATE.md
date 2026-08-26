@@ -1,37 +1,35 @@
 # VOLTA Corporate — Current State
 
-**Last reviewed:** 2026-08-25  
+**Last reviewed:** 2026-08-26  
 **Lifecycle:** PRODUCTION / ACTIVE DEVELOPMENT  
 **Authoritative branch:** `main`  
 **Production:** `https://volta-landing-delta.vercel.app`  
-**Latest product-code merge:** `6e05ebefba6441f892c9926bbceab0416e2f8a63` (PR #5, `CORP-INIT-003`)  
-**Latest verified production commit:** `9cb4fc29dd5c1d9be307ed6bb3a9aad5210ed714`
+**Latest product-code merge:** `06083c423bb9bd0918227af6042e63a49be35bba` (PR #9, `CORP-INIT-004`)
 
 ## Production state
 
-VOLTA Corporate is live and aligned with current `main` runtime.
+VOLTA Corporate is live and aligned with the current runtime.
 
-Verified production deployment:
+Latest verified production deployment:
 
-- Vercel deployment: `dpl_FCoZtPH6LapDkRHFqxRjHZeMbyJp`;
+- Vercel deployment: `dpl_6QeSt5MbJch3Ahf6pjHmmP7soena`;
 - state: `READY`;
 - source: `git`;
 - branch: `main`;
-- Git commit: `9cb4fc29dd5c1d9be307ed6bb3a9aad5210ed714`;
-- production alias: `https://volta-landing-delta.vercel.app`;
-- Vercel records Git repository, branch and commit metadata.
+- Git commit: `06083c423bb9bd0918227af6042e63a49be35bba`;
+- production alias: `https://volta-landing-delta.vercel.app`.
 
-The build cloned `LucasFasolato/volta-landing`, compiled Next.js 16.2.2, passed TypeScript, generated the static pages and promoted the deployment without alias errors.
+The build cloned GitHub `main`, removed the retired package dependencies, compiled Next.js 16.2.2, passed TypeScript and promoted without alias errors.
 
 Public verification returned HTTP 200 and confirmed:
 
-- headline: **“Tu próximo paso, online.”**;
+- headline **“Tu próximo paso, online.”**;
 - Store → `https://www.voltastore.app`;
 - Portfolio → `https://volta-portfolio-psi.vercel.app`;
 - Booking → `https://volta-booking.vercel.app`;
-- approved metadata/favicon remain present.
-
-The GitHub → Vercel integration is therefore proven healthy again after the repository was reconnected and the temporary Hobby build-rate limit cleared.
+- approved metadata/favicon;
+- `ProductIntentAnalytics` and Vercel `Analytics` are included in the production runtime;
+- `/_vercel/insights/script.js` returns HTTP 200 in production.
 
 ## What the site is
 
@@ -41,71 +39,71 @@ Current approved corporate headline:
 
 > **Tu próximo paso, online.**
 
-The customer-facing product map is:
+Customer-facing product map:
 
 - **VOLTA Store** — production commerce/storefront product;
 - **VOLTA Portfolio** — production/active professional portfolio product;
 - **VOLTA Booking** — active, production-oriented booking product, intentionally labeled **`En evolución`**;
-- **VOLTA Automatization** — incubation direction with provisional naming; intentionally not presented as generally available.
+- **VOLTA Automatization** — incubation/provisional; intentionally not presented as generally available.
 
 ## Current runtime
 
-`main` contains Main 2.0 plus Production Hardening & Product Routing:
+Main 2.0 now includes the production-hardening and Corporate 2.1 layers:
 
 - real Store/Portfolio/Booking destinations;
 - retired WhatsApp-first source tree removed;
-- `scripts/verify-corporate.mjs` protecting positioning, routes, metadata, responsive contracts and retired paths;
-- `.github/workflows/corporate-quality.yml` running clean install, verification, lint and production build on PRs and `main` pushes.
-
-GitHub quality runs have passed clean install, corporate verification, lint and build. The Vercel production build independently passed Next.js compilation and TypeScript.
+- retired `clsx`, `framer-motion` and `tailwind-merge` dependencies removed with a regenerated lockfile;
+- `scripts/verify-corporate.mjs` protects positioning, routes, metadata, analytics contracts, responsive rules and legacy retirement;
+- `.github/workflows/corporate-quality.yml` runs clean install, verification, lint and production build;
+- Vercel Web Analytics is wired into the layout;
+- custom event **`Product selected`** records only `product` and CTA `placement` (`showcase` or `closing`), with no names, emails, phone numbers, free text or account identifiers.
 
 ## Current information architecture
 
 1. Fixed navigation.
 2. Hero with ecosystem preview.
 3. `Una marca · Distintas formas de avanzar` bridge.
-4. Full-width Store, Portfolio and Booking showcases.
-5. `Construido para avanzar` product/design principles.
+4. Store, Portfolio and Booking showcases.
+5. `Construido para avanzar` principles.
 6. `VOLTA en acción` outcome mapping.
 7. `Elegí → Hacelo tuyo → Ponelo online` process.
-8. `¿Cuál es el próximo?` closing CTA.
+8. Product-oriented closing CTA.
 
 ## Recently shipped
 
-### CORP-INIT-003 — Production Hardening & Product Routing
+### CORP-INIT-004 — Conversion Clarity & Dependency Cleanup
 
-Shipped 2026-08-25.
+Shipped 2026-08-26.
 
-- reconciled runtime CTAs with authoritative product destinations;
-- removed ~1,000 lines of retired WhatsApp-era source modules;
-- added the Corporate source-of-truth verification script;
-- added the GitHub Actions quality gate;
-- restored and proved Git → Vercel production delivery with commit metadata;
-- verified production routing for Store, Portfolio and Booking.
+- introduced narrowly scoped product-intent measurement without changing the Main 2.0 visual design;
+- tracks which VOLTA product a visitor chooses and whether the click came from the showcase or closing CTA;
+- removed residual dependencies from the retired WhatsApp-era implementation;
+- regenerated `package-lock.json` safely with Node/npm;
+- expanded the Corporate verifier and measurement guardrails;
+- production deployment and analytics script endpoint verified.
 
-See `docs/initiatives/completed/CORP-INIT-003-production-hardening-routing.md`.
+See `docs/initiatives/completed/CORP-INIT-004-conversion-clarity.md`.
 
 ## Material open debt / risks
 
-1. Product facts remain hard-coded in `src/app/page.tsx`, so cross-product drift remains possible; see `CORP-DEBT-002`.
-2. Legacy source cleanup is complete, but residual unused package dependencies still need a lockfile-safe removal; see `CORP-DEBT-004`.
-3. GitHub repository description still frames VOLTA as WhatsApp-only; see `CORP-DEBT-006`.
+1. Product facts still live locally in `src/app/page.tsx`; cross-product drift remains possible even though the verifier protects current known URLs/status. See `CORP-DEBT-002`.
+2. GitHub repository description still frames VOLTA as WhatsApp-only; current connected tooling exposes repository metadata read but no authorized description write. See `CORP-DEBT-006`.
 
-`CORP-DEBT-003` is resolved: a normal `main` Git push produced deployment `dpl_FCoZtPH6LapDkRHFqxRjHZeMbyJp` with Git commit metadata and updated the production alias.
+`CORP-DEBT-003` (Git→Vercel) and `CORP-DEBT-004` (legacy dependency cleanup) are resolved.
 
 ## Active Product OS work
 
 No product initiative is currently active.
 
-`CORP-INIT-001`, `CORP-INIT-002` and `CORP-INIT-003` are shipped/closed.
+`CORP-INIT-001` through `CORP-INIT-004` are shipped/closed.
 
 ## Next recommended direction
 
-1. Remove residual unused dependencies and regenerate the lockfile safely.
-2. Keep product copy/routes reconciled with VOLTA OS after material product changes.
-3. Start conversion-focused improvements only from measurable questions and real evidence.
-4. Record a deliberate responsive/browser pass with the next material visual change.
+1. Use real product-selection data before making another conversion redesign.
+2. Reconcile Corporate product copy/routes with VOLTA OS after material product releases.
+3. Run a deliberate responsive/browser pass with the next material visual change.
+4. Update the external GitHub repository description when an authorized metadata write path is available.
 
 ## Last operating agent
 
-ChatGPT completed `CORP-INIT-003` on 2026-08-25, including production verification and restoration of traceable Git → Vercel delivery.
+ChatGPT completed `CORP-INIT-004` on 2026-08-26, including production verification, dependency cleanup and narrowly scoped conversion instrumentation.

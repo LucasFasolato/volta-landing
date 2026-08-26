@@ -2,22 +2,22 @@
 
 ## NOW
 
-### Finish residual dependency cleanup
-The retired WhatsApp-era source tree is gone. Remove `clsx`, `framer-motion` and `tailwind-merge` only together with a safe lockfile regeneration and a green Corporate quality gate.
-
 ### Repository metadata alignment
-Update the GitHub repository description so it no longer frames VOLTA as a WhatsApp-only system. Keep the repository description aligned with the ecosystem-first role documented in Product OS.
+Update the GitHub repository description so it no longer frames VOLTA as a WhatsApp-only system. Current connected tooling can verify this metadata but does not expose an authorized repository-description write.
+
+### Product-drift review
+Corporate still keeps product facts locally. After material Store/Portfolio/Booking releases, reconcile routes, lifecycle labels and claims against `volta-os/ecosystem/REGISTRY.yaml` and each Product OS before changing Corporate.
 
 ## NEXT
 
-### Product-drift review
-`verify:corporate` protects the currently approved routes/metadata, but product facts are still local source data. Keep a lightweight review against `volta-os/ecosystem/REGISTRY.yaml` and adopted Product OS state after material product launches.
-
-### Conversion clarity
-Store, Portfolio and Booking now have real production destinations. Evaluate the path from corporate discovery to product action and add privacy-respecting analytics only when it answers a specific conversion question.
+### Learn from product-selection data
+Corporate now records the narrow event `Product selected` with product key and CTA placement. Accumulate enough real traffic to answer which product/placement is doing the work before changing hierarchy or adding another conversion layer.
 
 ### Responsive/browser regression pass
-For the next material visual change, record deliberate checks at representative mobile widths (375/390/430), tablet and desktop rather than relying only on responsive CSS presence.
+With the next material visual change, deliberately check representative mobile widths (375/390/430), tablet and desktop rather than treating CSS breakpoint presence as proof.
+
+### Product manifest only if it reduces real drift
+If local product facts begin to diverge repeatedly, extract a small typed/build-time manifest or registry sync. Do not add runtime coupling to the global registry just for architectural neatness.
 
 ## LATER
 
@@ -27,15 +27,13 @@ Add proof only when it is real and attributable: live products, customer outcome
 ### New VOLTA branches
 Add new public product sections only when the global registry marks the branch mature enough for customer-facing representation. `VOLTA Automatization` remains incubation/provisional today.
 
-### Registry-driven metadata
-Consider generating part of the corporate product manifest from the global registry only after its contract is stable. Corporate runtime must not depend on unrelated product availability.
-
 ## COMPLETED
 
 - **CORP-INIT-001 — Product OS Adoption** — shipped 2026-08-25.
 - **CORP-INIT-002 — Main 2.0 Ecosystem Rebuild** — shipped 2026-08-25.
-- **CORP-INIT-003 — Production Hardening & Product Routing** — shipped 2026-08-25; real Store/Portfolio/Booking routing, legacy-source retirement, Corporate quality gate and verified Git-triggered production delivery.
-- **Product destination reconciliation** — Store, Portfolio and Booking all have authoritative production URLs and Corporate routes all three.
-- **Git → Vercel traceability restoration** — deployment `dpl_FCoZtPH6LapDkRHFqxRjHZeMbyJp` was created from `main`, records Git commit `9cb4fc29dd5c1d9be307ed6bb3a9aad5210ed714` and owns the production alias.
-- **Legacy source cleanup** — retired WhatsApp-first sections/content/UI removed; only residual package cleanup remains.
-- **Lightweight Corporate quality gate** — source-of-truth verification + lint + build is active on PRs and `main`.
+- **CORP-INIT-003 — Production Hardening & Product Routing** — shipped 2026-08-25.
+- **CORP-INIT-004 — Conversion Clarity & Dependency Cleanup** — shipped 2026-08-26; Vercel Analytics instrumentation, product-intent event contract, residual dependency cleanup and updated measurement guardrails.
+- **Product destination reconciliation** — Store, Portfolio and Booking route to authoritative production URLs.
+- **Git → Vercel traceability restoration** — normal `main` pushes create production deployments with Git metadata.
+- **Legacy implementation cleanup** — retired WhatsApp-first source and residual package dependencies removed.
+- **Corporate quality gate** — clean install + source-of-truth verification + lint + production build on PRs and `main`.

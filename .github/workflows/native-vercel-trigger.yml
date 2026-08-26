@@ -1,0 +1,27 @@
+name: Native Vercel Git Trigger
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/native-vercel-trigger.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Create native Git push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: native Git push for Vercel [skip ci]"
+          git push origin HEAD:main

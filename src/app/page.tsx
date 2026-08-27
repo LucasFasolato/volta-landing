@@ -11,6 +11,12 @@ import {
 } from "lucide-react";
 import { HeroSwitchboard } from "@/components/corporate/hero-switchboard";
 import { ProductMoment } from "@/components/corporate/product-moment";
+import {
+  VoltaFlowBranches,
+  VoltaFlowIntro,
+  VoltaFlowMarker,
+  VoltaFlowObserver,
+} from "@/components/corporate/volta-flow";
 import { BrandLogo } from "@/components/ui/brand-logo";
 
 const products = [
@@ -127,6 +133,8 @@ export default function Home() {
       </header>
 
       <main>
+        <VoltaFlowObserver />
+
         <section className="hero-section relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36 lg:min-h-screen lg:pb-24">
           <div className="fine-grid absolute inset-0 opacity-[0.11]" />
           <div className="hero-light hero-light-left" />
@@ -170,6 +178,8 @@ export default function Home() {
 
               <HeroSwitchboard />
             </div>
+
+            <VoltaFlowIntro />
           </div>
         </section>
 
@@ -186,15 +196,7 @@ export default function Home() {
                 <p className="max-w-2xl text-base leading-8 text-on-surface-variant md:text-lg">
                   No necesitás elegir una tecnología. Elegí qué querés lograr y entrá por el producto correcto.
                 </p>
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {products.map((product) => (
-                    <Link key={product.key} href={`#${product.key}`} className="bridge-link">
-                      <span>{product.intent}</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                      <strong>{product.shortName}</strong>
-                    </Link>
-                  ))}
-                </div>
+                <VoltaFlowBranches />
               </div>
             </div>
           </div>
@@ -215,8 +217,12 @@ export default function Home() {
             <article
               key={product.key}
               id={product.key}
-              className={`product-showcase ${index % 2 === 1 ? "product-showcase-reverse" : ""}`}
+              data-volta-flow-section={product.key}
+              data-flow-state={index === 0 ? "active" : "idle"}
+              className={`product-showcase flow-section ${index % 2 === 1 ? "product-showcase-reverse" : ""}`}
             >
+              <VoltaFlowMarker step={String(index + 1).padStart(2, "0")} label={product.shortName} />
+
               <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-24">
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="product-meta-line">
@@ -266,7 +272,13 @@ export default function Home() {
           ))}
         </section>
 
-        <section id="principios" className="section-padding relative overflow-hidden border-t border-white/[0.06]">
+        <section
+          id="principios"
+          data-volta-flow-section="principios"
+          data-flow-state="idle"
+          className="flow-section section-padding relative overflow-hidden border-t border-white/[0.06]"
+        >
+          <VoltaFlowMarker step="05" label="Criterio" />
           <div className="principles-aura" />
           <div className="container-shell relative z-10">
             <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-16 xl:gap-24">
@@ -304,7 +316,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="accion" className="section-padding bg-surface">
+        <section
+          id="accion"
+          data-volta-flow-section="accion"
+          data-flow-state="idle"
+          className="flow-section section-padding relative bg-surface"
+        >
+          <VoltaFlowMarker step="06" label="Resultado" />
           <div className="container-shell">
             <div className="mx-auto max-w-4xl text-center">
               <p className="section-kicker justify-center">VOLTA en acción</p>
@@ -327,7 +345,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="process-section section-padding relative overflow-hidden">
+        <section
+          data-volta-flow-section="online"
+          data-flow-state="idle"
+          className="flow-section process-section section-padding relative overflow-hidden"
+        >
+          <VoltaFlowMarker step="07" label="Online" />
           <div className="container-shell">
             <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
               <div>
@@ -362,7 +385,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contacto" className="section-padding relative overflow-hidden bg-surface">
+        <section
+          id="contacto"
+          data-volta-flow-section="activo"
+          data-flow-state="idle"
+          className="flow-section section-padding relative overflow-hidden bg-surface"
+        >
+          <VoltaFlowMarker step="08" label="Activo" terminal />
           <div className="closing-aura" />
           <div className="container-shell relative z-10">
             <div className="closing-panel">

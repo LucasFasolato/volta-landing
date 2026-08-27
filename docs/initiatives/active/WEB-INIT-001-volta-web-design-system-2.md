@@ -1,8 +1,8 @@
 # WEB-INIT-001 — VOLTA Web Design System 2.0
 
-**Status:** IMPLEMENTED / QUALITY GATE RUNNING  
+**Status:** MERGED / PRODUCTION PROMOTION BLOCKED  
 **PR:** #15  
-**Branch:** `feat/volta-web-design-system-2`  
+**Merge:** `42843ae4cba4f3d5eac3fd226d9f52b8bb06ddf8`  
 **Scope:** ecosystem web design system + Corporate reference implementation
 
 ## Objective
@@ -83,41 +83,27 @@ The existing privacy-limited `Product selected` event is preserved. Placement no
 
 ## Design system authority
 
-See `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` for the ecosystem web standard covering:
+See `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` for the ecosystem web standard covering content budgets, page length, color semantics, typography, spacing, Product Moments, navigation, motion, mobile, accessibility, performance and acceptance criteria.
 
-- content budgets;
-- page-length rules;
-- color semantics;
-- typography;
-- spacing and radius;
-- Product Moments;
-- navigation and buttons;
-- cards;
-- motion;
-- mobile;
-- accessibility;
-- performance;
-- analytics;
-- acceptance criteria.
+## Quality result
 
-## Quality gate
+PR #15 passed the complete GitHub quality gate before merge:
 
-Required before merge:
-
-```bash
-npm run verify:corporate
-npm run lint
-npm run build
+```text
+verify:corporate  PASS
+eslint            PASS
+next build        PASS
 ```
 
-GitHub Actions runs the full gate on PR #15.
+The Vercel deployment is externally blocked by the existing Hobby `build-rate-limit`. This is recorded separately from code quality.
 
-Vercel preview creation may remain externally blocked by the existing Hobby `build-rate-limit`; that provider condition must be recorded separately from code quality.
+## Remaining completion condition
 
-## Follow-up after merge
+The code/design portion of WEB-INIT-001 is complete. Keep the initiative active only until a Web 2.0 Vercel build is accepted and visually verified in production.
 
-1. Update `CURRENT_STATE.md` and `ROADMAP.md` so Corporate Web 2.0 becomes authoritative.
-2. Reconcile production when Vercel accepts a new build.
-3. Use the design system as the basis for Booking 2.0.
-4. Apply it to Portfolio without erasing Portfolio's editorial personality.
-5. Retrofit Store rather than redesigning Store from zero.
+After production promotion:
+
+1. verify representative mobile widths, tablet and desktop;
+2. confirm the production alias points to Web 2.0;
+3. archive this initiative;
+4. proceed with Booking 2.0 as the first product migration.

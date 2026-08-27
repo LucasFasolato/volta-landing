@@ -5,6 +5,8 @@ const layout = readFileSync("src/app/layout.tsx", "utf8");
 const css = readFileSync("src/app/globals.css", "utf8");
 const packageJson = readFileSync("package.json", "utf8");
 const analytics = readFileSync("src/components/analytics/product-intent-analytics.tsx", "utf8");
+const heroSwitchboard = readFileSync("src/components/corporate/hero-switchboard.tsx", "utf8");
+const productMoment = readFileSync("src/components/corporate/product-moment.tsx", "utf8");
 
 const failures = [];
 
@@ -21,8 +23,19 @@ requireText(page, "https://www.voltastore.app", "Store route");
 requireText(page, "https://volta-portfolio-psi.vercel.app", "Portfolio route");
 requireText(page, "https://volta-booking.vercel.app", "Booking route");
 requireText(page, 'status: "En evolución"', "Booking lifecycle label");
+requireText(page, 'name: "VOLTA Automate"', "Automate product representation");
+requireText(page, 'status: "En preparación"', "Automate lifecycle caveat");
+requireText(page, '<HeroSwitchboard />', "Hero 3.0 switchboard");
+requireText(page, '<ProductMoment type={product.key} />', "interactive product moments");
+requireText(heroSwitchboard, 'intent: "Automatizar"', "Automate hero intent");
+requireText(heroSwitchboard, 'role="tablist"', "switchboard accessibility");
+requireText(productMoment, "function StoreMoment()", "Store product moment");
+requireText(productMoment, "function PortfolioMoment()", "Portfolio product moment");
+requireText(productMoment, "function BookingMoment()", "Booking product moment");
+requireText(productMoment, "function AutomateMoment()", "Automate product moment");
 requireText(layout, "VOLTA | Tu próximo paso, online.", "metadata title");
 requireText(layout, "VOLTA Store, Portfolio y Booking", "metadata product map");
+requireText(layout, "VOLTA Automate en preparación", "metadata Automate caveat");
 requireText(layout, "/favicon.svg", "favicon metadata");
 requireText(layout, "<ProductIntentAnalytics />", "product intent analytics");
 requireText(layout, "<Analytics />", "Vercel Web Analytics");

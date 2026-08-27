@@ -5,7 +5,6 @@ import {
   ArrowRight,
   CalendarDays,
   Check,
-  LayoutGrid,
   MessageCircle,
   Plus,
   RotateCcw,
@@ -39,7 +38,7 @@ function StoreMoment() {
               <div className="aspect-[4/3] rounded-xl bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,136,.25),transparent_38%),linear-gradient(145deg,#26292d,#111316)]" />
               <div className="mt-3 flex items-end justify-between gap-2">
                 <div><small className="block text-[0.52rem] uppercase tracking-[0.12em] text-white/30">Producto {item}</small><strong className="mt-1 block text-[0.7rem] text-white sm:text-xs">$ 28.500</strong></div>
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/7 text-white/60 transition group-hover:bg-primary group-hover:text-[#04120a]"><Plus className="h-3.5 w-3.5" /></span>
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.07] text-white/60 transition group-hover:bg-primary group-hover:text-[#04120a]"><Plus className="h-3.5 w-3.5" /></span>
               </div>
             </button>
           ))}
@@ -50,7 +49,7 @@ function StoreMoment() {
             <div><small className="text-white/40">Tu pedido</small><strong className="block text-sm text-white">{count} {count === 1 ? "producto" : "productos"}</strong></div>
             <strong className="text-sm text-primary">$ {subtotal.toLocaleString("es-AR")}</strong>
           </div>
-          <div className={`mt-3 flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 text-xs font-bold transition ${count > 0 ? "bg-primary text-[#04120a]" : "bg-white/6 text-white/35"}`}>
+          <div className={`mt-3 flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 text-xs font-bold transition ${count > 0 ? "bg-primary text-[#04120a]" : "bg-white/[0.06] text-white/35"}`}>
             <MessageCircle className="h-4 w-4" /> Enviar por WhatsApp
           </div>
         </div>
@@ -117,7 +116,7 @@ function BookingMoment() {
         </div>
 
         <div className="mt-5 grid grid-cols-5 gap-2">
-          {['L 24','M 25','X 26','J 27','V 28'].map((day, index) => <span key={day} className={`rounded-xl border px-1.5 py-3 text-center text-[0.58rem] font-bold ${index === 2 ? "border-primary/50 bg-primary/10 text-primary" : "border-white/8 bg-white/[0.025] text-white/40"}`}>{day}</span>)}
+          {["L 24", "M 25", "X 26", "J 27", "V 28"].map((day, index) => <span key={day} className={`rounded-xl border px-1.5 py-3 text-center text-[0.58rem] font-bold ${index === 2 ? "border-primary/50 bg-primary/10 text-primary" : "border-white/8 bg-white/[0.025] text-white/40"}`}>{day}</span>)}
         </div>
 
         <div className="mt-3 grid grid-cols-3 gap-2">

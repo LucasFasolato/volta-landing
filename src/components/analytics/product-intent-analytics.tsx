@@ -10,9 +10,7 @@ const productByHref = new Map([
 ]);
 
 function placementFor(anchor: HTMLAnchorElement) {
-  if (anchor.closest(".closing-products")) return "closing";
-  if (anchor.closest(".product-showcase")) return "showcase";
-  return "other";
+  return anchor.dataset.productPlacement || "other";
 }
 
 export function ProductIntentAnalytics() {

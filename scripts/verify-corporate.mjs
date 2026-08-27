@@ -3,12 +3,11 @@ import { existsSync, readFileSync } from "node:fs";
 const page = readFileSync("src/app/page.tsx", "utf8");
 const layout = readFileSync("src/app/layout.tsx", "utf8");
 const css = readFileSync("src/app/globals.css", "utf8");
-const flowCss = readFileSync("src/app/volta-flow.css", "utf8");
 const packageJson = readFileSync("package.json", "utf8");
 const analytics = readFileSync("src/components/analytics/product-intent-analytics.tsx", "utf8");
-const heroSwitchboard = readFileSync("src/components/corporate/hero-switchboard.tsx", "utf8");
-const productMoment = readFileSync("src/components/corporate/product-moment.tsx", "utf8");
-const voltaFlow = readFileSync("src/components/corporate/volta-flow.tsx", "utf8");
+const products = readFileSync("src/data/corporate-products.ts", "utf8");
+const productMoment = readFileSync("src/components/corporate/product-moment-v2.tsx", "utf8");
+const webShell = readFileSync("src/components/corporate/volta-web-shell.tsx", "utf8");
 
 const failures = [];
 
@@ -20,51 +19,58 @@ function forbidText(source, text, label) {
   if (source.includes(text)) failures.push(`${label}: forbidden text ${JSON.stringify(text)}`);
 }
 
-requireText(page, "Tu próximo paso,", "hero");
-requireText(page, "https://www.voltastore.app", "Store route");
-requireText(page, "https://volta-portfolio-psi.vercel.app", "Portfolio route");
-requireText(page, "https://volta-booking.vercel.app", "Booking route");
-requireText(page, 'status: "En evolución"', "Booking lifecycle label");
-requireText(page, 'name: "VOLTA Automate"', "Automate product representation");
-requireText(page, 'status: "En preparación"', "Automate lifecycle caveat");
-requireText(page, '<HeroSwitchboard />', "Hero 3.0 switchboard");
-requireText(page, '<ProductMoment type={product.key} />', "interactive product moments");
-requireText(page, '<VoltaFlowObserver />', "VOLTA Flow observer");
-requireText(page, '<VoltaFlowIntro />', "VOLTA Flow hero signature");
-requireText(page, '<VoltaFlowBranches />', "VOLTA Flow branch map");
-requireText(page, 'data-volta-flow-section={product.key}', "VOLTA Flow product rail");
-requireText(page, '<VoltaFlowMarker step="08" label="Activo" terminal />', "VOLTA Flow terminal state");
-requireText(heroSwitchboard, 'intent: "Automatizar"', "Automate hero intent");
-requireText(heroSwitchboard, 'role="tablist"', "switchboard accessibility");
-requireText(productMoment, "function StoreMoment()", "Store product moment");
-requireText(productMoment, "function PortfolioMoment()", "Portfolio product moment");
-requireText(productMoment, "function BookingMoment()", "Booking product moment");
-requireText(productMoment, "function AutomateMoment()", "Automate product moment");
-requireText(voltaFlow, "OFF", "VOLTA Flow OFF state");
-requireText(voltaFlow, "ONLINE", "VOLTA Flow ONLINE state");
-requireText(voltaFlow, 'intent: "Vender"', "VOLTA Flow Store branch");
-requireText(voltaFlow, 'intent: "Mostrarte"', "VOLTA Flow Portfolio branch");
-requireText(voltaFlow, 'intent: "Reservas"', "VOLTA Flow Booking branch");
-requireText(voltaFlow, 'intent: "Automatizar"', "VOLTA Flow Automate branch");
-requireText(voltaFlow, "IntersectionObserver", "VOLTA Flow section activation");
+requireText(page, "Tu próximo paso,", "approved corporate promise");
+requireText(page, 'id="productos"', "products section");
+requireText(page, 'id="como-funciona"', "how-it-works section");
+requireText(page, 'id="criterio"', "VOLTA principles section");
+requireText(page, "<ProductMomentV2", "compact product moments");
+requireText(page, "No elijas tecnología. Elegí qué querés lograr.", "outcome-first product framing");
+requireText(page, "Tres pasos. Nada de empezar de cero.", "short process framing");
+
+const sectionCount = (page.match(/<section\b/g) || []).length;
+if (sectionCount !== 5) {
+  failures.push(`page length: expected exactly 5 primary sections, found ${sectionCount}`);
+}
+
+requireText(products, "https://www.voltastore.app", "Store route");
+requireText(products, "https://volta-portfolio-psi.vercel.app", "Portfolio route");
+requireText(products, "https://volta-booking.vercel.app", "Booking route");
+requireText(products, 'status: "En evolución"', "Booking lifecycle label");
+requireText(products, 'name: "VOLTA Automate"', "Automate product representation");
+requireText(products, 'href: null', "Automate route guard");
+requireText(products, 'status: "En preparación"', "Automate lifecycle caveat");
+
+requireText(productMoment, "function StoreMoment", "Store product moment");
+requireText(productMoment, "function BookingMoment", "Booking product moment");
+requireText(productMoment, "function PortfolioMoment", "Portfolio product moment");
+requireText(productMoment, "function AutomateMoment", "Automate product moment");
+requireText(productMoment, 'aria-hidden="true"', "decorative product moment accessibility");
+requireText(webShell, "export function VoltaHeader", "shared header");
+requireText(webShell, "export function VoltaFooter", "shared footer");
+requireText(webShell, "export function SectionHeading", "shared section heading");
+
 requireText(layout, "VOLTA | Tu próximo paso, online.", "metadata title");
-requireText(layout, "VOLTA Store, Portfolio y Booking", "metadata product map");
-requireText(layout, "VOLTA Automate en preparación", "metadata Automate caveat");
-requireText(layout, 'import "./volta-flow.css"', "VOLTA Flow styles");
+requireText(layout, "VOLTA Store, Booking y Portfolio", "metadata product map");
+requireText(layout, "Automate está en preparación", "metadata Automate caveat");
+requireText(layout, 'import { Inter } from "next/font/google"', "Inter typography foundation");
 requireText(layout, "/favicon.svg", "favicon metadata");
 requireText(layout, "<ProductIntentAnalytics />", "product intent analytics");
 requireText(layout, "<Analytics />", "Vercel Web Analytics");
-requireText(analytics, 'track("Product selected"', "product intent event");
-requireText(analytics, 'return "showcase"', "showcase analytics placement");
-requireText(analytics, 'return "closing"', "closing analytics placement");
-requireText(packageJson, '"@vercel/analytics": "2.0.1"', "analytics dependency");
-requireText(css, "@media (max-width: 767px)", "mobile breakpoint");
-requireText(css, "@media (prefers-reduced-motion: reduce)", "base reduced-motion support");
-requireText(flowCss, ".volta-flow-intro", "VOLTA Flow visual signature");
-requireText(flowCss, ".volta-flow-marker", "VOLTA Flow chapter rail");
-requireText(flowCss, "@media (max-width: 767px)", "VOLTA Flow mobile behavior");
-requireText(flowCss, "@media (prefers-reduced-motion: reduce)", "VOLTA Flow reduced-motion behavior");
 
+requireText(css, "--volta-canvas: #f6f8f5", "light-first canvas token");
+requireText(css, "--volta-green: #12e89a", "VOLTA action token");
+requireText(css, ".volta-display", "display typography token");
+requireText(css, ".volta-section", "section spacing token");
+requireText(css, "@media (max-width: 767px)", "mobile breakpoint");
+requireText(css, "@media (prefers-reduced-motion: reduce)", "reduced-motion support");
+
+requireText(analytics, 'track("Product selected"', "product intent event");
+requireText(analytics, "anchor.dataset.productPlacement", "explicit analytics placement");
+requireText(packageJson, '"@vercel/analytics": "2.0.1"', "analytics dependency");
+
+forbidText(page, "HeroSwitchboard", "legacy switchboard retirement");
+forbidText(page, "VoltaFlow", "legacy Flow retirement");
+forbidText(layout, "volta-flow.css", "legacy Flow stylesheet retirement");
 forbidText(page, "Convertí tu WhatsApp en un sistema", "corporate positioning");
 forbidText(page, "WhatsApp como canal. VOLTA como sistema.", "corporate positioning");
 forbidText(packageJson, '"framer-motion"', "dependency cleanup");
@@ -72,6 +78,10 @@ forbidText(packageJson, '"clsx"', "dependency cleanup");
 forbidText(packageJson, '"tailwind-merge"', "dependency cleanup");
 
 const retiredPaths = [
+  "src/app/volta-flow.css",
+  "src/components/corporate/hero-switchboard.tsx",
+  "src/components/corporate/product-moment.tsx",
+  "src/components/corporate/volta-flow.tsx",
   "src/data/landing-content.ts",
   "src/lib/utils.ts",
   "src/components/layout/navbar.tsx",
@@ -89,4 +99,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Corporate source-of-truth verification passed.");
+console.log("VOLTA Web 2.0 corporate verification passed.");

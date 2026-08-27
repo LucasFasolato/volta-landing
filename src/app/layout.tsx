@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const title = "VOLTA | Tu próximo paso, online.";
 const description =
-  "VOLTA crea productos digitales simples y profesionales para vender, mostrar tu trabajo y gestionar reservas. Conocé VOLTA Store, Portfolio y Booking.";
+  "VOLTA crea productos digitales simples y profesionales para vender, mostrar tu trabajo, gestionar reservas y automatizar procesos. Conocé VOLTA Store, Portfolio y Booking y descubrí VOLTA Automate en preparación.";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||

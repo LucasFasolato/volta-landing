@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect } from "react";
 
+const FLOW_SECTION_SELECTOR = "[data-volta-flow-section]";
+
 const branches = [
   { key: "store", intent: "Vender", product: "Store", href: "#store" },
   { key: "portfolio", intent: "Mostrarte", product: "Portfolio", href: "#portfolio" },
@@ -13,10 +15,10 @@ const branches = [
 export function VoltaFlowObserver() {
   useEffect(() => {
     const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-volta-flow-section]"),
+      document.querySelectorAll<HTMLElement>(FLOW_SECTION_SELECTOR),
     );
 
-    if (!sections.length) return;
+    if (!sections.length) return undefined;
 
     function setActive(activeSection: HTMLElement) {
       const activeIndex = sections.indexOf(activeSection);

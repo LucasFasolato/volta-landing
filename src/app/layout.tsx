@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ProductIntentAnalytics } from "@/components/analytics/product-intent-analytics";
 import "./globals.css";
+import "./volta-flow.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

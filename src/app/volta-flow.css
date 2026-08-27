@@ -1,0 +1,540 @@
+.volta-flow-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(20rem, 1.28fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: clamp(3.5rem, 7vw, 6.5rem);
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.volta-flow-intro-copy {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.volta-flow-intro-copy span,
+.volta-flow-branch-head span {
+  flex: 0 0 auto;
+  font-size: 0.58rem;
+  font-weight: 760;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: rgba(0, 245, 138, 0.78);
+}
+
+.volta-flow-intro-copy strong,
+.volta-flow-branch-head strong {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  color: rgba(245, 247, 251, 0.66);
+}
+
+.volta-flow-signal {
+  display: grid;
+  grid-template-columns: auto minmax(2.8rem, 1fr) auto minmax(2.8rem, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.volta-flow-state {
+  font-size: 0.58rem;
+  font-weight: 760;
+  letter-spacing: 0.16em;
+}
+
+.volta-flow-state-off { color: rgba(152, 166, 184, 0.42); }
+.volta-flow-state-online { color: var(--primary); }
+
+.volta-flow-wire {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.2));
+}
+
+.volta-flow-wire-out {
+  background: linear-gradient(90deg, rgba(0, 245, 138, 0.24), rgba(0, 245, 138, 0.08));
+}
+
+.volta-flow-wire i {
+  position: absolute;
+  inset-block: 0;
+  left: -28%;
+  width: 28%;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 138, 0.96), transparent);
+  box-shadow: 0 0 14px rgba(0, 245, 138, 0.55);
+}
+
+.volta-flow-core {
+  display: inline-flex;
+  min-height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.9rem;
+  border: 1px solid rgba(0, 245, 138, 0.24);
+  border-radius: 999px;
+  background: rgba(0, 245, 138, 0.065);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 0 28px rgba(0, 245, 138, 0.055);
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  color: var(--primary);
+}
+
+.volta-flow-branches {
+  margin-top: 1.75rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.volta-flow-branch-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.volta-flow-branch-trunk {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.volta-flow-branch-source {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.75rem;
+  border: 1px solid rgba(0, 245, 138, 0.2);
+  border-radius: 999px;
+  background: rgba(0, 245, 138, 0.055);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--primary);
+}
+
+.volta-flow-branch-trunk > i {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0, 245, 138, 0.3), rgba(255, 255, 255, 0.075));
+}
+
+.volta-flow-branch-trunk > i::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -22%;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 138, 0.9), transparent);
+  box-shadow: 0 0 12px rgba(0, 245, 138, 0.42);
+}
+
+.volta-flow-branch-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.95rem;
+  padding-top: 1.15rem;
+}
+
+.volta-flow-branch-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 245, 138, 0.22), rgba(255, 255, 255, 0.085), rgba(0, 245, 138, 0.18));
+}
+
+.volta-flow-branch-link {
+  position: relative;
+  display: grid;
+  min-height: 5.2rem;
+  align-content: end;
+  padding: 1.1rem 0.85rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.018);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.volta-flow-branch-link::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -1.15rem;
+  width: 1px;
+  height: 1.15rem;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.volta-flow-branch-dot {
+  position: absolute;
+  left: 50%;
+  top: -1.36rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  transform: translateX(-50%);
+  border: 1px solid rgba(0, 245, 138, 0.55);
+  border-radius: 999px;
+  background: #0b1016;
+  box-shadow: 0 0 0 4px rgba(0, 245, 138, 0.035);
+}
+
+.volta-flow-branch-link small {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(152, 166, 184, 0.55);
+}
+
+.volta-flow-branch-link strong {
+  margin-top: 0.3rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.035em;
+  color: white;
+}
+
+.volta-flow-branch-link:hover {
+  border-color: rgba(0, 245, 138, 0.2);
+  background: rgba(0, 245, 138, 0.03);
+  transform: translateY(-2px);
+}
+
+.volta-flow-branch-link:hover .volta-flow-branch-dot {
+  background: var(--primary);
+  box-shadow: 0 0 18px rgba(0, 245, 138, 0.42);
+}
+
+.flow-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.volta-flow-marker {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: max(0.42rem, calc((100vw - 86rem) / 2 + 0.42rem));
+  width: 3rem;
+  pointer-events: none;
+}
+
+.volta-flow-marker-line {
+  position: absolute;
+  left: 0.58rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.055);
+  transition: background 240ms ease, opacity 240ms ease;
+}
+
+.volta-flow-marker-line i {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 1px;
+  height: 20%;
+  opacity: 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 245, 138, 0.95), transparent);
+  box-shadow: 0 0 12px rgba(0, 245, 138, 0.5);
+}
+
+.volta-flow-marker-node {
+  position: absolute;
+  left: 0;
+  top: 2.1rem;
+  display: grid;
+  grid-template-columns: 1.15rem auto;
+  align-items: center;
+  gap: 0.45rem;
+  transform-origin: left center;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.volta-flow-marker-node::before {
+  content: "";
+  position: absolute;
+  left: 0.28rem;
+  top: 50%;
+  width: 0.62rem;
+  height: 0.62rem;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: #090c11;
+  transition: border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.volta-flow-marker-node b {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  font-size: 0;
+}
+
+.volta-flow-marker-node em {
+  display: block;
+  max-width: 4.5rem;
+  overflow: hidden;
+  font-size: 0.52rem;
+  font-style: normal;
+  font-weight: 760;
+  letter-spacing: 0.14em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(152, 166, 184, 0.3);
+  transition: color 220ms ease, opacity 220ms ease;
+}
+
+[data-flow-state="passed"] .volta-flow-marker-line {
+  background: rgba(0, 245, 138, 0.16);
+}
+
+[data-flow-state="passed"] .volta-flow-marker-node::before {
+  border-color: rgba(0, 245, 138, 0.34);
+  background: rgba(0, 245, 138, 0.2);
+}
+
+[data-flow-state="passed"] .volta-flow-marker-node em {
+  color: rgba(0, 245, 138, 0.38);
+}
+
+[data-flow-state="active"] .volta-flow-marker-line {
+  background: linear-gradient(180deg, rgba(0, 245, 138, 0.4), rgba(0, 245, 138, 0.08), rgba(255, 255, 255, 0.045));
+}
+
+[data-flow-state="active"] .volta-flow-marker-line i {
+  opacity: 1;
+}
+
+[data-flow-state="active"] .volta-flow-marker-node {
+  transform: translateX(0.08rem);
+}
+
+[data-flow-state="active"] .volta-flow-marker-node::before {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: 0 0 0 5px rgba(0, 245, 138, 0.06), 0 0 18px rgba(0, 245, 138, 0.4);
+}
+
+[data-flow-state="active"] .volta-flow-marker-node em {
+  color: rgba(0, 245, 138, 0.82);
+}
+
+.volta-flow-marker-terminal .volta-flow-marker-line {
+  bottom: calc(100% - 2.42rem);
+}
+
+.volta-flow-marker-terminal .volta-flow-marker-node::after {
+  content: "";
+  position: absolute;
+  left: 0.02rem;
+  top: 50%;
+  width: 1.12rem;
+  height: 1.12rem;
+  transform: translateY(-50%);
+  border: 1px solid rgba(0, 245, 138, 0.12);
+  border-radius: 999px;
+}
+
+@media (max-width: 1199px) {
+  .volta-flow-marker-node em { display: none; }
+}
+
+@media (max-width: 767px) {
+  .volta-flow-intro {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    margin-top: 3rem;
+  }
+
+  .volta-flow-intro-copy {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .volta-flow-signal {
+    grid-template-columns: auto minmax(1.5rem, 1fr) auto minmax(1.5rem, 1fr) auto;
+    gap: 0.45rem;
+  }
+
+  .volta-flow-core {
+    min-height: 2rem;
+    padding-inline: 0.7rem;
+    font-size: 0.55rem;
+  }
+
+  .volta-flow-state { font-size: 0.52rem; }
+
+  .volta-flow-branch-head {
+    display: grid;
+    justify-content: start;
+    gap: 0.35rem;
+  }
+
+  .volta-flow-branch-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.45rem;
+  }
+
+  .volta-flow-branch-grid::before {
+    left: 25%;
+    right: 25%;
+  }
+
+  .volta-flow-branch-link {
+    min-height: 4.6rem;
+  }
+
+  .flow-section {
+    padding-top: max(5rem, 4.7rem);
+  }
+
+  .volta-flow-marker {
+    top: 1rem;
+    bottom: auto;
+    left: 1.1rem;
+    right: 1.1rem;
+    width: auto;
+    height: 1.6rem;
+  }
+
+  .volta-flow-marker-line {
+    left: 0;
+    right: 0;
+    top: 0.55rem;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .volta-flow-marker-line i {
+    top: 0;
+    left: -18%;
+    width: 18%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 245, 138, 0.95), transparent);
+  }
+
+  .volta-flow-marker-node {
+    top: 0;
+    left: 0;
+    display: inline-grid;
+    grid-template-columns: 1.15rem auto;
+    padding-right: 0.6rem;
+    background: var(--surface);
+  }
+
+  .product-showcase-reverse .volta-flow-marker-node,
+  #principios .volta-flow-marker-node,
+  .process-section .volta-flow-marker-node {
+    background: #0a0d12;
+  }
+
+  .volta-flow-marker-node em {
+    display: block;
+    max-width: none;
+    font-size: 0.5rem;
+  }
+
+  .volta-flow-marker-terminal .volta-flow-marker-line {
+    right: calc(100% - 1.2rem);
+    bottom: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .volta-flow-wire i {
+    animation: volta-flow-signal 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .volta-flow-wire-out i {
+    animation-delay: 0.55s;
+  }
+
+  .volta-flow-core {
+    animation: volta-flow-core-breathe 4s ease-in-out infinite;
+  }
+
+  .volta-flow-branch-trunk > i::after {
+    animation: volta-flow-branch-signal 4.8s ease-in-out infinite 0.8s;
+  }
+
+  [data-flow-state="active"] .volta-flow-marker-line i {
+    animation: volta-flow-marker-signal 2.7s ease-in-out infinite;
+  }
+}
+
+@keyframes volta-flow-signal {
+  0%, 12% { transform: translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  68% { opacity: 1; }
+  82%, 100% { transform: translateX(460%); opacity: 0; }
+}
+
+@keyframes volta-flow-core-breathe {
+  0%, 100% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 0 22px rgba(0, 245, 138, 0.045); }
+  50% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 0 36px rgba(0, 245, 138, 0.11); }
+}
+
+@keyframes volta-flow-branch-signal {
+  0%, 14% { transform: translateX(0); opacity: 0; }
+  23% { opacity: 1; }
+  72% { opacity: 1; }
+  86%, 100% { transform: translateX(560%); opacity: 0; }
+}
+
+@keyframes volta-flow-marker-signal {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateY(600%); opacity: 0; }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  [data-flow-state="active"] .volta-flow-marker-line i {
+    animation-name: volta-flow-marker-signal-mobile;
+  }
+}
+
+@keyframes volta-flow-marker-signal-mobile {
+  0% { transform: translateX(0); opacity: 0; }
+  15% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(650%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .volta-flow-wire i,
+  .volta-flow-branch-trunk > i::after,
+  .volta-flow-marker-line i {
+    display: none;
+  }
+
+  .volta-flow-core,
+  .volta-flow-branch-link,
+  .volta-flow-marker-node,
+  .volta-flow-marker-line {
+    transition: none;
+  }
+}

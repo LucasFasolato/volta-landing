@@ -6,7 +6,6 @@ import {
   ArrowRight,
   CalendarDays,
   Check,
-  LayoutGrid,
   MessageCircle,
   ShoppingBag,
   Sparkles,
@@ -89,7 +88,8 @@ function StoreStage() {
           <strong className="text-sm text-primary">$ 84.500</strong>
         </div>
         <div className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-xs font-bold text-[#04120a]">
-          <MessageCircle className="h-4 w-4" /> Enviar por WhatsApp
+          <MessageCircle className="h-4 w-4" />
+          Enviar por WhatsApp
         </div>
       </div>
     </div>
@@ -102,7 +102,7 @@ function PortfolioStage() {
       <aside className="flex flex-col items-center gap-5 border-r border-black/10 bg-[#e6e0d5] px-2 py-5">
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#151515] text-[0.62rem] font-bold text-white">LF</div>
         <div className="h-12 w-px bg-black/15" />
-        {['01','02','03'].map((n) => <span key={n} className="text-[0.58rem] font-bold text-black/35">{n}</span>)}
+        {["01", "02", "03"].map((number) => <span key={number} className="text-[0.58rem] font-bold text-black/35">{number}</span>)}
       </aside>
       <div className="flex flex-col p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
@@ -113,7 +113,7 @@ function PortfolioStage() {
           Proyecto destacado
         </div>
         <div className="mt-3 grid grid-cols-3 gap-2">
-          {['Vivienda 01','Legajo técnico','Interior 03'].map((label) => <div key={label} className="aspect-[4/3] rounded-xl bg-black/10 p-2 text-[0.52rem] font-semibold text-black/55">{label}</div>)}
+          {["Vivienda 01", "Legajo técnico", "Interior 03"].map((label) => <div key={label} className="aspect-[4/3] rounded-xl bg-black/10 p-2 text-[0.52rem] font-semibold text-black/55">{label}</div>)}
         </div>
       </div>
     </div>
@@ -128,10 +128,10 @@ function BookingStage() {
         <CalendarDays className="h-5 w-5 text-primary" />
       </div>
       <div className="mt-6 grid grid-cols-5 gap-2">
-        {['L 24','M 25','X 26','J 27','V 28'].map((day, index) => <span key={day} className={`rounded-xl border px-2 py-3 text-center text-[0.62rem] font-bold ${index === 2 ? "border-primary/50 bg-primary/10 text-primary" : "border-white/8 bg-white/[0.025] text-white/45"}`}>{day}</span>)}
+        {["L 24", "M 25", "X 26", "J 27", "V 28"].map((day, index) => <span key={day} className={`rounded-xl border px-2 py-3 text-center text-[0.62rem] font-bold ${index === 2 ? "border-primary/50 bg-primary/10 text-primary" : "border-white/8 bg-white/[0.025] text-white/45"}`}>{day}</span>)}
       </div>
       <div className="mt-3 grid grid-cols-3 gap-2">
-        {['09:00','10:30','12:00','15:00','16:30','18:00'].map((time, index) => <span key={time} className={`rounded-xl border px-2 py-3 text-center text-xs font-semibold ${index === 1 ? "border-primary bg-primary text-[#04120a]" : "border-white/8 bg-white/[0.025] text-white/65"}`}>{time}</span>)}
+        {["09:00", "10:30", "12:00", "15:00", "16:30", "18:00"].map((time, index) => <span key={time} className={`rounded-xl border px-2 py-3 text-center text-xs font-semibold ${index === 1 ? "border-primary bg-primary text-[#04120a]" : "border-white/8 bg-white/[0.025] text-white/65"}`}>{time}</span>)}
       </div>
       <div className="mt-auto flex items-center gap-3 rounded-2xl border border-primary/18 bg-primary/[0.07] p-4">
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-[#04120a]"><Check className="h-4 w-4" /></span>

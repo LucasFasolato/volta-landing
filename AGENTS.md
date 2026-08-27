@@ -38,3 +38,14 @@ Agents may autonomously fix defects, accessibility, performance, responsive issu
 ## Shipping
 
 Run relevant build/type/lint checks and verify key breakpoints, navigation, metadata/SEO and product links. Update `docs/CURRENT_STATE.md` after material changes.
+
+### Vercel deployment budget — mandatory
+
+Follow `volta-os/governance/SHIPPING-PROTOCOL.md`.
+
+- **One requirement/work item = one production deployment from `main`.** The normal Git-triggered deployment after the final merge/push is the deployment for that requirement.
+- Preview deployments are exceptional: target **0**, normally allow **at most 1** when remote/render verification is materially needed; a second preview is only for re-verifying a material fix found in the first.
+- Do not push intermediate commits merely to obtain previews, and do not create dummy commits/branches or repeatedly press redeploy when Vercel is rate-limited.
+- Batch remote/GitHub API writes into coherent commits when practical so one file edit does not become one deployment attempt.
+- Use repository CI/source checks before Vercel. Preview is near-final verification, not the development loop.
+- If Vercel returns `build-rate-limit` or `api-deployments-free-per-day`, record the blocker and stop retrying until quota/provider capacity is available.

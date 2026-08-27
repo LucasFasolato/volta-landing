@@ -1,148 +1,140 @@
 # VOLTA Corporate — Current State
 
-**Last reviewed:** 2026-08-26  
+**Last reviewed:** 2026-08-27  
 **Lifecycle:** PRODUCTION / ACTIVE DEVELOPMENT  
 **Authoritative branch:** `main`  
 **Production:** `https://volta-landing-delta.vercel.app`  
-**Latest product-code merge:** `50d6559aa2e9009802f32e46afaaadc8d2f26a4b` (PR #13, `CORP-INIT-006`)
+**Latest product-code merge:** `42843ae4cba4f3d5eac3fd226d9f52b8bb06ddf8` (PR #15, `WEB-INIT-001`)
 
 ## Delivery state
 
-`main` now contains Corporate 3.0 Hero/Product Moments plus the new **VOLTA Flow** language.
+`main` now contains **VOLTA Web Design System 2.0** and the new Corporate reference implementation.
 
-The latest verified production deployment is still the pre-Flow runtime:
+PR #15 passed the complete Corporate quality gate before merge:
+
+- `npm run verify:corporate` — PASS;
+- ESLint — PASS;
+- Next.js production build — PASS.
+
+The merge-triggered Vercel deployment is currently blocked by the connected Hobby project's `build-rate-limit`. This is a delivery/provider limit, not a compilation failure.
+
+The last independently verified production deployment remains:
 
 - Vercel deployment: `dpl_5uL2Ykdp3NiKabDVLbvwauWXRE7w`;
 - state: `READY`;
-- source: `git`;
 - branch: `main`;
 - Git commit: `d2f8d51a9e9c434ab43c377a7c811231a41494e1`;
 - production alias: `https://volta-landing-delta.vercel.app`.
 
-The Flow product-code merge (`50d6559aa2e9009802f32e46afaaadc8d2f26a4b`) passed Corporate verification, ESLint and the Next.js production build in GitHub Actions. Vercel did not create the final preview or production build because the connected Hobby project returned `build-rate-limit`. This is a delivery/provider limit, not a compilation failure.
-
-Until a later `main` deployment containing commit `50d6559...` is `READY` and promoted to the production alias, **Git `main` is ahead of production**.
-
-## Verified production behavior
-
-The currently served production build still confirms:
-
-- approved headline **“Tu próximo paso, online.”**;
-- intent-driven hero controls: `Vender`, `Mostrarte`, `Reservas`, `Automatizar`;
-- Store, Portfolio, Booking and guarded Automate product chapters;
-- interactive Product Moments;
-- Store → `https://www.voltastore.app`;
-- Portfolio → `https://volta-portfolio-psi.vercel.app`;
-- Booking → `https://volta-booking.vercel.app`;
-- Booking labeled **`En evolución`**;
-- Automate labeled **`En preparación`** with no external product destination;
-- Product Intent Analytics and Vercel Analytics.
-
-A pixel-level screenshot sweep is still unavailable in the connected execution environment. Source-level mobile/reduced-motion contracts and production build checks remain protected.
+Therefore **Git `main` is ahead of production** until Vercel accepts a later build containing Web 2.0.
 
 ## What the site is
 
-VOLTA Corporate is the ecosystem hub, not a WhatsApp automation landing and not a standalone SaaS product.
+VOLTA Corporate is the ecosystem hub, not a WhatsApp-only landing and not a standalone SaaS product.
 
-Current approved corporate headline:
+Approved corporate headline:
 
 > **Tu próximo paso, online.**
 
-Customer-facing product map on Corporate:
+Customer-facing product map:
 
-- **VOLTA Store** — production commerce/storefront product;
-- **VOLTA Portfolio** — production/active professional portfolio product;
-- **VOLTA Booking** — active, production-oriented booking product, intentionally labeled **`En evolución`**;
-- **VOLTA Automate** — guarded customer-facing working name for the automation direction, intentionally labeled **`En preparación`** with no external product link.
+- **VOLTA Store** — available; `https://www.voltastore.app`;
+- **VOLTA Booking** — active and intentionally labeled **`En evolución`**; `https://volta-booking.vercel.app`;
+- **VOLTA Portfolio** — available; `https://volta-portfolio-psi.vercel.app`;
+- **VOLTA Automate** — guarded working name, intentionally labeled **`En preparación`**, no external destination.
 
-`volta-os` remains authoritative for the final automation product name and lifecycle. Corporate must not promote Automate to generally available until that truth changes.
+`volta-os` and the corresponding Product OS remain authoritative for product lifecycle and capability truth.
 
-## Current `main` runtime
+## Current `main` runtime — Web 2.0
 
-Corporate 3.0 on `main` now includes:
+Corporate now follows the ecosystem web standard documented in `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md`.
 
-- **Hero 3.0 / VOLTA Switchboard** as an intent selector;
-- product-specific hero stages for Store, Portfolio, Booking and Automate;
-- interactive Product Moments for all four chapters;
-- **VOLTA Flow** activation signature: `OFF → VOLTA → ONLINE`;
-- a four-way ecosystem branch map toward Store / Portfolio / Booking / Automate;
-- a continuous chapter rail across product, principles, outcome, process and closing sections;
-- scroll-aware active / passed / idle flow states powered by `IntersectionObserver`;
-- mobile-specific horizontal flow signaling;
-- purposeful flow motion with explicit `prefers-reduced-motion` behavior;
-- real Store/Portfolio/Booking destinations;
-- guarded Automate messaging without invented integrations or availability claims;
-- `scripts/verify-corporate.mjs` protection for positioning, routes, lifecycle labels, switchboard, Product Moments, VOLTA Flow, metadata, analytics, responsive rules and legacy retirement;
-- `.github/workflows/corporate-quality.yml` clean install, verification, lint and production build;
-- Vercel Web Analytics and the existing privacy-limited `Product selected` event.
+Key changes:
+
+- light-first / dark-purposeful surface system;
+- Inter as the primary web typeface;
+- purposeful VOLTA green semantics for action, active state and confirmation;
+- exactly **five primary sections** on Corporate;
+- compact, server-rendered Product Moments for Store, Booking, Portfolio and Automate;
+- shared `VoltaHeader`, `VoltaLockup`, `SectionHeading` and `VoltaFooter` components;
+- product facts centralized in `src/data/corporate-products.ts`;
+- explicit product-intent analytics placement;
+- mobile and reduced-motion contracts preserved;
+- no fictional social proof or unsupported product claims.
 
 ## Current information architecture
 
-1. Fixed navigation.
-2. Hero 3.0 with intent-driven VOLTA Switchboard.
-3. VOLTA Flow activation signature (`OFF → VOLTA → ONLINE`).
-4. `Una marca · Distintas formas de avanzar` with four-way flow branching.
-5. Store, Portfolio, Booking and Automate Product Moments connected by the Flow rail.
-6. `Construido para avanzar` principles.
-7. Four-product `VOLTA en acción` outcome mapping.
-8. `Elegí → Hacelo tuyo → Ponelo online` process.
-9. Intent-oriented closing CTA / terminal Flow state.
+1. Hero / ecosystem chooser
+2. Products / four compact Product Moments
+3. `Elegí → Hacelo tuyo → Ponelo online`
+4. Why VOLTA / four principles
+5. Final CTA
+6. Footer
 
-## Active initiative
+The Corporate source verifier intentionally fails if the primary `<section>` count changes from five without an explicit guardrail update.
 
-### CORP-INIT-006 — VOLTA Flow
+## Runtime simplification
 
-Merged to `main` on 2026-08-26 via PR #13.
+Web 2.0 retired the previous Corporate 3.0 presentation layer:
 
-- product-code commit: `50d6559aa2e9009802f32e46afaaadc8d2f26a4b`;
+- Hero Switchboard;
+- interactive legacy Product Moments;
+- VOLTA Flow observer/rail/branch UI;
+- `volta-flow.css`.
+
+The current core marketing presentation is server-rendered and no longer depends on client state or `IntersectionObserver` for storytelling.
+
+## Measurement
+
+Corporate continues to answer one narrow question:
+
+> Which VOLTA product does a visitor choose, and from which placement?
+
+The existing Vercel Analytics event remains:
+
+- event: `Product selected`;
+- product key;
+- explicit placement (`products`, `footer`, or future declared placement);
+- no personal data.
+
+## Active / latest initiative
+
+### WEB-INIT-001 — VOLTA Web Design System 2.0
+
+Merged to `main` via PR #15 on 2026-08-27.
+
+- product-code merge: `42843ae4cba4f3d5eac3fd226d9f52b8bb06ddf8`;
 - Corporate verifier: PASS;
 - ESLint: PASS;
 - Next.js production build: PASS;
-- Vercel final preview/production promotion: BLOCKED by provider `build-rate-limit`;
-- status: **MERGED / PRODUCTION PROMOTION BLOCKED**.
+- Vercel promotion: BLOCKED by provider `build-rate-limit`;
+- code status: **MERGED / PRODUCTION PROMOTION BLOCKED**.
 
-See `docs/initiatives/active/CORP-INIT-006-volta-flow.md`.
+The implementation and ecosystem rules are documented in:
 
-## Recently shipped
+- `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md`;
+- `docs/initiatives/active/WEB-INIT-001-volta-web-design-system-2.md`.
 
-### CORP-INIT-005 — Hero 3.0 & Product Moments
+## Historical initiative note
 
-Shipped 2026-08-26 via PR #11.
-
-- introduced the `Vender / Mostrarte / Reservas / Automatizar` ecosystem switchboard;
-- replaced passive showcase visuals with interactive Product Moments;
-- added guarded VOLTA Automate representation;
-- passed Corporate verifier, lint and production build;
-- verified production deployment and HTTP 200.
-
-See `docs/initiatives/completed/CORP-INIT-005-hero-product-moments.md`.
-
-### CORP-INIT-004 — Conversion Clarity & Dependency Cleanup
-
-Shipped 2026-08-26.
-
-- introduced narrowly scoped product-intent measurement;
-- removed residual dependencies from the retired WhatsApp-era implementation;
-- strengthened Corporate verification and analytics guardrails.
-
-See `docs/initiatives/completed/CORP-INIT-004-conversion-clarity.md`.
+`CORP-INIT-006 — VOLTA Flow` remains useful historical context, but its Flow presentation layer was intentionally superseded by Web 2.0 after approved direction to reduce page length and simplify the Corporate experience.
 
 ## Material open debt / risks
 
-1. Product facts still live locally in `src/app/page.tsx`; cross-product drift remains possible. See `CORP-DEBT-002`.
-2. Corporate uses **VOLTA Automate** as the guarded customer-facing working name while `volta-os` still holds the automation direction as provisional/incubating; reconcile source of truth before availability changes.
-3. GitHub repository description still frames VOLTA as WhatsApp-only. See `CORP-DEBT-006`.
-4. `main` is temporarily ahead of production until Vercel accepts a post-Flow production build.
-5. Full pixel-level desktop/mobile browser QA should be repeated when browser infrastructure is available.
+1. Production is behind `main` while Vercel build-rate limiting continues.
+2. Product truth is centralized locally but still requires reconciliation with VOLTA OS/Product OS after material product releases.
+3. `VOLTA Automate` naming/lifecycle remains guarded until global product truth changes.
+4. Full pixel-level desktop/mobile browser QA should be repeated once a Web 2.0 preview/production deployment is available.
+5. GitHub repository description may still contain stale WhatsApp-only positioning and should be corrected through an authorized metadata write path.
 
 ## Next recommended direction
 
-1. Promote a `main` deployment containing `50d6559...` once the Vercel build-rate limit allows it, then verify the production alias and close CORP-INIT-006.
-2. Reconcile `VOLTA Automate` naming/lifecycle in `volta-os` before treating it as generally available.
-3. Use real product-selection data before changing CTA hierarchy again.
-4. Resolve registry-driven product facts when the cross-product contract is ready.
-5. Update the external GitHub repository description when an authorized metadata write path is available.
+1. Promote and visually verify Web 2.0 when Vercel accepts a new build.
+2. Use `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` as the basis for **Booking 2.0**.
+3. Apply the same system to Portfolio while preserving its editorial personality.
+4. Retrofit Store to shared Web 2.0 primitives rather than redesigning Store from zero.
+5. Keep Automate guarded until its product truth is mature enough for a dedicated landing.
 
 ## Last operating agent
 
-ChatGPT implemented `CORP-INIT-006` on 2026-08-26, merged VOLTA Flow to `main`, passed the full GitHub quality gate and recorded the external Vercel build-rate-limit blocking final production promotion.
+ChatGPT implemented `WEB-INIT-001`, merged PR #15 to `main`, passed the full GitHub quality gate and recorded the external Vercel `build-rate-limit` blocking final production promotion.

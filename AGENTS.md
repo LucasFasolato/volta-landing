@@ -11,9 +11,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Before changing the site
 
 1. Read `docs/CURRENT_STATE.md` and `docs/GUARDRAILS.md`.
-2. Read current `volta-os` global product/brand context when changing positioning, product representation or cross-product links.
-3. Inspect current code and recent Git history.
-4. Check `docs/HANDOFF.md` and open/concurrent work before overlap.
+2. Read `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` before changing public visual language, landing structure or marketing components.
+3. Read current `volta-os` global product/brand context when changing positioning, product representation or cross-product links.
+4. Inspect current code and recent Git history.
+5. Check `docs/HANDOFF.md` and open/concurrent work before overlap.
 
 ## Core rule
 
@@ -26,10 +27,12 @@ Agents may autonomously fix defects, accessibility, performance, responsive issu
 ## Corporate-site expectations
 
 - Explain the ecosystem simply.
+- Keep Corporate deliberately short; the Web 2.0 reference implementation uses five primary sections.
 - Product cards/previews must reflect real products, not fictional capability.
-- Keep VOLTA's global visual DNA: premium, minimal, strong hierarchy, high contrast, purposeful green accents, mobile-first clarity.
+- Keep VOLTA's global visual DNA: premium, minimal, strong hierarchy, purposeful contrast, purposeful green accents and mobile-first clarity.
+- Use light surfaces by default and dark surfaces only when they add meaning.
 - Avoid technical jargon and AI-centric marketing unless it materially explains user value.
-- Prefer outcome-oriented storytelling.
+- Prefer outcome-oriented storytelling and Product Moments over long feature copy.
 - Product links and metadata are conversion infrastructure; treat broken/stale destinations as real defects.
 
 ## Shipping

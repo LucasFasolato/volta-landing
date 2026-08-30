@@ -1,59 +1,122 @@
 # VOLTA Corporate — Roadmap
 
+Corporate is a Brand / Distribution Asset. Its roadmap should improve representation, trust transfer and routing—not accumulate product features.
+
 ## NOW
 
-### WEB-INIT-001 production promotion
-VOLTA Web Design System 2.0 and the five-section Corporate reference implementation are merged to `main` through PR #15. The complete GitHub quality gate is green. Final Vercel preview/production delivery is currently blocked by the Hobby project `build-rate-limit`.
+### Canonical portfolio alignment
 
-When the provider accepts a new build:
+Keep public product representation aligned with:
 
-1. verify the deployment contains `42843ae4cba4f3d5eac3fd226d9f52b8bb06ddf8` or a later descendant;
-2. verify the production alias;
-3. perform a deliberate browser pass at mobile/tablet/desktop;
-4. close the production-promotion portion of WEB-INIT-001.
+`LucasFasolato/volta-foundation/registry/portfolio.yaml`
 
-### Repository metadata alignment
-Update the GitHub repository description so it no longer frames VOLTA as a WhatsApp-only system when an authorized metadata write path is available.
+Current company-level truth:
 
-### Product-drift review
-Corporate product facts now live in `src/data/corporate-products.ts`, but product lifecycle and capability truth still belongs to VOLTA OS and each Product OS. Reconcile after material Store/Booking/Portfolio releases.
+- Store — OPERATE / INVEST;
+- Booking — BUILD / candidate for OPERATE / INVEST;
+- Portfolio — OPERATE / INVEST;
+- Automate — EXPLORE / INCUBATE;
+- Bridge — EXPLORE / INCUBATE;
+- Shield — EXPLORE / INCUBATE.
+
+Do not convert runtime/deployment labels into product lifecycle labels.
+
+### Distribution evidence
+
+Use the existing `Product selected` event to establish a baseline:
+
+- which product is selected;
+- from which placement;
+- whether meaningful traffic exists before changing product order or CTA hierarchy.
+
+Do not create broader analytics until a named decision requires it.
+
+### Visual Foundation v1 reconciliation
+
+Corporate predates the approved Visual Foundation in foundational shell details.
+
+When meaningful visual work occurs, converge incrementally toward:
+
+- `#00E878` canonical VOLTA Green;
+- Instrument Sans Variable for VOLTA-owned shell typography;
+- semantic tokens;
+- approved spacing/radius/motion foundations;
+- The Shift where it improves recognition without adding decorative complexity.
+
+Do not launch a full redesign solely to increase token compliance.
+
+### Explore-stage representation
+
+Automate currently remains represented locally despite being EXPLORE / INCUBATE.
+
+Do not strengthen that presentation or imply customer readiness without an explicit portfolio/brand decision.
+
+Whether Explore-stage initiatives should appear in the primary Corporate product chooser is a material positioning decision, not a routine copy edit.
 
 ## NEXT
 
-### Booking 2.0 — first Web 2.0 product migration
-Use `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` to shorten and lighten Booking while preserving its operational/calming personality. The target is a concise product landing built around the booking-confirmation Product Moment rather than dense dashboard UI.
+### Product truth synchronization
 
-### Portfolio 2.0 — editorial dialect
-Apply the same system to Portfolio without flattening its editorial identity. Preserve stronger dark/editorial moments while introducing more light rhythm, shorter copy and clearer conversion hierarchy.
+After material Store, Booking or Portfolio lifecycle/positioning changes:
 
-### Store 2.1 — shared-system retrofit
-Store remains the strongest internal commercial benchmark. Retrofit shared header/lockup, typography, Product Frame, motion and footer semantics without replacing the landing architecture that already works.
+1. read the canonical portfolio registry;
+2. verify the product repository's current truth;
+3. update local Corporate copy/status only where necessary;
+4. keep Corporate from becoming an alternate registry.
 
-### Learn from product-selection data
-Corporate records `Product selected` with product key and explicit placement. Accumulate real traffic before reordering products or changing CTA hierarchy again.
+### Evidence-led IA refinement
+
+Change order, hierarchy or section structure only when evidence indicates a real issue such as:
+
+- visitors cannot understand VOLTA;
+- visitors choose the wrong product;
+- product selection is materially weak because of unclear representation;
+- Brand/Visual Foundation drift materially reduces recognition or trust.
+
+### Real credibility
+
+Introduce proof only when real and supportable:
+
+- customer outcomes;
+- real product usage;
+- case studies;
+- attributable testimonials;
+- meaningful product evidence.
+
+Never fill empty credibility space with invented metrics.
 
 ## LATER
 
-### Automate landing
-Do not build a dedicated Automate landing until the product proposition, lifecycle, target use cases and supported capability truth are mature enough to market without caveat.
+### New public branches
 
-### Product manifest only if it reduces real drift
-If local product facts repeatedly diverge, extract a typed/build-time manifest or registry sync. Do not add runtime coupling merely for architectural neatness.
+Add or promote Bridge, Shield, Automate or another initiative in customer-ready Corporate navigation only when Strategy/Brand truth supports that representation.
 
-### Credibility / social proof
-Add proof only when real and attributable: live products, customer outcomes, measurable usage or credible case studies. Never use invented metrics or testimonials.
+### Structured portfolio synchronization
 
-### New VOLTA branches
-Add new public product destinations only when the global registry marks the branch mature enough for customer-facing representation.
+If manual Corporate product truth repeatedly drifts, consider a build-time/static synchronization mechanism from a controlled portfolio representation.
 
-## COMPLETED
+Do not add runtime coupling to product repositories merely for architectural neatness.
 
-- **CORP-INIT-001 — Product OS Adoption** — shipped 2026-08-25.
-- **CORP-INIT-002 — Main 2.0 Ecosystem Rebuild** — shipped 2026-08-25.
-- **CORP-INIT-003 — Production Hardening & Product Routing** — shipped 2026-08-25.
-- **CORP-INIT-004 — Conversion Clarity & Dependency Cleanup** — shipped 2026-08-26.
-- **CORP-INIT-005 — Hero 3.0 & Product Moments** — shipped 2026-08-26; superseded visually by Web 2.0.
-- **CORP-INIT-006 — VOLTA Flow** — merged 2026-08-26; presentation layer intentionally superseded by approved Web 2.0 simplification.
-- **WEB-INIT-001 — VOLTA Web Design System 2.0 / code delivery** — merged 2026-08-27 via PR #15; design system, five-section Corporate, compact server-rendered Product Moments, centralized product registry and legacy Flow/Switchboard retirement. Production promotion remains blocked by Vercel `build-rate-limit`.
-- **Product destination reconciliation** — Store, Portfolio and Booking route to authoritative production URLs.
-- **Corporate quality gate** — source-of-truth verification + lint + production build on PRs and `main`.
+### Corporate evolution
+
+A larger brand/corporate experience may eventually be justified by:
+
+- meaningful portfolio growth;
+- enterprise credibility needs;
+- stronger content/distribution strategy;
+- new Brand assets such as final symbol/wordmark;
+- real evidence that Corporate itself is a material acquisition surface.
+
+Until then, remain concise.
+
+## COMPLETED / HISTORICAL
+
+- Product OS adoption.
+- Ecosystem-first Corporate rebuild.
+- Product routing and production hardening.
+- Conversion clarity work.
+- Product Moments.
+- VOLTA Flow experiment, later superseded visually.
+- Web 2.0 concise reference implementation.
+
+These remain historical implementation milestones. They do not define current company-wide Design authority after Company OS v1.

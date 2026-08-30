@@ -9,7 +9,7 @@ export type CorporateProduct = {
   description: string;
   points: readonly string[];
   href: string | null;
-  status: "Disponible" | "En evolución" | "En preparación";
+  status: "Disponible" | "En evolución" | "En exploración";
 };
 
 export const corporateProducts: readonly CorporateProduct[] = [
@@ -56,9 +56,9 @@ export const corporateProducts: readonly CorporateProduct[] = [
     intent: "Automatizar",
     title: "Lo repetitivo no debería depender de vos.",
     description:
-      "La dirección de VOLTA para convertir procesos repetitivos en flujos claros y automatizados.",
-    points: ["Flujos de trabajo", "Menos tareas repetitivas", "Orientado a resultados"],
+      "Una línea de exploración de VOLTA para convertir procesos repetitivos en flujos claros, confiables y cada vez más automatizados.",
+    points: ["Exploración de flujos", "Menos tareas repetitivas", "Orientado a resultados"],
     href: null,
-    status: "En preparación",
+    status: "En exploración",
   },
 ] as const;

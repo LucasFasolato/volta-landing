@@ -1,140 +1,118 @@
 # VOLTA Corporate — Current State
 
-**Last reviewed:** 2026-08-27  
-**Lifecycle:** PRODUCTION / ACTIVE DEVELOPMENT  
+**Last reviewed:** 2026-08-30  
+**Entity type:** Brand / Distribution Asset  
+**Strategic roles:** BRAND_DISTRIBUTION · ECOSYSTEM_ASSET  
+**Investment posture:** MAINTAIN  
+**Runtime state:** PRODUCTION / ACTIVE DEVELOPMENT  
 **Authoritative branch:** `main`  
-**Production:** `https://volta-landing-delta.vercel.app`  
-**Latest product-code merge:** `42843ae4cba4f3d5eac3fd226d9f52b8bb06ddf8` (PR #15, `WEB-INIT-001`)
+**Production:** `https://volta-landing-delta.vercel.app`
 
-## Delivery state
+## What Corporate is
 
-`main` now contains **VOLTA Web Design System 2.0** and the new Corporate reference implementation.
+VOLTA Corporate is the public ecosystem hub.
 
-PR #15 passed the complete Corporate quality gate before merge:
+It is not:
 
-- `npm run verify:corporate` — PASS;
-- ESLint — PASS;
-- Next.js production build — PASS.
+- a standalone SaaS product;
+- the source of truth for product lifecycle;
+- a WhatsApp-only landing;
+- a place to promote Explore-stage initiatives as if customer-ready.
 
-The merge-triggered Vercel deployment is currently blocked by the connected Hobby project's `build-rate-limit`. This is a delivery/provider limit, not a compilation failure.
+Canonical company and portfolio truth lives in `LucasFasolato/volta-foundation`.
 
-The last independently verified production deployment remains:
-
-- Vercel deployment: `dpl_5uL2Ykdp3NiKabDVLbvwauWXRE7w`;
-- state: `READY`;
-- branch: `main`;
-- Git commit: `d2f8d51a9e9c434ab43c377a7c811231a41494e1`;
-- production alias: `https://volta-landing-delta.vercel.app`.
-
-Therefore **Git `main` is ahead of production** until Vercel accepts a later build containing Web 2.0.
-
-## What the site is
-
-VOLTA Corporate is the ecosystem hub, not a WhatsApp-only landing and not a standalone SaaS product.
-
-Approved corporate headline:
+Current corporate headline:
 
 > **Tu próximo paso, online.**
 
-Customer-facing product map:
+## Current portfolio representation
 
-- **VOLTA Store** — available; `https://www.voltastore.app`;
-- **VOLTA Booking** — active and intentionally labeled **`En evolución`**; `https://volta-booking.vercel.app`;
-- **VOLTA Portfolio** — available; `https://volta-portfolio-psi.vercel.app`;
-- **VOLTA Automate** — guarded working name, intentionally labeled **`En preparación`**, no external destination.
+Canonical portfolio truth currently implies:
 
-`volta-os` and the corresponding Product OS remain authoritative for product lifecycle and capability truth.
+- **VOLTA Store** — OPERATE / INVEST — customer-ready — `https://www.voltastore.app`;
+- **VOLTA Booking** — BUILD / candidate for OPERATE / INVEST — public but evolving — `https://volta-booking.vercel.app`;
+- **VOLTA Portfolio** — OPERATE / INVEST — customer-ready — `https://volta-portfolio-psi.vercel.app`;
+- **VOLTA Automate** — EXPLORE / INCUBATE — not customer-ready, no external destination;
+- **VOLTA Bridge** — EXPLORE / INCUBATE — not currently represented as a customer-ready branch;
+- **VOLTA Shield** — EXPLORE / INCUBATE — not currently represented as a customer-ready branch.
 
-## Current `main` runtime — Web 2.0
+Corporate may summarize this truth but must not override `volta-foundation/registry/portfolio.yaml`.
 
-Corporate now follows the ecosystem web standard documented in `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md`.
+## Current implementation
 
-Key changes:
+`main` contains the concise Corporate Web 2.0 implementation:
 
-- light-first / dark-purposeful surface system;
-- Inter as the primary web typeface;
-- purposeful VOLTA green semantics for action, active state and confirmation;
-- exactly **five primary sections** on Corporate;
-- compact, server-rendered Product Moments for Store, Booking, Portfolio and Automate;
-- shared `VoltaHeader`, `VoltaLockup`, `SectionHeading` and `VoltaFooter` components;
-- product facts centralized in `src/data/corporate-products.ts`;
-- explicit product-intent analytics placement;
-- mobile and reduced-motion contracts preserved;
-- no fictional social proof or unsupported product claims.
+- light-first / dark-purposeful surfaces;
+- five primary content sections;
+- compact product moments;
+- centralized local product representation in `src/data/corporate-products.ts`;
+- product-selection analytics;
+- mobile and reduced-motion behavior;
+- no fictional social proof.
+
+The current implementation predates VOLTA Visual Foundation v1 in some foundational details, notably:
+
+- Inter as VOLTA-owned shell typography;
+- legacy green values around `#12E89A`;
+- local Web 2.0 tokens presented historically as ecosystem-wide defaults.
+
+These are controlled Visual/Design debt, not a reason for an immediate full-site rewrite.
+
+## Visual authority after Company OS v1
+
+The global visual authority is now:
+
+- `VOLTA-VIS-001` — Visual Foundation;
+- `VOLTA-DSN-001` — Design System;
+- `VOLTA-BRD-001` — Brand System.
+
+`docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` remains useful as a description of the current Corporate implementation and proven landing composition, but it is no longer a company-wide design standard.
+
+Future material visual work should incrementally converge toward:
+
+- VOLTA Green `#00E878` as canonical brand primitive;
+- Instrument Sans Variable for VOLTA-owned primary typography;
+- semantic tokens rather than raw legacy brand values;
+- The Shift and the approved visual grammar where it materially improves recognition.
 
 ## Current information architecture
 
 1. Hero / ecosystem chooser
-2. Products / four compact Product Moments
+2. Products / compact Product Moments
 3. `Elegí → Hacelo tuyo → Ponelo online`
-4. Why VOLTA / four principles
+4. Why VOLTA
 5. Final CTA
 6. Footer
 
-The Corporate source verifier intentionally fails if the primary `<section>` count changes from five without an explicit guardrail update.
-
-## Runtime simplification
-
-Web 2.0 retired the previous Corporate 3.0 presentation layer:
-
-- Hero Switchboard;
-- interactive legacy Product Moments;
-- VOLTA Flow observer/rail/branch UI;
-- `volta-flow.css`.
-
-The current core marketing presentation is server-rendered and no longer depends on client state or `IntersectionObserver` for storytelling.
+The five-section constraint is a current implementation guardrail, not a universal Company OS law. Change it only when evidence or an approved positioning decision justifies the additional complexity.
 
 ## Measurement
 
-Corporate continues to answer one narrow question:
+Corporate currently answers one narrow question:
 
-> Which VOLTA product does a visitor choose, and from which placement?
+> **Which VOLTA product does a visitor choose, and from which placement?**
 
-The existing Vercel Analytics event remains:
+Existing event:
 
-- event: `Product selected`;
+- `Product selected`;
 - product key;
-- explicit placement (`products`, `footer`, or future declared placement);
+- explicit placement;
 - no personal data.
 
-## Active / latest initiative
+This is sufficient until another named decision requires more measurement.
 
-### WEB-INIT-001 — VOLTA Web Design System 2.0
+## Material open risks / debt
 
-Merged to `main` via PR #15 on 2026-08-27.
-
-- product-code merge: `42843ae4cba4f3d5eac3fd226d9f52b8bb06ddf8`;
-- Corporate verifier: PASS;
-- ESLint: PASS;
-- Next.js production build: PASS;
-- Vercel promotion: BLOCKED by provider `build-rate-limit`;
-- code status: **MERGED / PRODUCTION PROMOTION BLOCKED**.
-
-The implementation and ecosystem rules are documented in:
-
-- `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md`;
-- `docs/initiatives/active/WEB-INIT-001-volta-web-design-system-2.md`.
-
-## Historical initiative note
-
-`CORP-INIT-006 — VOLTA Flow` remains useful historical context, but its Flow presentation layer was intentionally superseded by Web 2.0 after approved direction to reduce page length and simplify the Corporate experience.
-
-## Material open debt / risks
-
-1. Production is behind `main` while Vercel build-rate limiting continues.
-2. Product truth is centralized locally but still requires reconciliation with VOLTA OS/Product OS after material product releases.
-3. `VOLTA Automate` naming/lifecycle remains guarded until global product truth changes.
-4. Full pixel-level desktop/mobile browser QA should be repeated once a Web 2.0 preview/production deployment is available.
-5. GitHub repository description may still contain stale WhatsApp-only positioning and should be corrected through an authorized metadata write path.
+1. **Visual Foundation convergence:** current code still contains legacy Inter / `#12E89A` implementation.
+2. **Automate public presence:** Automate is EXPLORE. Keeping an `En exploración`/preparation representation is a material brand/portfolio decision and must never imply availability.
+3. **Portfolio synchronization:** local product copy/status can drift after product releases; `volta-foundation/registry/portfolio.yaml` is the company-level classification authority.
+4. **Production verification:** material visual changes still require real desktop/mobile render verification.
+5. **Distribution effectiveness:** product-selection analytics exist, but current evidence does not yet establish whether Corporate materially improves product discovery or adoption.
 
 ## Next recommended direction
 
-1. Promote and visually verify Web 2.0 when Vercel accepts a new build.
-2. Use `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` as the basis for **Booking 2.0**.
-3. Apply the same system to Portfolio while preserving its editorial personality.
-4. Retrofit Store to shared Web 2.0 primitives rather than redesigning Store from zero.
-5. Keep Automate guarded until its product truth is mature enough for a dedicated landing.
-
-## Last operating agent
-
-ChatGPT implemented `WEB-INIT-001`, merged PR #15 to `main`, passed the full GitHub quality gate and recorded the external Vercel `build-rate-limit` blocking final production promotion.
+1. Keep Corporate aligned to the canonical portfolio after each material portfolio/lifecycle change.
+2. Measure product selection before reordering branches or rebuilding the IA.
+3. Incrementally migrate VOLTA-owned visual surfaces to Visual Foundation v1 when materially touched.
+4. Keep Explore-stage initiatives explicitly differentiated from customer-ready products.
+5. Do not reopen a large Corporate redesign without evidence that current representation, trust or routing is failing.

@@ -12,7 +12,7 @@ const inter = Inter({
 
 const title = "VOLTA | Tu próximo paso, online.";
 const description =
-  "Productos digitales simples y profesionales para vender, recibir reservas, mostrar tu trabajo y automatizar procesos. Conocé VOLTA Store, Booking y Portfolio; Automate está en preparación.";
+  "Productos digitales simples y profesionales para vender, recibir reservas y mostrar tu trabajo. Conocé VOLTA Store, Booking y Portfolio; Automate continúa en exploración.";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||

@@ -6,48 +6,71 @@ VOLTA Corporate is the public front door of the VOLTA ecosystem. It explains the
 
 It is a corporate/marketing surface, **not another commercial product line**.
 
+Strategic classification:
+
+- entity type: **Brand / Distribution Asset**;
+- strategic roles: **BRAND_DISTRIBUTION · ECOSYSTEM_ASSET**;
+- investment posture: **MAINTAIN**.
+
+Canonical portfolio classification lives in `LucasFasolato/volta-foundation/registry/portfolio.yaml`.
+
 ## Current positioning
 
-The approved corporate headline is **“Tu próximo paso, online.”**
+The current corporate headline is:
 
-The site should communicate VOLTA as a growing ecosystem of digital products that makes complex operations feel simple. WhatsApp remains an important mechanism inside products such as Store and future automation work, but it is **not the definition of the VOLTA brand**.
+> **Tu próximo paso, online.**
 
-Material changes to this positioning require human approval and must remain compatible with the global definition in `volta-os`.
+The site should communicate VOLTA as a product and technology company that turns sophisticated capability into practical, simple products.
 
-## Public product map
+WhatsApp remains an important mechanism inside Store and current automation experimentation, but it is **not the definition of the VOLTA brand**.
 
-| Product | Current authoritative lifecycle | Corporate treatment | Destination |
-|---|---|---|---|
-| VOLTA Store | PRODUCTION | Publicly featured as the commerce branch. | `https://www.voltastore.app` |
-| VOLTA Portfolio | PRODUCTION / ACTIVE | Publicly featured as the professional-presentation branch. | No authoritative public URL is registered yet; keep the corporate CTA internal until one is confirmed. |
-| VOLTA Booking | ACTIVE / production-oriented | Publicly featured as the booking/schedule branch and visually marked as evolving. | No authoritative public URL is registered yet; keep the corporate CTA internal until one is confirmed. |
-| VOLTA Automatization | INCUBATION; provisional name | Do not present as generally available until naming and product definition stabilize. | None |
+Material changes to this positioning require Brand-level approval and must remain compatible with:
 
-The table above summarizes `volta-os` plus the adopted Product OS files. It must not override them.
+- `VOLTA-FND-001`;
+- `VOLTA-BRD-001`;
+- `VOLTA-VIS-001`;
+- `VOLTA-DSN-001`.
+
+## Public portfolio truth
+
+Current canonical portfolio status:
+
+| Initiative | Canonical classification | Corporate treatment | Destination |
+| --- | --- | --- | --- |
+| VOLTA Store | Product · OPERATE · INVEST | Customer-ready commercial branch. | `https://www.voltastore.app` |
+| VOLTA Booking | Product · BUILD · candidate for OPERATE · INVEST | Publicly visible but should remain clearly evolving while real-business evidence accumulates. | `https://volta-booking.vercel.app` |
+| VOLTA Portfolio | Product · OPERATE · INVEST | Customer-ready professional-publishing branch. | `https://volta-portfolio-psi.vercel.app` |
+| VOLTA Automate | Product thesis · EXPLORE · INCUBATE | Not customer-ready. Any public presence must clearly communicate exploration/preparation rather than availability. | None |
+| VOLTA Bridge | Product thesis · EXPLORE · INCUBATE | Not currently represented as customer-ready. | None |
+| VOLTA Shield | Product thesis · EXPLORE · INCUBATE | Not currently represented as customer-ready. | None |
+
+This document summarizes portfolio truth for Corporate use. It does not override `volta-foundation/registry/portfolio.yaml` or the individual product repositories.
 
 ## Core visitor jobs
 
 1. Understand what VOLTA is within the first screen.
-2. Recognize whether the current need is to sell, present work or manage bookings.
-3. See enough real product behavior to trust that each branch is concrete.
-4. Reach an authoritative product destination with minimal friction when one exists.
+2. Recognize whether a current customer-ready product matches the visitor's need.
+3. See enough real product behavior to trust that the branch is concrete.
+4. Reach the authoritative destination with minimal friction.
 5. Leave with one coherent perception of VOLTA even though products solve different problems.
 
 ## Product principles
 
 - Outcome before technology.
 - Simple on the surface; complexity hidden underneath.
-- Premium without visual noise.
+- Premium through execution, not visual noise.
 - Real product storytelling before abstract marketing decoration.
 - Mobile-first clarity.
 - One clear action per product story.
 - No claim should outrun the product it represents.
+- Explore-stage initiatives must not visually borrow maturity from production products.
 
 ## Non-goals
 
 - storing independent Store/Booking/Portfolio roadmaps here;
 - duplicating detailed product feature documentation;
 - reverting the corporate site to a WhatsApp-only or chatbot-only identity;
-- presenting incubation work as production capability;
+- presenting Explore/Validate work as generally available;
 - inventing testimonials, metrics, customer counts or conversion claims;
-- becoming a generic agency/services website disconnected from the VOLTA product ecosystem.
+- becoming a generic agency/services website disconnected from VOLTA products;
+- becoming an alternate portfolio registry.

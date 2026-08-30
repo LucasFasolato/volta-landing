@@ -38,7 +38,7 @@ requireText(products, "https://volta-booking.vercel.app", "Booking route");
 requireText(products, 'status: "En evolución"', "Booking lifecycle label");
 requireText(products, 'name: "VOLTA Automate"', "Automate product representation");
 requireText(products, 'href: null', "Automate route guard");
-requireText(products, 'status: "En preparación"', "Automate lifecycle caveat");
+requireText(products, 'status: "En exploración"', "Automate explore caveat");
 
 requireText(productMoment, "function StoreMoment", "Store product moment");
 requireText(productMoment, "function BookingMoment", "Booking product moment");
@@ -51,14 +51,15 @@ requireText(webShell, "export function SectionHeading", "shared section heading"
 
 requireText(layout, "VOLTA | Tu próximo paso, online.", "metadata title");
 requireText(layout, "VOLTA Store, Booking y Portfolio", "metadata product map");
-requireText(layout, "Automate está en preparación", "metadata Automate caveat");
-requireText(layout, 'import { Inter } from "next/font/google"', "Inter typography foundation");
+requireText(layout, "Automate continúa en exploración", "metadata Automate caveat");
 requireText(layout, "/favicon.svg", "favicon metadata");
 requireText(layout, "<ProductIntentAnalytics />", "product intent analytics");
 requireText(layout, "<Analytics />", "Vercel Web Analytics");
 
-requireText(css, "--volta-canvas: #f6f8f5", "light-first canvas token");
-requireText(css, "--volta-green: #12e89a", "VOLTA action token");
+// Keep verifying the existence of the current tokenized shell without freezing
+// superseded Company OS primitives such as a specific legacy font or green hex.
+requireText(css, "--volta-canvas:", "canvas token");
+requireText(css, "--volta-green:", "VOLTA action token");
 requireText(css, ".volta-display", "display typography token");
 requireText(css, ".volta-section", "section spacing token");
 requireText(css, "@media (max-width: 767px)", "mobile breakpoint");
@@ -99,4 +100,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("VOLTA Web 2.0 corporate verification passed.");
+console.log("VOLTA Corporate verification passed.");

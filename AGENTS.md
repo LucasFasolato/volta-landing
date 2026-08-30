@@ -1,6 +1,6 @@
 # VOLTA Corporate — Agent Entry Point
 
-This repository is operated under **VOLTA OS v1.0**.
+This repository operates under the **VOLTA Company OS v1**.
 
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
@@ -8,44 +8,87 @@ This repository is operated under **VOLTA OS v1.0**.
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+## Canonical company context
+
+Company-level authority lives in `LucasFasolato/volta-foundation`.
+
+Use the minimum relevant source:
+
+- Company OS registry: `volta-foundation/registry/canonical-documents.yaml`
+- Portfolio truth: `volta-foundation/registry/portfolio.yaml`
+- Brand: `VOLTA-BRD-001`
+- Visual Foundation: `VOLTA-VIS-001`
+- Design: `VOLTA-DSN-001`
+- Strategy: `VOLTA-STR-001`
+- Delivery: `VOLTA-DLV-001`
+- Agent Operations: `VOLTA-AGT-001`
+
+Do not depend on the superseded `volta-os` repository for current VOLTA policy.
+
 ## Before changing the site
 
-1. Read `docs/CURRENT_STATE.md` and `docs/GUARDRAILS.md`.
-2. Read `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` before changing public visual language, landing structure or marketing components.
-3. Read current `volta-os` global product/brand context when changing positioning, product representation or cross-product links.
-4. Inspect current code and recent Git history.
-5. Check `docs/HANDOFF.md` and open/concurrent work before overlap.
+1. Read `docs/CURRENT_STATE.md`, `docs/GUARDRAILS.md` and `docs/EVIDENCE.md`.
+2. Read `docs/PRODUCT.md` before changing product representation or positioning.
+3. Read `docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` for the current local implementation contract, then apply `VOLTA-VIS-001` / `VOLTA-DSN-001` when material visual work occurs.
+4. Inspect `volta-foundation/registry/portfolio.yaml` before changing product status, presence or cross-product links.
+5. Inspect the relevant product repository before publishing material capability claims.
+6. Inspect current code and recent Git history.
+7. Check `docs/HANDOFF.md` and concurrent work before overlap.
 
 ## Core rule
 
-This site **represents VOLTA; it does not redefine VOLTA**. Product facts should be sourced from the relevant product repository/registry rather than invented here.
+This site **represents VOLTA; it does not redefine VOLTA**.
+
+Product facts should come from the canonical portfolio registry plus the relevant product repository, not from local marketing assumptions.
 
 ## Authority
 
-Agents may autonomously fix defects, accessibility, performance, responsive issues, minor copy clarity and safe visual polish. Material repositioning, new strategic promises, unsupported product claims or major information-architecture changes require an approved direction.
+Agents may autonomously:
+
+- fix defects;
+- improve accessibility/performance/responsiveness;
+- correct stale product destinations/status labels when canonical evidence is clear;
+- improve minor copy clarity without changing positioning;
+- remove verified dead implementation;
+- update local documentation to match current Company OS truth.
+
+Human approval is required for:
+
+- material brand repositioning;
+- changing the primary corporate promise/headline;
+- materially changing which initiatives are publicly represented;
+- presenting Explore/Validate work as generally available;
+- unsupported claims/social proof;
+- major information-architecture changes;
+- substantial new runtime/backend/paid-provider commitments.
 
 ## Corporate-site expectations
 
-- Explain the ecosystem simply.
-- Keep Corporate deliberately short; the Web 2.0 reference implementation uses five primary sections.
-- Product cards/previews must reflect real products, not fictional capability.
-- Keep VOLTA's global visual DNA: premium, minimal, strong hierarchy, purposeful contrast, purposeful green accents and mobile-first clarity.
-- Use light surfaces by default and dark surfaces only when they add meaning.
-- Avoid technical jargon and AI-centric marketing unless it materially explains user value.
-- Prefer outcome-oriented storytelling and Product Moments over long feature copy.
-- Product links and metadata are conversion infrastructure; treat broken/stale destinations as real defects.
+- Explain VOLTA simply.
+- Corporate is a Brand / Distribution Asset, not a SaaS product.
+- Product cards/previews must reflect real product truth.
+- Keep the site deliberately concise unless evidence proves additional content is useful.
+- Preserve mobile-first clarity and accessibility.
+- Prefer real Product Moments and outcome-oriented language over technology theatre.
+- Treat product links and statuses as conversion infrastructure.
+- Do not let local visual conventions silently redefine Company OS visual foundations.
+
+## Evidence discipline
+
+Corporate currently measures one narrow question:
+
+> **Which VOLTA product does a visitor choose, and from which placement?**
+
+Before reordering products, adding large sections or materially changing CTA hierarchy, prefer real routing/visitor evidence over aesthetic preference.
 
 ## Shipping
 
-Run relevant build/type/lint checks and verify key breakpoints, navigation, metadata/SEO and product links. Update `docs/CURRENT_STATE.md` after material changes.
+Follow `VOLTA-DLV-001` and use the smallest verification set that proves the claim.
 
-### Vercel deployment budget — mandatory
+Relevant checks include source verifier, lint, build, metadata/SEO, product destinations and representative desktop/mobile rendering for visual work.
 
-Follow `volta-os/governance/SHIPPING-PROTOCOL.md`.
+Avoid dummy commits/redeploy loops. If Vercel quota/rate limits block remote verification, record the blocker rather than repeatedly retrying.
 
-- **One requirement/work item = one production deployment from `main`.** The normal Git-triggered deployment after the final merge/push is the deployment for that requirement.
-- Preview deployments are exceptional: target **0**, normally allow **at most 1** when remote/render verification is materially needed; a second preview is only for re-verifying a material fix found in the first.
-- Do not push intermediate commits merely to obtain previews, and do not create dummy commits/branches or repeatedly press redeploy when Vercel is rate-limited.
-- Batch remote/GitHub API writes into coherent commits when practical so one file edit does not become one deployment attempt.
-- Use repository CI/source checks before Vercel. Preview is near-final verification, not the development loop.
-- If Vercel returns `build-rate-limit` or `api-deployments-free-per-day`, record the blocker and stop retrying until quota/provider capacity is available.
+There is no legacy shipping protocol that overrides `VOLTA-DLV-001`.
+
+Update `docs/CURRENT_STATE.md` after material changes. Use `docs/HANDOFF.md` only when unresolved continuation context is valuable.

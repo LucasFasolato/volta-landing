@@ -22,6 +22,7 @@ Use the minimum relevant source:
 - Strategy: `VOLTA-STR-001`
 - Delivery: `VOLTA-DLV-001`
 - Agent Operations: `VOLTA-AGT-001`
+- Vercel agent delivery: `VOLTA-AGT-PROFILE-VERCEL-001`
 
 Do not depend on the superseded `volta-os` repository for current VOLTA policy.
 
@@ -87,7 +88,19 @@ Follow `VOLTA-DLV-001` and use the smallest verification set that proves the cla
 
 Relevant checks include source verifier, lint, build, metadata/SEO, product destinations and representative desktop/mobile rendering for visual work.
 
-Avoid dummy commits/redeploy loops. If Vercel quota/rate limits block remote verification, record the blocker rather than repeatedly retrying.
+### Vercel deployment discipline
+
+Follow `VOLTA-AGT-PROFILE-VERCEL-001`.
+
+- Stay below the current **100 Vercel builds / rolling 24-hour** hard operating ceiling.
+- Default to **one final remote deployment per coherent feature/fix/work package**.
+- Develop and visually verify locally first; batch changes before deployment-triggering pushes.
+- Use additional previews/deployments only when hosted evidence is materially necessary and unavailable locally.
+- Coordinate concurrent agents so the same change is not previewed redundantly.
+- Avoid dummy commits, redeploy loops and repeated retries when Vercel is rate-limited.
+- Docs-only changes should not intentionally consume runtime deployment capacity when avoidable.
+
+> **Parallelize development; consolidate deployment.**
 
 There is no legacy shipping protocol that overrides `VOLTA-DLV-001`.
 

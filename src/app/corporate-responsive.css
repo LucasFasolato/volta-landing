@@ -1,4 +1,6 @@
 /* Interaction states, responsive compositions and accessibility modes. */
+/* The confirmation projects beyond its calendar. Keep its example label clear. */
+.product-moment-booking .moment-caption { margin-top: 40px; }
 @media (hover: hover) {
   .button:hover { transform: translateY(-2px); }
   .button-green:hover { background: var(--action-hover); }

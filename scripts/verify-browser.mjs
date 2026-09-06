@@ -22,12 +22,12 @@ try {
   const page = await context.newPage();
   page.on("pageerror", error => errors.push(error.message));
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
-  const response = await page.goto(base, { waitUntil: "networkidle" });
+  const response = await page.goto(base, { waitUntil: "domcontentloaded" });
   assert.equal(response.status(), 200);
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.locator("h1").count(), 1);
   assert.equal((await page.locator("h1").innerText()).replace(/\s+/g, " "), "Tu próximo paso, online.");
-  assert.equal(await page.locator("main > section").count(), 5);
+  assert.equal(await page.locator("main > section").count(), 6);
   assert.equal(await page.locator(".product-card").count(), 3);
   assert.equal(await page.locator("#en-desarrollo article").count(), 2);
   assert.equal(await page.locator("#en-desarrollo a").count(), 0);

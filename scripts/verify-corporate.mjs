@@ -13,7 +13,7 @@ const site = read("src/data/site.ts");
 // Guard public truth and meaningful contracts, not incidental marketing wording.
 assert.match(page, /Tu próximo<br\s*\/>paso,/);
 assert.equal((page.match(/<h1\b/g) || []).length, 1);
-assert.equal((page.match(/<section\b/g) || []).length, 5);
+assert.ok((page.match(/<section\b/g) || []).length >= 5, "Corporate home keeps a clear multi-section narrative");
 for (const id of ["contenido", "productos", "criterio", "en-desarrollo", "como-funciona"]) {
   assert.ok(page.includes(`id="${id}"`), `Missing destination ${id}`);
 }
@@ -26,9 +26,10 @@ assert.match(available, /status: "En evolución"/);
 for (const name of ["VOLTA Shield", "VOLTA Bridge", "VOLTA Automate"]) assert.ok(planned.includes(name));
 assert.doesNotMatch(planned, /href:|Disponible|Próximamente/);
 assert.match(planned, /En exploración/);
-assert.match(page, /No mostramos un roadmap de promesas/);
+assert.match(page, /No es una lista de features ni un roadmap con fechas inventadas/);
 assert.match(page, /En validación/);
 assert.match(page, /Exploración · sin fecha prometida/);
+assert.match(page, /No representan clientes ni resultados medidos de VOLTA/);
 assert.match(moments, /Vista ilustrativa/);
 assert.match(moments, /aria-hidden="true"/);
 assert.doesNotMatch(moments, /<button|<input|<a\s/);

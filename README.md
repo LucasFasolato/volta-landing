@@ -1,70 +1,46 @@
 # VOLTA Corporate
 
-Sitio corporativo y superficie pública de distribución del ecosistema VOLTA.
+The public home of VOLTA: a product and technology company. This website explains the company, helps visitors discover the right product and distinguishes available products from initiatives still being built.
 
-## Responsabilidad
+Production: https://volta-landing-delta.vercel.app
 
-Este repositorio presenta qué es VOLTA, comunica sus iniciativas customer-ready y dirige a cada solución. **No es un producto SaaS independiente** y no debe convertirse en una fuente paralela de verdad sobre Store, Booking, Portfolio u otras iniciativas.
+Corporate is a **Brand / Distribution Asset**, not another SaaS product or a shared account platform.
 
-La autoridad company-level vive en `LucasFasolato/volta-foundation`.
+## Current experience
 
-Fuentes canónicas principales:
-
-- Company OS → `volta-foundation/registry/canonical-documents.yaml`
-- Portfolio actual → `volta-foundation/registry/portfolio.yaml`
-- Brand → `VOLTA-BRD-001`
-- Visual Foundation → `VOLTA-VIS-001`
-- Design → `VOLTA-DSN-001`
-- Strategy → `VOLTA-STR-001`
-
-Los repos de producto siguen siendo autoridad sobre su implementación y verdad local actual.
-
-## Rol estratégico
-
-VOLTA Corporate es un:
-
-- **Brand / Distribution Asset**;
-- **Ecosystem Asset**.
-
-Su trabajo es:
-
-1. representar VOLTA con precisión;
-2. transferir confianza entre iniciativas;
-3. ayudar a un visitante a reconocer qué solución puede servirle;
-4. enrutarlo al destino correcto;
-5. medir esa selección con el mínimo tracking necesario.
-
-No debe inventar producto para tener algo que comunicar.
-
-## Stack
-
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Vercel
-
-## Operating context
-
-Antes de trabajo material:
-
-1. [`AGENTS.md`](./AGENTS.md)
-2. [`docs/CURRENT_STATE.md`](./docs/CURRENT_STATE.md)
-3. [`docs/GUARDRAILS.md`](./docs/GUARDRAILS.md)
-4. [`docs/EVIDENCE.md`](./docs/EVIDENCE.md)
-5. [`docs/PRODUCT.md`](./docs/PRODUCT.md)
-6. [`docs/ROADMAP.md`](./docs/ROADMAP.md)
-
-`docs/VOLTA-WEB-DESIGN-SYSTEM-2.md` describe la implementación web local heredada y sigue siendo útil para mantener coherencia mientras Corporate converge incrementalmente hacia Visual Foundation v1. No es una autoridad company-wide superior a `VOLTA-VIS-001` / `VOLTA-DSN-001`.
+- Approved headline: **Tu próximo paso, online.**
+- Store, Booking and Portfolio: concrete outcomes and authoritative product destinations.
+- Shield, Bridge and Automate: a separate, clearly labeled development/exploration chapter, without availability promises.
+- Instrument Sans, VOLTA Green, restrained Shift geometry and intentional mobile navigation.
+- Static/server-rendered content; client code only for navigation and narrow product-selection analytics.
 
 ## Development
 
+Use the committed npm lockfile. CI and production use Node 24.
+
 ```bash
-npm install
+npm ci
 npm run dev
+npm run check
 ```
 
-Usar los checks disponibles del repositorio antes de integrar cambios. Los cambios visuales requieren verificación real desktop/mobile cuando la infraestructura de render/deploy lo permita.
+`check` runs the public-content contracts, ESLint and the production build, including TypeScript. Browser verification is described in [SYSTEM](docs/SYSTEM.md); it covers responsive rendering, accessibility, navigation, metadata and product-intent events.
 
-## Canonical rule
+## Context
 
-> **Corporate represents VOLTA. It does not redefine VOLTA.**
+Start with [AGENTS.md](AGENTS.md), [CURRENT_STATE](docs/CURRENT_STATE.md) and the relevant local context:
+
+- [PRODUCT](docs/PRODUCT.md): public purpose, scope and product representation.
+- [GUARDRAILS](docs/GUARDRAILS.md): claims, authority and shipping boundaries.
+- [Local visual contract](docs/VOLTA-WEB-DESIGN-SYSTEM-2.md): composition and implementation.
+- [SYSTEM](docs/SYSTEM.md): architecture, verification and delivery.
+- [EVIDENCE](docs/EVIDENCE.md) and [ROADMAP](docs/ROADMAP.md): what is known and what should come next.
+- [Corporate hub decision](docs/decisions/CORP-DDR-001-corporate-hub.md): the September 2026 redesign.
+
+Company authority lives in `LucasFasolato/volta-foundation`, especially `registry/canonical-documents.yaml` and `registry/portfolio.yaml`. Individual product repositories own current product capabilities and operational destinations. Local marketing data is a presentation of that truth, not a competing registry.
+
+## Delivery
+
+Develop and verify before deployment-triggering integration. Default to **one final Vercel deployment per coherent work package**. Do not use preview builds as an editing loop. Preserve other contributors' work and recheck upstream before merging.
+
+> Corporate represents VOLTA. It does not redefine VOLTA.

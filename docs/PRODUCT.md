@@ -1,76 +1,54 @@
 # VOLTA Corporate — Product Role
 
-## Role
+## Purpose
 
-VOLTA Corporate is the public front door of the VOLTA ecosystem. It explains the common idea behind VOLTA, presents customer-ready product branches and routes visitors toward the right next step.
+Corporate is the public front door of VOLTA. It explains the common idea behind the company, presents concrete product outcomes and routes visitors to the right next step. It is a **Brand / Distribution Asset**, not another commercial product line.
 
-It is a corporate/marketing surface, **not another commercial product line**.
+Company positioning follows `VOLTA-FND-001`, `VOLTA-BRD-001`, `VOLTA-VIS-001` and `VOLTA-DSN-001` in `LucasFasolato/volta-foundation`.
 
-Strategic classification:
-
-- entity type: **Brand / Distribution Asset**;
-- strategic roles: **BRAND_DISTRIBUTION · ECOSYSTEM_ASSET**;
-- investment posture: **MAINTAIN**.
-
-Canonical portfolio classification lives in `LucasFasolato/volta-foundation/registry/portfolio.yaml`.
-
-## Current positioning
-
-The current corporate headline is:
+Approved headline:
 
 > **Tu próximo paso, online.**
 
-The site should communicate VOLTA as a product and technology company that turns sophisticated capability into practical, simple products.
+The public explanation describes a product and technology company that makes useful capabilities easier to adopt. WhatsApp is Store's commercial handoff, not the definition of VOLTA. AI is central to Shield's thesis, not a mandatory company-wide prefix.
 
-WhatsApp remains an important mechanism inside Store and current automation experimentation, but it is **not the definition of the VOLTA brand**.
+## Visitor jobs
 
-Material changes to this positioning require Brand-level approval and must remain compatible with:
+1. Understand VOLTA within the first screen.
+2. Recognize the product that matches a real need.
+3. Understand what that product does before leaving the page.
+4. Reach its authoritative destination with minimal friction.
+5. Understand that upcoming initiatives are not generally available.
+6. Leave with one coherent perception of the company.
 
-- `VOLTA-FND-001`;
-- `VOLTA-BRD-001`;
-- `VOLTA-VIS-001`;
-- `VOLTA-DSN-001`.
+The primary outcome is **accurate representation and qualified product routing**, not time spent on the landing or feature volume.
 
-## Public portfolio truth
+## Public product representation
 
-Current canonical portfolio status:
+The current presentation map lives in `src/data/corporate-products.ts`; [CURRENT_STATE](CURRENT_STATE.md) documents destination reconciliation. Portfolio classifications remain owned by `volta-foundation/registry/portfolio.yaml`.
 
-| Initiative | Canonical classification | Corporate treatment | Destination |
-| --- | --- | --- | --- |
-| VOLTA Store | Product · OPERATE · INVEST | Customer-ready commercial branch. | `https://www.voltastore.app` |
-| VOLTA Booking | Product · BUILD · candidate for OPERATE · INVEST | Publicly visible but should remain clearly evolving while real-business evidence accumulates. | `https://volta-booking.vercel.app` |
-| VOLTA Portfolio | Product · OPERATE · INVEST | Customer-ready professional-publishing branch. | `https://volta-portfolio-psi.vercel.app` |
-| VOLTA Automate | Product thesis · EXPLORE · INCUBATE | Not customer-ready. Any public presence must clearly communicate exploration/preparation rather than availability. | None |
-| VOLTA Bridge | Product thesis · EXPLORE · INCUBATE | Not currently represented as customer-ready. | None |
-| VOLTA Shield | Product thesis · EXPLORE · INCUBATE | Not currently represented as customer-ready. | None |
+- **Store:** a branded catalog/cart that sends an organized order to WhatsApp. The merchant and shopper coordinate payment and delivery; Corporate does not claim integrated shopper payments.
+- **Booking:** online appointment selection and mobile agenda operation. Publicly visible with **En evolución**. Do not claim deferred reminders, full Calendar synchronization, payments or conversational AI.
+- **Portfolio:** guided professional presentation of projects, technical/academic dossiers and identity. Do not claim unconstrained page building, custom-domain management or team collaboration.
 
-This document summarizes portfolio truth for Corporate use. It does not override `volta-foundation/registry/portfolio.yaml` or the individual product repositories.
+These products work independently. Corporate does not imply that users must buy a suite or share one VOLTA account.
 
-## Core visitor jobs
+## Development chapter
 
-1. Understand what VOLTA is within the first screen.
-2. Recognize whether a current customer-ready product matches the visitor's need.
-3. See enough real product behavior to trust that the branch is concrete.
-4. Reach the authoritative destination with minimal friction.
-5. Leave with one coherent perception of VOLTA even though products solve different problems.
+The founder requested a comprehensive central hub redesign on 2026-09-06. [CORP-DDR-001](decisions/CORP-DDR-001-corporate-hub.md) records the resulting presentation decision without changing company strategy.
 
-## Product principles
+- **Shield:** an enterprise AI workspace under development, with organization policy, protection boundaries, authorized model/provider routing and usage/cost governance. No total-security, compliance or ROI guarantees.
+- **Bridge:** a platform under development connecting professionals building their careers with real, clearly scoped opportunities. Use professional/project-owner language, not a free-labor or guaranteed-employment proposition.
+- **Automate:** exploration of useful automation for repetitive operational problems. No invented available integrations or committed launch date.
 
-- Outcome before technology.
-- Simple on the surface; complexity hidden underneath.
-- Premium through execution, not visual noise.
-- Real product storytelling before abstract marketing decoration.
-- Mobile-first clarity.
-- One clear action per product story.
-- No claim should outrun the product it represents.
-- Explore-stage initiatives must not visually borrow maturity from production products.
+These initiatives have separate visual hierarchy, explicit status and explanatory disclosures. They do not receive external launch buttons or pretend sign-up flows.
+
+## Experience and evidence
+
+Outcome before technology. One action per product story. Mobile first-class. Premium through execution. Illustrations explain verified flow concepts but are clearly labeled examples; they are not product screenshots or real customers.
+
+Keep `Product selected` with product key and placement only. [EVIDENCE](EVIDENCE.md) distinguishes implemented quality from still-unproven comprehension, trust transfer and acquisition impact.
 
 ## Non-goals
 
-- storing independent Store/Booking/Portfolio roadmaps here;
-- duplicating detailed product feature documentation;
-- reverting the corporate site to a WhatsApp-only or chatbot-only identity;
-- presenting Explore/Validate work as generally available;
-- inventing testimonials, metrics, customer counts or conversion claims;
-- becoming a generic agency/services website disconnected from VOLTA products;
-- becoming an alternate portfolio registry.
+Do not duplicate product roadmaps, create another portfolio registry, invent testimonials or metrics, promote exploratory work as available, become a generic agency website, require cross-product identity or add a backend for marketing content.

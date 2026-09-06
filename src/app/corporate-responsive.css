@@ -54,7 +54,7 @@
   .scene-store-action, .scene-booking-confirm { font-size: 11px; padding-inline: 12px; }
   .quick-routes { grid-template-columns: repeat(3, 1fr); }
   .quick-routes > p { grid-column: 1 / -1; padding: 20px 0; }
-  .quick-routes > p br { display: none; }
+  .quick-routes > p br { display: initial; }
   .quick-routes > a { border-top: 1px solid var(--volta-border); }
   .quick-routes > a:nth-child(2) { border-left: 0; padding-left: 0; }
   .section-intro { grid-template-columns: 1fr; gap: 24px; }
@@ -85,7 +85,7 @@
   .volta-section { padding-block: 64px; }
   .header-inner { min-height: 72px; gap: 16px; }
   .volta-wordmark { font-size: 22px; }
-  .header-cta { min-height: 44px; font-size: 12px; padding-inline: 12px; gap: 8px; }
+  .header-cta { display: none; }
   .hero-grid { padding-top: 48px; gap: 40px; }
   .hero-content .volta-eyebrow { font-size: 11px; letter-spacing: .015em; }
   .volta-display { font-size: clamp(48px, 13.7vw, 76px); letter-spacing: -.06em; }
@@ -99,7 +99,7 @@
   .scene-label { left: 8px; right: auto; font-size: 10px; }
   .scene-portfolio { width: 81%; right: 0; top: 40px; }
   .scene-portfolio .architecture-study { height: 155px; }
-  .scene-portfolio-bottom { padding: 12px; }
+  .scene-portfolio-bottom { padding: 12px; visibility: hidden; }
   .scene-portfolio-bottom strong { font-size: 12px; }
   .scene-portfolio-bottom > span:last-child { font-size: 9px; }
   .scene-panel-bar { padding: 12px; font-size: 10px; }

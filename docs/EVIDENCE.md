@@ -1,105 +1,40 @@
 # VOLTA Corporate — Evidence
 
-## Purpose
+## Primary outcome
 
-Corporate is a Brand / Distribution Asset, not a commercial product. Its evidence model therefore focuses on whether it accurately represents VOLTA, transfers trust and routes visitors toward the correct product.
+Accurately represent VOLTA and route qualified visitors to the product matching their need, while reinforcing one coherent company identity.
 
-This document does not replace `volta-foundation/registry/portfolio.yaml` or product-specific evidence.
+Corporate is a Brand / Distribution Asset. This document does not replace Strategy's portfolio registry or product evidence.
 
-## Current evidence questions
+## What is known
 
-### Representation
+The September 2026 redesign is grounded in the approved Foundation, Brand, Visual Foundation and Design System, plus current Store, Booking, Portfolio, Shield and Bridge product definitions and the portfolio registry. The previous Corporate documents had stale Bridge/Shield framing and Portfolio's old destination; [CURRENT_STATE](CURRENT_STATE.md) records the reconciliation.
 
-Can a visitor understand what VOLTA is and what its customer-ready products do without being misled by exploratory work?
+Source contracts, lint, build, browser screenshots and interaction/accessibility checks provide **implementation evidence**. GitHub run artifacts and PR records preserve the exact results; Vercel/public-domain checks establish release status.
 
-### Routing
-
-Which product does a visitor choose, and from which placement?
-
-### Trust transfer
-
-Does Corporate help a visitor perceive Store, Booking and Portfolio as coherent products from one credible company rather than unrelated experiments?
-
-### Distribution value
-
-Does traffic from Corporate lead to meaningful product discovery or downstream product activity?
-
-Current instrumentation does not yet prove downstream impact.
+These checks do not establish that people understand the company faster, trust it more or convert at a higher rate.
 
 ## Evidence profile
 
-| Dimension | Current state | What is actually supported |
+| Dimension | Status | Meaning |
 | --- | --- | --- |
-| Accurate portfolio representation | Improving / current after Company OS v1 reconciliation | Local product map is now aligned to canonical classification. |
-| Product-selection behavior | Instrumented, evidence volume unknown | `Product selected` records product key + placement. |
-| Comprehension | Unknown | No current canonical user-research evidence. |
-| Trust transfer | Unknown | Brand coherence is an intended outcome, not yet measured directly. |
-| Downstream acquisition contribution | Unknown | Corporate does not currently connect product selection to comparable downstream activation cohorts. |
-| Repeat visitation | Not strategically required today | Corporate should not optimize artificial engagement. |
-| Economic evidence | Indirect / unknown | Corporate is not a standalone revenue line. |
+| Content provenance | Reconciled against identified sources | Capabilities are source-derived; available and development initiatives are separated. |
+| Product selection | Instrumented; evidence volume not established | `Product selected` records product and placement only. |
+| Comprehension | Unknown | No new user-study result is claimed. |
+| Trust transfer | Unknown | Coherent design is an intended mechanism, not measured trust. |
+| Downstream acquisition | Unknown | No comparable activation cohort or attribution claim. |
+| Economic contribution | Indirect / unknown | Corporate is not a standalone revenue line. |
 
-## Current evidence constraints
+## Measurement boundary
 
-Do not infer effectiveness from:
+Retain `Product selected` with product key and placement (`products`, `footer`, fallback `other`). Historical placements from previous layouts are not equivalent surfaces and should not be silently combined in a comparison.
 
-- a successful production deploy;
-- visual polish;
-- section count;
-- animation quality;
-- number of products shown;
-- code quality;
-- a visitor clicking once without sufficient traffic context.
+Do not add PII, arbitrary URLs or free text. Expand measurement only for a named decision.
 
-These may demonstrate implementation quality, not distribution value.
+## Next evidence
 
-## Primary current outcome
+Accumulate enough real traffic for routing direction to be meaningful. Check with real visitors whether they can explain VOLTA, distinguish the three available destinations and recognize the development chapter as not generally available. Consider product-origin activation measurement only when a specific distribution decision needs it.
 
-> **Accurately represent VOLTA and route qualified visitors toward the product that best matches their need, while strengthening one coherent perception of the company.**
+A polished design, deployment success, automated accessibility result or a single click is not a conversion study. Illustrative product compositions are not customer evidence.
 
-## Measurement now
-
-Keep the current narrow event:
-
-`Product selected`
-
-with:
-
-- product key;
-- placement.
-
-This is sufficient to establish a routing baseline.
-
-## Evidence to accumulate
-
-When traffic becomes meaningful, useful questions include:
-
-- product-selection distribution;
-- placement differences;
-- whether visitors understand product distinctions;
-- whether Explore-stage content causes confusion;
-- whether Corporate-originated visitors activate in the destination product;
-- whether product order meaningfully changes routing;
-- whether real credibility assets improve downstream behavior.
-
-Do not expand tracking until a concrete decision needs the additional evidence.
-
-## Explore-stage representation test
-
-For Automate, Bridge, Shield or future Explore/Validate initiatives, ask:
-
-1. Does public presence create useful strategic value now?
-2. Can its status be understood without caveat-heavy copy?
-3. Could a visitor reasonably mistake exploration for an available product?
-4. Does its presence improve VOLTA understanding or make the portfolio feel less credible?
-
-If uncertainty is high, the initiative should not gain stronger public prominence merely because a card can be designed for it.
-
-## Next evidence milestone
-
-1. Accumulate enough real Corporate traffic for `Product selected` to become directional.
-2. Validate comprehension with a small number of real visitors if ambiguity appears.
-3. Establish whether Corporate materially contributes to product discovery before another major information-architecture redesign.
-
-## Evidence rule
-
-> **Corporate earns change from observed representation or routing problems, not from visual restlessness.**
+> Improve from real representation and routing signals, not visual restlessness.

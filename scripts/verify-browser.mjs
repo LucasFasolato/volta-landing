@@ -83,7 +83,6 @@ try {
     assert.equal(await link.getAttribute("href"), href);
     assert.match(await link.getAttribute("rel"), /noopener/);
     assert.equal(await link.getAttribute("target"), "_blank");
-    // Prevent only the outbound navigation; allow the real React/document event path.
     await link.evaluate(node => node.addEventListener("click", event => event.preventDefault(), { once: true }));
     await link.click();
     const event = await page.evaluate(() => window.__events.filter(e => e[0] === "event").at(-1));
@@ -95,7 +94,7 @@ try {
   await page.setViewportSize({ width: 640, height: 900 });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
   const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
-  assert.equal(canonical, "https://volta-landing-delta.vercel.app/");
+  assert.equal(new URL(canonical).href, "https://volta-landing-delta.vercel.app/");
   const og = await page.locator('meta[property="og:image"]').getAttribute("content");
   assert.ok(og);
   const ogResponse = await page.request.get(`${base}${new URL(og).pathname}`);
@@ -108,6 +107,9 @@ try {
   results.push("Reduced motion, 640px reflow, canonical/OG, robots, sitemap, manifest and favicon");
   assert.deepEqual(errors, [], "Runtime browser errors");
   results.push("No browser runtime or console errors");
+} catch (error) {
+  writeFileSync(`${output}/failure.txt`, error.stack || String(error));
+  throw error;
 } finally {
   writeFileSync(`${output}/verification.json`, JSON.stringify({ results, errors }, null, 2));
   await browser.close();

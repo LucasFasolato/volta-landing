@@ -1,101 +1,65 @@
 # VOLTA Corporate — System
 
-## System shape
+## Architecture
 
-Lightweight Next.js App Router corporate/marketing application deployed on Vercel. There is no application database, auth flow or server-side product state in this repository.
+A lightweight Next.js App Router application on Vercel. The homepage and metadata routes are statically generated. There is no product database, authentication, customer data or privileged server action.
 
-The critical system is informational: product facts, lifecycle labels, destinations, visual previews, metadata and product-intent measurement must stay aligned with the rest of VOLTA.
+- `src/app/page.tsx`: five-chapter information architecture and semantic product stories.
+- `src/data/corporate-products.ts`: typed available-product map and separate development initiatives; shared with analytics.
+- `src/data/site.ts`: public origin, title and description. `NEXT_PUBLIC_SITE_URL` may explicitly override the canonical origin; preview hostnames never implicitly become canonical.
+- `src/components/corporate/volta-web-shell.tsx`: header/footer and interim lockup.
+- `src/components/corporate/mobile-navigation.tsx`: the narrow interactive navigation boundary.
+- `src/components/corporate/product-moment-v2.tsx`: lightweight illustrative flows, without focusable fake controls or external media calls.
+- `globals.css`: primitive/semantic tokens and core composition.
+- `corporate-sections.css`: product illustrations and narrative chapters.
+- `corporate-responsive.css`: interaction, responsive and accessibility modes.
+- `layout.tsx`, `robots.ts`, `sitemap.ts`, `opengraph-image.tsx`: fonts, metadata and discovery assets.
 
-## Current implementation
+CSS is loaded in the listed order through the root layout. Do not create a parallel token system. Brand-neutral illustrative colors are local content expression, not replacements for VOLTA interface semantics.
 
-The active runtime is intentionally small:
+## Measurement
 
-- `src/app/page.tsx` — information architecture, product summaries/routes and visual mockups;
-- `src/app/globals.css` — corporate visual system and responsive behavior;
-- `src/app/layout.tsx` — fonts, metadata, favicon and Vercel Analytics injection;
-- `src/components/analytics/product-intent-analytics.tsx` — narrow outbound product-intent event delegation;
-- `src/components/ui/brand-logo.tsx` — deployment-safe VOLTA mark.
+Vercel Web Analytics is retained. `ProductIntentAnalytics` recognizes only the three URLs from the presentation map. Ordinary and middle-button outbound clicks emit `Product selected` with `product` and `placement` (`products`, `footer`, fallback `other`). It never forwards link query strings or personal data.
 
-The page is static/prerendered. Product facts remain local source data; they are not dynamically sourced from `volta-os`.
+Historical placement values belonged to previous layouts. Do not silently compare them as identical surfaces when reviewing analytics across this release.
 
-The retired WhatsApp-first component/content tree and its residual `clsx`, `framer-motion` and `tailwind-merge` dependencies are gone.
-
-## Product routing
-
-Production and `main` route:
-
-- Store → `https://www.voltastore.app`
-- Portfolio → `https://volta-portfolio-psi.vercel.app`
-- Booking → `https://volta-booking.vercel.app`
-
-Booking remains labeled `En evolución`, reflecting its Product OS lifecycle rather than treating a deployment URL as proof of completed maturity.
-
-## Conversion measurement
-
-Corporate 2.1 uses Vercel Web Analytics rather than adding a separate vendor or backend.
-
-`ProductIntentAnalytics` listens only for clicks to the three authoritative external product URLs and sends:
-
-- event: `Product selected`;
-- `product`: `store`, `portfolio` or `booking`;
-- `placement`: `showcase`, `closing` or fallback `other`.
-
-Do not add names, emails, phone numbers, account IDs, free text or other personal data to this event.
-
-Production includes Vercel `Analytics`, and `https://volta-landing-delta.vercel.app/_vercel/insights/script.js` returned HTTP 200 after the Corporate 2.1 deployment.
-
-## Quality gate
-
-`main` includes:
-
-- `scripts/verify-corporate.mjs` — approved headline, routes/status, metadata/favicon, analytics contract, mobile/reduced-motion CSS, retired-path and dependency checks;
-- `.github/workflows/corporate-quality.yml` — Node 24, `npm ci`, Corporate verification, lint and production build on PRs and `main` pushes.
-
-Local commands:
+## Verification
 
 ```bash
-npm run verify:corporate
-npm run lint
-npm run build
+npm ci
 npm run check
 ```
 
-`next build` performs the TypeScript production check.
+This runs source/content contracts, ESLint and the production build including TypeScript. The lockfile is the exact dependency authority.
 
-## Production delivery
+For the browser suite, use Node 24 and a running production build:
 
-- Vercel project: `volta-landing`.
-- Public production URL: `https://volta-landing-delta.vercel.app`.
-- Latest verified deployment: `dpl_6QeSt5MbJch3Ahf6pjHmmP7soena`.
-- Deployment state: `READY`.
-- Source: `git`.
-- Branch: `main`.
-- Git commit: `06083c423bb9bd0918227af6042e63a49be35bba`.
+```bash
+npm install --prefix /tmp/volta-browser --no-package-lock --no-audit --no-fund playwright@1.57.0 @axe-core/playwright@4.11.0
+/tmp/volta-browser/node_modules/.bin/playwright install --with-deps chromium
+npm start
+# in a second terminal
+node scripts/verify-browser.mjs
+```
 
-The production build cloned GitHub `main`, installed the simplified dependency graph, compiled Next.js 16.2.2, passed TypeScript and promoted without alias errors. Public verification returned HTTP 200 with the approved headline, metadata and all three product destinations.
+The browser dependencies stay outside the application's dependency graph. Override `VOLTA_BROWSER_TOOLS`, `VOLTA_TEST_URL` or `VOLTA_TEST_OUTPUT` when needed. The default evidence location is `/tmp/corporate-evidence`.
 
-GitHub → Vercel delivery is currently healthy and traceable. `CORP-DEBT-003` remains resolved.
+The suite exercises actual production HTML/JS: responsive widths 320–1440px, Axe checks at desktop and mobile widths, mobile-menu dismissal/focus, native disclosure keyboard behavior, authoritative product destinations, real event delegation, reduced-motion behavior, canonical/OG/robots/sitemap/manifest/favicon and browser errors. Analytics and outbound product navigation are intercepted so verification does not send fake engagement to production products.
 
-## Cross-repository truth dependencies
+Review screenshots in addition to automated checks. Automated accessibility checks do not prove full WCAG conformance, physical-device coverage or user comprehension.
 
-Use these sources rather than duplicating global/product truth locally:
+## Release
 
-- `LucasFasolato/volta-os/core/VOLTA.md` — ecosystem definition;
-- `LucasFasolato/volta-os/core/BRAND.md` — global communication/brand rules;
-- `LucasFasolato/volta-os/ecosystem/REGISTRY.yaml` — lifecycle/repository/production destinations;
-- Store/Booking/Portfolio `volta.product.yaml` and `docs/CURRENT_STATE.md` — product-specific capability and state.
+Production: https://volta-landing-delta.vercel.app  
+Vercel project: `volta-landing`  
+Production branch: `main`
 
-If a product changes materially, review Corporate copy/previews/links for drift.
+Use an isolated branch, complete checks, recheck upstream and integrate one coherent verified change. This task's branch is excluded from Vercel previews by `vercel.json`; `main` remains deployment-enabled. Do not replace Git delivery with repeated manual deploys.
 
-## Shipping verification
+After integration, confirm the deployment's Git SHA, READY state, public alias, page content and metadata. CI status alone is not production status. Keep volatile release IDs in GitHub/Vercel evidence rather than freezing stale IDs here.
 
-Before shipping Corporate changes:
+## External truth
 
-- run `npm run check`;
-- verify desktop/mobile when visuals change materially;
-- verify fixed navigation/anchors when navigation changes;
-- verify authoritative product destinations;
-- verify metadata/title/description/favicon;
-- avoid unsupported availability, metric or social-proof claims;
-- verify the final production alias and intended Git commit after deployment;
-- when measurement changes, verify it still answers a named question and does not introduce PII.
+Company rules and portfolio classification: `LucasFasolato/volta-foundation`. Product capability: Store, Booking, Portfolio, Shield and Bridge product repositories. Automate remains an exploratory thesis in the portfolio registry.
+
+See [CURRENT_STATE](CURRENT_STATE.md) for the explicit Portfolio-domain reconciliation. No runtime fetch of internal company documents is needed.

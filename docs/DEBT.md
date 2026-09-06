@@ -1,12 +1,13 @@
 # VOLTA Corporate — Material Debt
 
 | ID | Priority | Area | Evidence / impact | Resolution | Status |
-|---|---|---|---|---|---|
-| CORP-DEBT-001 | P2 | Documentation | Repository README was generic create-next-app boilerplate and provided no VOLTA context. | Replaced during Product OS adoption. | RESOLVED |
-| CORP-DEBT-002 | P2 | Content operations | Product facts and lifecycle labels remain local in `src/app/page.tsx` while Store/Booking/Portfolio evolve independently. `verify:corporate` protects current URLs/labels, but does not consume the central registry. | Reconcile against registry/Product OS after material product releases. Introduce a typed/build-time manifest only if repeated drift justifies it. | OPEN |
-| CORP-DEBT-003 | P1 | Deployment | August 2026 Git→Vercel delivery temporarily failed. After repository reconnection and rate-limit recovery, normal `main` pushes again create production deployments with Git metadata. | Reopen only with new evidence of failed Git-triggered deployments. | RESOLVED |
-| CORP-DEBT-004 | P3 | Code hygiene | The retired WhatsApp-era source tree was removed in `CORP-INIT-003`. `CORP-INIT-004` then removed residual `clsx`, `framer-motion` and `tailwind-merge` dependencies, regenerated the lockfile, passed clean install/verify/lint/build and deployed successfully. | No further legacy dependency work required. | RESOLVED |
-| CORP-DEBT-005 | P1 | Conversion / cross-product dependency | Store, Portfolio and Booking all expose authoritative production URLs in VOLTA OS and Corporate production routes all three. | Keep routing aligned with registry/Product OS. | RESOLVED |
-| CORP-DEBT-006 | P2 | Repository metadata | GitHub repository description still says `Landing de VOLTA — sistema que automatiza ventas y atención en WhatsApp.`, contradicting the current ecosystem-first role. The connected GitHub integration can read this metadata but exposes no authorized repository-description write action. | Update the GitHub repository description through GitHub settings or another authorized metadata-write path, then verify it no longer frames VOLTA as WhatsApp-only. | OPEN |
+| --- | --- | --- | --- | --- | --- |
+| CORP-DEBT-001 | P2 | Documentation | Generic README lacked company context. | Replaced with Corporate purpose, source routing and verification. | RESOLVED |
+| CORP-DEBT-002 | P2 | Content operations | Typed product facts live in `src/data/corporate-products.ts` while product repositories evolve independently. Source checks catch contract drift, not future changes elsewhere. | Reconcile after material releases. Add build-time synchronization only if recurring drift earns it. | OPEN |
+| CORP-DEBT-003 | P1 | Deployment | Earlier Git→Vercel delivery failed, then recovered. | Reopen with new failed-delivery evidence; verify every material release's actual commit and alias. | RESOLVED |
+| CORP-DEBT-004 | P3 | Code hygiene | Retired WhatsApp-era components and animation/helper dependencies were removed previously. | Do not revive them. | RESOLVED |
+| CORP-DEBT-005 | P1 | Product routing | The corporate page needs authoritative destinations. Portfolio moved from its legacy Vercel hostname to its product-owned canonical domain. | Reconciled to `www.voltaportfolio.app`; see CURRENT_STATE for evidence precedence. | RESOLVED |
+| CORP-DEBT-006 | P2 | Repository metadata | GitHub description still says VOLTA automates sales/support through WhatsApp, contrary to the corporate role. The connected metadata read exposes no matching description-write action. | Update the repository's About description through an authorized metadata-write path. Rendered site copy is already ecosystem-first. | OPEN |
+| CORP-DEBT-007 | P2 | Visual foundation | Active shell previously used Inter and legacy green. | September hub adopts Instrument Sans, canonical brand green and semantic contrast relationships. Final logo remains a separate centrally controlled deliverable, not an invented local replacement. | RESOLVED |
 
-Do not create speculative technical debt for this lightweight site without repository, Product OS or production evidence.
+Scanner findings must be reviewed against the actual dependency graph and exposure. Security patch evidence belongs with the release checks; do not hide material runtime vulnerabilities as visual debt.

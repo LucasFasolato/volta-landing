@@ -1,258 +1,119 @@
-import Link from "next/link";
-import {
-  ArrowRight,
-  CalendarDays,
-  Check,
-  LayoutGrid,
-  ShoppingBag,
-  Workflow,
-} from "lucide-react";
-import { ProductMomentV2 } from "@/components/corporate/product-moment-v2";
-import {
-  SectionHeading,
-  VoltaFooter,
-  VoltaHeader,
-} from "@/components/corporate/volta-web-shell";
-import { corporateProducts } from "@/data/corporate-products";
+import { ArrowRight, ArrowUpRight, CalendarDays, Check, Layers3, Network, Plus, ShieldCheck, ShoppingBag, Workflow } from "lucide-react";
+import { HeroShowcase, ProductMomentV2 } from "@/components/corporate/product-moment-v2";
+import { VoltaFooter, VoltaHeader } from "@/components/corporate/volta-web-shell";
+import { corporateProducts, upcomingInitiatives } from "@/data/corporate-products";
 
-const outcomeIcons = {
-  store: ShoppingBag,
-  booking: CalendarDays,
-  portfolio: LayoutGrid,
-  automate: Workflow,
-} as const;
-
-const outcomeLabels = {
-  store: "Vender online",
-  booking: "Recibir reservas",
-  portfolio: "Mostrar tu trabajo",
-  automate: "Automatizar procesos",
-} as const;
+const productIcons = { store: ShoppingBag, booking: CalendarDays, portfolio: Layers3 } as const;
+const initiativeIcons = { shield: ShieldCheck, bridge: Network, automate: Workflow } as const;
 
 const principles = [
-  ["01", "Simple", "Lo esencial primero. Sin caminos innecesarios."],
-  ["02", "Tu identidad", "VOLTA acompaña tu marca; no la reemplaza."],
-  ["03", "Mobile primero", "La experiencia nace donde están tus clientes."],
-  ["04", "Una acción clara", "Vender. Reservar. Mostrar. Automatizar."],
+  ["01", "Útil en la vida real", "Partimos de una necesidad concreta. La tecnología tiene sentido cuando mejora algo de tu día a día."],
+  ["02", "Simple de usar", "Lo esencial primero, decisiones claras y una experiencia que no te exige conocimientos técnicos."],
+  ["03", "Bien hecho, de principio a fin", "Diseño, funcionamiento y cuidado de la información son parte del mismo trabajo. No son detalles para después."],
 ] as const;
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen overflow-x-hidden bg-[#f6f8f5] text-[#07120f]">
+    <div id="top" className="corporate-site">
+      <a href="#contenido" className="skip-link">Saltar al contenido</a>
       <VoltaHeader />
-
-      <main>
-        <section className="relative overflow-hidden border-b border-black/[0.06]">
-          <div className="pointer-events-none absolute left-[8%] top-[-260px] h-[520px] w-[620px] rounded-full bg-[#12e89a]/12 blur-3xl" />
-          <div className="volta-container relative grid items-center gap-10 py-16 sm:py-20 lg:min-h-[720px] lg:grid-cols-[.9fr_1.1fr] lg:gap-14 lg:py-24">
-            <div className="max-w-2xl">
-              <p className="volta-eyebrow">VOLTA · Productos digitales</p>
-              <h1 className="volta-display mt-6 max-w-[9.5ch]">
-                Tu próximo paso, <span className="text-[#0aa66f]">online.</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-[#5f6965] sm:text-lg sm:leading-8">
-                Elegí qué querés lograr. VOLTA te da un producto simple, profesional y listo para poner en movimiento.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a
-                  href="#productos"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#12e89a] px-6 text-sm font-black text-[#043322] shadow-[0_16px_38px_rgba(18,232,154,.22)] transition hover:-translate-y-0.5 hover:bg-[#0fdb91]"
-                >
-                  Encontrá tu VOLTA <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
-                  href="#como-funciona"
-                  className="inline-flex h-12 items-center justify-center rounded-full border border-black/[0.09] bg-white px-6 text-sm font-bold text-[#39433f] transition hover:-translate-y-0.5 hover:bg-[#fbfcfb]"
-                >
-                  Cómo funciona
-                </a>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-[#69736e]">
-                {["Simple por defecto", "Personalizable", "Pensado para mobile"].map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1.5">
-                    <Check className="h-3.5 w-3.5 text-[#0a9b69]" /> {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-[620px] lg:justify-self-end">
-              <div className="absolute -inset-10 rounded-full bg-[#12e89a]/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[32px] border border-black/[0.08] bg-[#07120f] p-4 text-white shadow-[0_34px_100px_rgba(7,18,15,.18)] sm:p-5">
-                <div className="flex items-center justify-between border-b border-white/[0.08] px-1 pb-4">
-                  <div>
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/35">Quiero</p>
-                    <p className="mt-1 text-sm font-bold">Elegir qué activar</p>
-                  </div>
-                  <span className="rounded-full bg-[#12e89a]/10 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.12em] text-[#83ffc0]">
-                    VOLTA
-                  </span>
+      <main id="contenido">
+        <section className="hero-section" aria-labelledby="hero-title">
+          <div className="volta-container">
+            <div className="hero-grid">
+              <div className="hero-content">
+                <p className="volta-eyebrow"><span className="signal-dot" />Productos y tecnología, con propósito.</p>
+                <h1 id="hero-title" className="volta-display">Tu próximo<br />paso, <span className="shift-word">online.</span></h1>
+                <p className="hero-copy">Creamos productos para que puedas vender, organizar tus reservas y mostrar tu trabajo. Tecnología útil, sin complicarte.</p>
+                <div className="hero-actions">
+                  <a href="#productos" className="button button-green">Explorá los productos<ArrowRight size={18} aria-hidden="true" /></a>
+                  <a href="#criterio" className="text-link">Conocé VOLTA<ArrowUpRight size={17} aria-hidden="true" /></a>
                 </div>
-                <div className="mt-3 grid gap-2">
-                  {corporateProducts.map((product) => {
-                    const Icon = outcomeIcons[product.key];
-                    return (
-                      <div
-                        key={product.key}
-                        className="group flex items-center gap-3 rounded-[20px] border border-white/[0.07] bg-white/[0.035] p-3.5 sm:p-4"
-                      >
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/[0.05] text-[#79f8b7]">
-                          <Icon className="h-4 w-4" />
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm font-bold">{outcomeLabels[product.key]}</p>
-                          <p className="mt-0.5 text-[11px] text-white/38">{product.name}</p>
-                        </div>
-                        <span className={`text-[9px] font-bold ${product.href ? "text-[#68dca2]" : "text-white/25"}`}>
-                          {product.href ? "ONLINE" : "PRÓXIMAMENTE"}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <p className="mt-4 px-1 text-[10px] leading-5 text-white/30">
-                  Una necesidad concreta. Un producto VOLTA. Una acción clara.
-                </p>
+                <p className="hero-footnote">Vos ponés la idea. Nosotros simplificamos la tecnología.</p>
               </div>
+              <HeroShowcase />
             </div>
+            <nav className="quick-routes" aria-label="Encontrá un producto según tu objetivo">
+              <p>¿Qué querés<br /><strong>poner en movimiento?</strong></p>
+              {corporateProducts.map(product => {
+                const Icon = productIcons[product.key];
+                return <a key={product.key} href={`#${product.key}`}><Icon size={20} aria-hidden="true" /><span>{product.intent}<small>{product.name}</small></span><ArrowUpRight size={18} aria-hidden="true" /></a>;
+              })}
+            </nav>
           </div>
         </section>
 
-        <section id="productos" className="volta-section bg-white">
+        <section id="productos" className="volta-section products-section" aria-labelledby="products-title">
           <div className="volta-container">
-            <SectionHeading
-              eyebrow="Productos VOLTA"
-              title="No elijas tecnología. Elegí qué querés lograr."
-              copy="Cada producto resuelve una necesidad concreta y muestra el momento que importa, sin obligarte a empezar desde cero."
-            />
-
-            <div className="mt-10 grid gap-5 lg:grid-cols-2">
-              {corporateProducts.map((product) => (
-                <article
-                  key={product.key}
-                  className="flex min-w-0 flex-col overflow-hidden rounded-[32px] border border-black/[0.07] bg-[#f6f8f5] p-4 sm:p-5"
-                >
-                  <ProductMomentV2 type={product.key} status={product.status} />
-                  <div className="px-1 pb-1 pt-6 sm:px-2">
-                    <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#7b8580]">
-                      <span className="text-[#0a8f62]">{product.intent}</span>
-                      <span>·</span>
-                      <span>{product.status}</span>
+            <div className="section-intro">
+              <div className="section-heading"><p className="volta-eyebrow">Encontrá tu VOLTA</p><h2 id="products-title" className="volta-h2">Una necesidad concreta.<br /><span className="muted-heading">Una solución para vos.</span></h2></div>
+              <p className="volta-copy section-aside">Cada producto resuelve algo distinto. Elegí el que necesitás y usalo por su cuenta, sin contratar todo el ecosistema.</p>
+            </div>
+            <div className="product-grid">
+              {corporateProducts.map(product => {
+                const Icon = productIcons[product.key];
+                return (
+                  <article id={product.key} key={product.key} className={`product-card product-card-${product.key}`} aria-labelledby={`${product.key}-title`}>
+                    <div className="product-story">
+                      <div className="product-identity"><span className="product-icon"><Icon size={21} aria-hidden="true" /></span><span>{product.name}</span><span className={`status status-${product.status === "Disponible" ? "available" : "evolving"}`}>{product.status}</span></div>
+                      <p className="product-audience">{product.audience}</p>
+                      <h3 id={`${product.key}-title`}>{product.title}</h3>
+                      <p className="product-description">{product.description}</p>
+                      <ul className="product-points">{product.points.map(point => <li key={point}><Check size={15} aria-hidden="true" />{point}</li>)}</ul>
+                      <a className="product-link" href={product.href} target="_blank" rel="noopener noreferrer" data-product-placement="products">Conocer {product.shortName}<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre en otra pestaña)</span></a>
                     </div>
-                    <h2 className="mt-3 max-w-[15ch] text-3xl font-black leading-[1.02] tracking-[-0.05em] sm:text-[2.15rem]">
-                      {product.title}
-                    </h2>
-                    <p className="mt-4 max-w-xl text-sm leading-6 text-[#606a65]">{product.description}</p>
-                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-[#6f7974]">
-                      {product.points.map((point) => (
-                        <span key={point} className="inline-flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#12e89a]" /> {point}
-                        </span>
-                      ))}
-                    </div>
-                    {product.href ? (
-                      <Link
-                        href={product.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        data-product-placement="products"
-                        className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-[#07120f] px-5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#15221d]"
-                      >
-                        Conocer {product.shortName} <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    ) : (
-                      <span className="mt-6 inline-flex h-11 w-fit items-center rounded-full border border-black/[0.08] bg-white px-5 text-sm font-bold text-[#9aa19e]">
-                        En preparación
-                      </span>
-                    )}
-                  </div>
-                </article>
-              ))}
+                    <ProductMomentV2 type={product.key} />
+                  </article>
+                );
+              })}
+            </div>
+            <p className="products-note"><span className="status-dot" aria-hidden="true" /><strong>Booking está en evolución:</strong> ya podés conocerlo mientras seguimos afinando la experiencia.</p>
+          </div>
+        </section>
+
+        <section id="criterio" className="principles-section" aria-labelledby="principles-title">
+          <div className="volta-container principles-grid">
+            <div className="principles-statement">
+              <p className="volta-eyebrow">La forma VOLTA</p>
+              <h2 id="principles-title">Lo complejo,<br /><span>adentro.</span><br />Lo simple,<br /><span className="principles-accent">para vos.</span></h2>
+              <div className="shift-signature" aria-hidden="true"><span /><span /><span /></div>
+            </div>
+            <div className="principles-body">
+              <p className="principles-intro">Somos una empresa de productos y tecnología. Conectamos lo que la tecnología puede hacer con lo que las personas realmente necesitan.</p>
+              <div className="principle-list">{principles.map(([number, title, copy]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div>
+              <p className="principles-closing">Distintos productos. El mismo compromiso con la calidad.</p>
             </div>
           </div>
         </section>
 
-        <section id="como-funciona" className="volta-section border-y border-black/[0.06] bg-[#f6f8f5]">
+        <section id="en-desarrollo" className="volta-section future-section" aria-labelledby="future-title">
           <div className="volta-container">
-            <SectionHeading
-              eyebrow="Cómo funciona"
-              title="Tres pasos. Nada de empezar de cero."
-              copy="VOLTA reduce las decisiones técnicas para que puedas pasar antes de la idea a algo que ya funciona online."
-            />
-            <div className="mt-10 grid border-t border-black/[0.08] md:grid-cols-3">
-              {[
-                ["01", "Elegí", "Definí qué querés resolver: vender, reservar, mostrarte o automatizar."],
-                ["02", "Hacelo tuyo", "Cargá tu contenido y ajustá la identidad con controles simples y guiados."],
-                ["03", "Ponelo online", "Compartí una experiencia profesional pensada para convertir una visita en una acción."],
-              ].map(([number, title, copy], index) => (
-                <article
-                  key={number}
-                  className={`border-b border-black/[0.08] py-7 md:min-h-[240px] md:px-7 md:py-8 ${index < 2 ? "md:border-r" : ""}`}
-                >
-                  <span className="text-[10px] font-black tracking-[0.14em] text-[#0a8f62]">{number}</span>
-                  <h3 className="mt-12 text-2xl font-black tracking-[-0.045em]">{title}</h3>
-                  <p className="mt-3 max-w-sm text-sm leading-6 text-[#68726d]">{copy}</p>
-                </article>
-              ))}
+            <div className="section-intro">
+              <div className="section-heading"><p className="volta-eyebrow">Un ecosistema en construcción</p><h2 id="future-title" className="volta-h2">El próximo paso<br /><span className="muted-heading">también se construye.</span></h2></div>
+              <p className="volta-copy section-aside">Nuevas ideas, el mismo criterio. Estas iniciativas están en desarrollo o exploración; todavía no están abiertas al público general.</p>
             </div>
+            <div className="initiative-list">{upcomingInitiatives.map(initiative => {
+              const Icon = initiativeIcons[initiative.key];
+              return <article className="initiative" key={initiative.key}>
+                <div className="initiative-name"><span className="initiative-icon"><Icon size={23} aria-hidden="true" /></span><h3>{initiative.name}</h3><span className="status status-planned">{initiative.status}</span></div>
+                <div className="initiative-copy"><h4>{initiative.title}</h4><p>{initiative.description}</p><details className="initiative-detail"><summary>Sobre esta iniciativa<Plus size={16} aria-hidden="true" /></summary><p>{initiative.detail}</p></details></div>
+              </article>;
+            })}</div>
           </div>
         </section>
 
-        <section id="criterio" className="bg-[#07120f] text-white">
-          <div className="volta-container py-16 sm:py-20 lg:py-24">
-            <div className="grid gap-10 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
-              <div>
-                <p className="volta-eyebrow volta-eyebrow-dark">Por qué VOLTA</p>
-                <h2 className="mt-4 max-w-[10ch] text-[clamp(2.6rem,5vw,4.8rem)] font-black leading-[.95] tracking-[-0.065em]">
-                  Menos fricción también es diseño.
-                </h2>
-              </div>
-              <p className="max-w-xl text-base leading-7 text-white/48 lg:justify-self-end">
-                Las mismas reglas se repiten en cada producto para que lo digital se sienta simple, profesional y propio.
-              </p>
-            </div>
-
-            <div className="mt-12 grid border-t border-white/[0.1] sm:grid-cols-2 lg:grid-cols-4">
-              {principles.map(([number, title, copy], index) => (
-                <article
-                  key={number}
-                  className={`border-b border-white/[0.1] py-6 sm:min-h-[210px] sm:px-6 sm:py-7 ${
-                    index % 2 === 0 ? "sm:border-r" : ""
-                  } ${index < 3 ? "lg:border-r" : "lg:border-r-0"}`}
-                >
-                  <span className="text-[9px] font-bold tracking-[0.15em] text-[#65dba1]">{number}</span>
-                  <h3 className="mt-12 text-xl font-bold tracking-[-0.04em]">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/42">{copy}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="volta-section bg-white">
+        <section id="como-funciona" className="volta-section start-section" aria-labelledby="start-title">
           <div className="volta-container">
-            <div className="relative overflow-hidden rounded-[34px] border border-black/[0.07] bg-[#edf8f1] px-5 py-12 text-center sm:px-10 sm:py-16">
-              <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[360px] w-[520px] -translate-x-1/2 rounded-full bg-[#12e89a]/18 blur-3xl" />
-              <div className="relative mx-auto max-w-3xl">
-                <p className="volta-eyebrow justify-center">Tu próximo paso</p>
-                <h2 className="mt-5 text-[clamp(2.7rem,6vw,5.4rem)] font-black leading-[.94] tracking-[-0.07em]">
-                  Elegí qué querés poner en movimiento.
-                </h2>
-                <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-[#64706a] sm:text-base sm:leading-7">
-                  Store, Booking y Portfolio ya tienen un producto para conocer. Automate sigue en preparación.
-                </p>
-                <a
-                  href="#productos"
-                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#07120f] px-6 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#15221d]"
-                >
-                  Ver productos <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
+            <div className="start-top"><div className="section-heading"><p className="volta-eyebrow">Tu punto de partida</p><h2 id="start-title" className="volta-h2">Elegí. Hacelo tuyo.<br /><span className="muted-heading">Ponelo en movimiento.</span></h2></div><a href="#productos" className="button button-dark">Encontrá tu VOLTA<ArrowRight size={18} aria-hidden="true" /></a></div>
+            <div className="start-steps">{[
+              ["01", "Empezá por tu necesidad", "¿Vender, recibir reservas o presentar tu trabajo? Encontrá el producto que te ayude con eso."],
+              ["02", "Dale tu identidad", "Cargá tu contenido y elegí cómo mostrarlo. Los productos te guían sin empezar desde cero."],
+              ["03", "Compartilo con el mundo", "Publicá tu tienda, agenda o portfolio. Un enlace para acercar lo que hacés a quienes lo necesitan."],
+            ].map(([number, title, copy]) => <article key={number}><span>{number}<ArrowRight size={18} aria-hidden="true" /></span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+            <div className="start-footnote"><span>Una necesidad concreta es suficiente para empezar.</span><a href="#productos">Ver productos<ArrowUpRight size={16} aria-hidden="true" /></a></div>
           </div>
         </section>
       </main>
-
       <VoltaFooter />
     </div>
   );

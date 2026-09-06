@@ -17,24 +17,45 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        with:
+          persist-credentials: false
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
-
-      - name: Install dependencies
+      - name: Install committed dependencies
         run: npm ci
-
-      - name: Verify corporate contracts
-        run: npm run verify:corporate
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Build
-        run: npm run build
+      - name: Verify content, lint, types and production build
+        run: npm run check
+      - name: Check production dependency advisories
+        run: |
+          mkdir -p /tmp/corporate-evidence
+          npm audit --omit=dev --audit-level=high --json > /tmp/corporate-evidence/audit-production.json
+      - name: Install isolated browser tools
+        run: |
+          npm install --prefix /tmp/volta-browser --no-package-lock --no-audit --no-fund playwright@1.57.0 @axe-core/playwright@4.11.0
+          /tmp/volta-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Verify real desktop and mobile behavior
+        run: |
+          npm start > /tmp/corporate-server.log 2>&1 &
+          for attempt in $(seq 1 30); do curl -fsS http://localhost:3000 >/dev/null && break; sleep 1; done
+          node scripts/verify-browser.mjs
+          node scripts/verify-illustration-spacing.mjs
+      - name: Collect diagnostics
+        if: always()
+        run: |
+          mkdir -p /tmp/corporate-evidence
+          cp /tmp/corporate-server.log /tmp/corporate-evidence/ 2>/dev/null || true
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: corporate-browser-evidence
+          path: /tmp/corporate-evidence
+          retention-days: 7

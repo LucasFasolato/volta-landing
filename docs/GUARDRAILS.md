@@ -1,148 +1,54 @@
 # VOLTA Corporate — Guardrails
 
-## Source-of-truth authority
+## Scoped truth
 
-Use the authority that owns the question.
+Corporate represents VOLTA; it does not redefine VOLTA.
 
-| Question | Authority |
-| --- | --- |
-| What does this repository currently implement? | Current `main` code and Git history. |
-| What does the public corporate site actually serve? | Current production deployment/domain evidence. |
-| What is VOLTA and how should it behave as a company/brand? | `LucasFasolato/volta-foundation` Company OS. |
-| Which initiatives exist and how are they classified? | `volta-foundation/registry/portfolio.yaml`. |
-| What can a product truthfully claim? | The corresponding product repository plus applicable Product/Brand constraints. |
-| What was intended historically? | Git history / accepted records / superseded docs as historical context only. |
+- Company identity, brand and foundational design: approved Company OS in `LucasFasolato/volta-foundation`.
+- Portfolio classification: `volta-foundation/registry/portfolio.yaml`.
+- Product capabilities and operational destinations: current product-owned documentation/configuration and production evidence.
+- Current implementation: repository code and Git history.
+- Actual public release: production domain/deployment evidence, not a successful build alone.
+- Historical intent: decision records and superseded initiatives, not current policy.
 
-If two sources conflict, identify the domain authority and resolve the contradiction explicitly.
+Resolve conflicts explicitly. [CURRENT_STATE](CURRENT_STATE.md) records the newer Portfolio-domain evidence rather than silently treating an old registry URL as current.
 
-> **Corporate represents VOLTA; it does not redefine VOLTA.**
+## Positioning and public claims
 
-## Positioning
+Keep **Tu próximo paso, online.** unless the responsible human/Brand authority approves a replacement. VOLTA is a product and technology company, not WhatsApp-only, AI-only or a generic software agency.
 
-- Current corporate headline: **“Tu próximo paso, online.”**
-- Corporate is ecosystem-first, not WhatsApp-first.
-- Technology and AI are means; practical outcomes are the public story.
-- Material repositioning or major information-architecture change requires Brand-level approval.
-- Explore-stage initiatives must not borrow maturity from customer-ready products.
+Store and Portfolio may be represented as available. Booking remains visibly evolving. Shield and Bridge are development initiatives; Automate is exploratory. None of those three may be presented as generally available without new authoritative evidence and the appropriate approval.
 
-## Product representation
+The September hub presentation is recorded in [CORP-DDR-001](decisions/CORP-DDR-001-corporate-hub.md). It does not grant blanket authority to promote future products.
 
-Canonical current product/initiative classification comes from `volta-foundation/registry/portfolio.yaml`.
-
-Current verified customer-facing product destinations:
-
-- Store → `https://www.voltastore.app`;
-- Portfolio → `https://volta-portfolio-psi.vercel.app`;
-- Booking → `https://volta-booking.vercel.app`.
-
-Current strategic interpretation:
-
-- Store — OPERATE / INVEST;
-- Portfolio — OPERATE / INVEST;
-- Booking — BUILD / candidate for OPERATE / INVEST;
-- Automate — EXPLORE / INCUBATE;
-- Bridge — EXPLORE / INCUBATE;
-- Shield — EXPLORE / INCUBATE.
-
-Rules:
-
-- Revalidate local status/copy after material portfolio changes.
-- A product claim must remain supported by the relevant product repository.
-- Booking should remain visibly evolving until its lifecycle changes canonically.
-- Automate must not be presented as available while it remains EXPLORE.
-- Adding/removing an Explore-stage initiative from the primary public chooser is a material positioning decision.
-- Real product previews are preferred over fictional dashboards.
-
-## Claims / credibility
-
-- No fabricated testimonials, customer counts, revenue impact, conversion percentages or usage metrics.
-- Social proof enters only when real and supportable.
-- Do not turn aspirations into current capability claims.
-- Distinguish customer-ready products from exploratory theses visually and verbally.
+No fabricated testimonials, metrics, customers, certifications, ROI or security guarantees. Do not turn aspirations into shipped capabilities. Clearly label illustrative content; do not make it look like an actual customer result. Product previews may express personality without redefining the corporate brand.
 
 ## Measurement
 
-Current Corporate question:
+Question: **Which product is selected, and from which placement?**
 
-> **Which VOLTA product does a visitor choose, and from which placement?**
+`Product selected` contains only product key and placement. Do not attach PII, account identifiers, free text or arbitrary URL/query values. A new vendor or broader tracking requires a named decision need.
 
-Track only what is necessary to answer that question:
+## Visual and interaction floor
 
-- product key;
-- placement.
+Inherit `VOLTA-BRD-001`, `VOLTA-VIS-001` and `VOLTA-DSN-001`: Instrument Sans, `#00E878`, semantic contrast pairs, The Shift, controlled geometry, clear hierarchy, generous spacing and mobile-first execution.
 
-Do not attach personal data, identifiers or free text.
+Bright brand green uses dark foreground. Preserve semantic headings, visible focus, keyboard/touch operation, readable content, reduced motion and responsive reflow. The accessibility target is WCAG 2.2 AA; passing an automated scan is not a certification.
 
-Do not add another analytics vendor or broader tracking without a named decision that needs it.
+Retain the interim logo until a centrally approved asset replaces it. Do not reintroduce obsolete Inter/legacy-green shell conventions or retired presentation components.
 
-## Brand / Visual / UX
+## Architecture and security
 
-Global authority:
+Keep the page static/server-rendered. Client code is justified by interaction or narrow telemetry. Do not add a database, runtime portfolio dependency, shared identity or third-party provider merely to centralize copy.
 
-- `VOLTA-BRD-001` — Brand System;
-- `VOLTA-VIS-001` — Visual Foundation;
-- `VOLTA-DSN-001` — Design System.
+Keep dependencies supported and patched. Evaluate scanner findings against real exposure; never use `npm audit fix --force` as an unreviewed release mechanism. No secrets, private product data or customer transcripts belong in this repository or its public examples.
 
-Corporate inherits:
+## Execution and authority
 
-- VOLTA Green `#00E878` as canonical brand primitive;
-- Instrument Sans Variable as primary VOLTA-owned type direction;
-- The Shift visual grammar;
-- semantic tokens;
-- WCAG 2.2 AA;
-- premium through execution;
-- mobile first-class.
+Agents may fix defects, improve accessibility/responsiveness/performance, reconcile clear canonical facts, maintain existing analytics and update local documentation. They must preserve concurrent work.
 
-Current legacy Inter / `#12E89A` implementation is controlled Design Debt.
+Human/Brand approval remains required for material repositioning, headline replacement, major IA or initiative-presence changes, general-availability promotion and substantial runtime/backend/paid-provider commitments. Unsupported claims are not authorized simply because they are marketing.
 
-Do not create a broad rewrite only to remove legacy values. When a surface is materially changed, prefer convergence over further drift.
+Use the shortest responsible Delivery path: targeted contracts, lint, build/TypeScript and real browser verification for changed visual/interactive surfaces. Verify product links, metadata and the final production commit when shipping.
 
-Product expression may vary; Corporate should not force every product to look identical.
-
-## Architecture
-
-- Keep the runtime lightweight.
-- Do not add a backend/database merely to centralize marketing copy or analytics.
-- If synchronization with portfolio truth becomes necessary, prefer build-time/static mechanisms before runtime coupling.
-- Do not recreate retired presentation systems without a concrete need.
-- Local product data is a presentation cache, not canonical portfolio authority.
-
-## Shipping
-
-Follow `VOLTA-DLV-001`.
-
-Before shipping material changes, select the smallest sufficient verification set, which may include:
-
-- `npm run verify:corporate`;
-- lint;
-- build;
-- desktop/mobile render verification;
-- navigation/anchor behavior;
-- product destinations;
-- metadata/SEO/favicon;
-- production verification when the release boundary requires it.
-
-A docs-only correction should not intentionally consume a runtime deployment.
-
-Do not repeatedly redeploy to bypass provider limits.
-
-## Agent autonomy
-
-Agents may autonomously:
-
-- fix defects, accessibility, responsive and performance issues;
-- correct stale links/status labels when canonical evidence exists;
-- improve minor copy clarity without repositioning;
-- reconcile local documentation with Company OS;
-- remove verified dead implementation;
-- preserve current analytics contracts.
-
-Human/Brand approval is required for:
-
-- material repositioning;
-- headline replacement;
-- material changes to which initiatives appear publicly;
-- presenting Explore/Validate initiatives as customer-ready;
-- new unsupported commercial/credibility claims;
-- major IA changes;
-- substantial runtime/backend/paid-provider commitments.
+Default to **one final remote Vercel deployment per coherent work package**, within the operating ceiling in `AGENTS.md`. Consolidate changes, suppress unnecessary previews and never retry deployment loops to evade a limit.

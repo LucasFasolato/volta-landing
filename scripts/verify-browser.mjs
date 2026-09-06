@@ -17,12 +17,8 @@ const results = [];
 const errors = [];
 try {
   const context = await browser.newContext({ reducedMotion: "reduce" });
-  // Do not send test traffic to analytics or third-party product destinations.
   await context.route("**/_vercel/insights/**", route => route.fulfill({ status: 200, contentType: "application/javascript", body: "" }));
-  await context.addInitScript(() => {
-    window.__events = [];
-    window.va = (...args) => window.__events.push(args);
-  });
+  await context.addInitScript(() => { window.__events = []; window.va = (...args) => window.__events.push(args); });
   const page = await context.newPage();
   page.on("pageerror", error => errors.push(error.message));
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
@@ -33,11 +29,15 @@ try {
   assert.equal((await page.locator("h1").innerText()).replace(/\s+/g, " "), "Tu próximo paso, online.");
   assert.equal(await page.locator("main > section").count(), 5);
   assert.equal(await page.locator(".product-card").count(), 3);
-  assert.equal(await page.locator("#en-desarrollo .initiative").count(), 3);
+  assert.equal(await page.locator("#en-desarrollo article").count(), 2);
   assert.equal(await page.locator("#en-desarrollo a").count(), 0);
+  assert.match(await page.locator("#en-desarrollo").innerText(), /VOLTA Shield/);
+  assert.match(await page.locator("#en-desarrollo").innerText(), /VOLTA Bridge/);
+  assert.match(await page.locator("#en-desarrollo").innerText(), /VOLTA Automate/);
+  assert.match(await page.locator("#en-desarrollo").innerText(), /En validación/i);
   assert.match(await page.locator("html").getAttribute("lang"), /^es/);
   assert.match(await page.locator("body").evaluate(node => getComputedStyle(node).fontFamily), /Instrument Sans|Instrument_Sans/);
-  results.push("Rendering, real product map, development separation, headline and Instrument Sans");
+  results.push("Rendering, real product map, venture hierarchy, headline and Instrument Sans");
 
   for (const width of [1440, 1280, 1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: width < 768 ? 844 : 1000 });
@@ -70,13 +70,6 @@ try {
   await page.setViewportSize({ width: 1280, height: 1000 });
   assert.equal(await page.locator("#mobile-menu").isVisible(), false);
   results.push("Mobile navigation: open, Escape/focus return, selection, outside click and resize");
-  const detail = page.locator(".initiative-detail").first();
-  await detail.locator("summary").focus();
-  await page.keyboard.press("Enter");
-  assert.equal(await detail.getAttribute("open"), "");
-  await page.keyboard.press("Enter");
-  assert.equal(await detail.getAttribute("open"), null);
-  results.push("Native disclosure supports keyboard and visible state");
 
   for (const [key, href] of Object.entries({ store: "https://www.voltastore.app", booking: "https://volta-booking.vercel.app", portfolio: "https://www.voltaportfolio.app" })) {
     const link = page.locator(`#${key} .product-link`);

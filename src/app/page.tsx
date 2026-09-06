@@ -11,9 +11,14 @@ const principles = [
   ["03", "Bien hecho", "Producto, diseño, ingeniería y confianza forman parte de una misma experiencia."],
 ] as const;
 
-// Vitaly Gariev / Unsplash. Free under the Unsplash License. Used as editorial context, not product evidence.
+// Editorial photography is contextual only, never customer/product evidence.
+// Hero / Store: Vitaly Gariev, Unsplash. Free under the Unsplash License.
 const heroEditorial = "https://images.unsplash.com/photo-1753162658084-3902c8d0dec0?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=82&w=2200";
 const storeEditorial = "https://images.unsplash.com/photo-1753162661809-ce0cb99b6fdb?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=82&w=1800";
+// Additional editorial contexts: Ivan S / RDNE Stock project / Thirdman, Pexels. Free to use under the Pexels License.
+const creatorEditorial = "https://images.pexels.com/photos/5428715/pexels-photo-5428715.jpeg?auto=compress&cs=tinysrgb&w=1800";
+const serviceEditorial = "https://images.pexels.com/photos/7755499/pexels-photo-7755499.jpeg?auto=compress&cs=tinysrgb&w=1800";
+const teamEditorial = "https://images.pexels.com/photos/7413872/pexels-photo-7413872.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 export default function Home() {
   return (
@@ -73,6 +78,30 @@ export default function Home() {
           </div>
         </section>
 
+        <section className={styles.realitySection} aria-labelledby="reality-title">
+          <div className="volta-container">
+            <div className={styles.realityLead}>
+              <div><p className="volta-eyebrow">Tecnología que toca la realidad</p><h2 id="reality-title">No queremos que VOLTA se vea tecnológica.<br /><span>Queremos que la tecnología se note en lo que mejora.</span></h2></div>
+              <p>La misma compañía puede ayudar a un emprendimiento a vender, a un profesional a ordenar su agenda, a alguien a mostrar su trabajo o a una organización a usar IA con más control. El hilo conductor es el resultado.</p>
+            </div>
+            <div className={styles.realityGallery}>
+              <figure className={`${styles.realityCard} ${styles.realityCardTall}`}>
+                <div className={styles.realityImage} style={{ backgroundImage: `url(${creatorEditorial})` }} />
+                <figcaption><span>Crear y mostrar</span><strong>Herramientas que acompañan el trabajo, no lo reemplazan.</strong></figcaption>
+              </figure>
+              <figure className={styles.realityCard}>
+                <div className={styles.realityImage} style={{ backgroundImage: `url(${serviceEditorial})` }} />
+                <figcaption><span>Organizar y atender</span><strong>Menos coordinación manual. Más tiempo para hacer.</strong></figcaption>
+              </figure>
+              <figure className={`${styles.realityCard} ${styles.realityCardDark}`}>
+                <div className={styles.realityImage} style={{ backgroundImage: `url(${teamEditorial})` }} />
+                <figcaption><span>Trabajar y decidir</span><strong>Tecnología seria para equipos que no quieren cargar con la complejidad.</strong></figcaption>
+              </figure>
+            </div>
+            <p className={styles.editorialNote}>Imágenes editoriales para representar contextos de uso. No representan clientes ni resultados medidos de VOLTA.</p>
+          </div>
+        </section>
+
         <section id="criterio" className="principles-section" aria-labelledby="principles-title">
           <div className="volta-container principles-grid">
             <div className="principles-statement"><p className="volta-eyebrow">La forma VOLTA</p><h2 id="principles-title">Lo complejo,<br /><span>adentro.</span><br />Lo simple,<br /><span className="principles-accent">para vos.</span></h2><div className="shift-signature" aria-hidden="true"><span /><span /><span /></div></div>
@@ -82,15 +111,22 @@ export default function Home() {
 
         <section id="en-desarrollo" className="volta-section future-section" aria-labelledby="future-title">
           <div className="volta-container">
-            <div className={styles.creationIntro}><div><p className={styles.creationKicker}>Ahora en VOLTA</p><h2 id="future-title" className={styles.creationTitle}>Estamos construyendo<br />lo que sigue.</h2></div><p className={styles.creationAside}>No mostramos un roadmap de promesas. Mostramos las tesis en las que estamos trabajando hoy y qué problema queremos resolver con cada una.</p></div>
+            <div className={styles.creationIntro}><div><p className={styles.creationKicker}>En construcción · portfolio futuro</p><h2 id="future-title" className={styles.creationTitle}>Estamos construyendo<br />lo que sigue.</h2></div><p className={styles.creationAside}>No es una lista de features ni un roadmap con fechas inventadas. Son apuestas de producto en distintas etapas, con un problema concreto detrás y una hipótesis que todavía tiene que ganar evidencia.</p></div>
             <div className={styles.ventureGrid}>
               <article className={`${styles.venture} ${styles.venturePrimary}`}>
-                <span className={styles.ventureNumber}>01 / COMPANY AI</span><div className={styles.ventureHead}><div className={styles.ventureName}><span className={styles.ventureIcon}><ShieldCheck size={20} aria-hidden="true" /></span>VOLTA Shield</div><span className={styles.ventureStatus}>En validación</span></div><div className={styles.ventureShift} aria-hidden="true"><i/><i/><i/></div>
+                <span className={styles.ventureNumber}>01 / COMPANY AI · PRIORIDAD ACTUAL</span><div className={styles.ventureHead}><div className={styles.ventureName}><span className={styles.ventureIcon}><ShieldCheck size={20} aria-hidden="true" /></span>VOLTA Shield</div><span className={styles.ventureStatus}>En validación</span></div><div className={styles.ventureShift} aria-hidden="true"><i/><i/><i/></div>
+                <div className={styles.shieldVisual} aria-hidden="true"><span className={styles.shieldNode}>Personas</span><span className={styles.shieldRoute}>→</span><span className={styles.shieldCore}>SHIELD</span><span className={styles.shieldRoute}>→</span><span className={styles.shieldNode}>Modelos</span><small>políticas · datos · costo · calidad</small></div>
                 <h3>Una sola IA para la empresa. Control debajo.</h3><p>Estamos construyendo una experiencia de IA generalista para que los empleados trabajen como ya esperan hacerlo, mientras la organización gobierna datos, políticas, modelos, calidad y costo sin trasladarles esa complejidad.</p><div className={styles.ventureMeta}><span>IA empresarial</span><span>Protección pre-egreso</span><span>Routing por calidad y costo</span><span>Gobernanza</span></div>
+                <p className={styles.ventureTruth}>Objetivo actual: validar el valor del producto y sus controles en entornos reales antes de aumentar la inversión.</p>
               </article>
-              <article className={`${styles.venture} ${styles.ventureSecondary}`}>
-                <span className={styles.ventureNumber}>02 / OPPORTUNITY</span><div className={styles.ventureHead}><div className={styles.ventureName}><span className={styles.ventureIcon}><Network size={20} aria-hidden="true" /></span>VOLTA Bridge</div><span className={styles.ventureStatus}>En desarrollo</span></div>
-                <h3>Que tu capacidad pueda verse antes que tu currículum.</h3><p>Bridge busca conectar personas que están construyendo su carrera con proyectos reales de emprendimientos y organizaciones. Trabajo concreto, evidencia concreta y una oportunidad de demostrar capacidad haciendo.</p><div className={styles.ventureMeta}><span>Oportunidades reales</span><span>Evidencia de trabajo</span><span>Selección transparente</span></div>
+              <article className={`${styles.venture} ${styles.ventureSecondary} ${styles.bridgeVenture}`}>
+                <div className={styles.bridgeImage} style={{ backgroundImage: `url(${creatorEditorial})` }} aria-hidden="true" />
+                <div className={styles.bridgeShade} aria-hidden="true" />
+                <div className={styles.bridgeContent}>
+                  <span className={styles.ventureNumber}>02 / OPPORTUNITY · PRODUCTO EN DESARROLLO</span><div className={styles.ventureHead}><div className={styles.ventureName}><span className={styles.ventureIcon}><Network size={20} aria-hidden="true" /></span>VOLTA Bridge</div><span className={styles.ventureStatus}>En desarrollo</span></div>
+                  <h3>Que tu capacidad pueda verse antes que tu currículum.</h3><p>Bridge busca conectar personas que están construyendo su carrera con proyectos reales de emprendimientos y organizaciones. Trabajo concreto, evidencia concreta y una oportunidad de demostrar capacidad haciendo.</p><div className={styles.ventureMeta}><span>Oportunidades reales</span><span>Evidencia de trabajo</span><span>Selección transparente</span></div>
+                  <p className={styles.ventureTruth}>No promete empleo ni trabajo gratuito: la tesis es crear una conexión más útil y justa entre capacidad y oportunidad.</p>
+                </div>
               </article>
             </div>
             <div className={styles.explorationLane}><span className={styles.ventureIcon}><Workflow size={20} aria-hidden="true" /></span><div><strong>VOLTA Automate</strong><p>Exploramos cómo transformar procesos repetitivos en sistemas simples y confiables. Primero el problema; después la automatización.</p></div><span>Exploración · sin fecha prometida</span></div>

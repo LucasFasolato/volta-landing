@@ -1,58 +1,43 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ProductIntentAnalytics } from "@/components/analytics/product-intent-analytics";
+import { siteDescription, siteTitle, siteUrl } from "@/data/site";
 import "./globals.css";
+import "./corporate-sections.css";
+import "./corporate-responsive.css";
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-instrument-sans",
   display: "swap",
 });
 
-const title = "VOLTA | Tu próximo paso, online.";
-const description =
-  "Productos digitales simples y profesionales para vender, recibir reservas y mostrar tu trabajo. Conocé VOLTA Store, Booking y Portfolio; Automate continúa en exploración.";
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-  process.env.VERCEL_URL;
-
-const metadataBase = new URL(
-  siteUrl
-    ? siteUrl.startsWith("http")
-      ? siteUrl
-      : `https://${siteUrl}`
-    : "http://localhost:3000",
-);
-
 export const metadata: Metadata = {
-  metadataBase,
-  title,
-  description,
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: "VOLTA",
+  alternates: { canonical: "/" },
   openGraph: {
-    title,
-    description,
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    siteName: "VOLTA",
     type: "website",
     locale: "es_AR",
   },
-  twitter: {
-    card: "summary",
-    title,
-    description,
-  },
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
+  twitter: { card: "summary_large_image", title: siteTitle, description: siteDescription },
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.ico", apple: "/apple-touch-icon.png" },
+  manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export const viewport: Viewport = { themeColor: "#f7f9f8" };
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="min-h-screen bg-background text-foreground">
+    <html lang="es-AR" className={instrumentSans.variable}>
+      <body>
         {children}
         <ProductIntentAnalytics />
         <Analytics />

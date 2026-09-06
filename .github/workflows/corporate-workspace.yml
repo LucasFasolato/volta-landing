@@ -2,7 +2,6 @@ name: Corporate isolated verification workspace
 on:
   push:
     branches: [feat/corporate-hub-20260906]
-    paths: [.github/workflows/corporate-workspace.yml]
 permissions:
   contents: read
 concurrency:
@@ -18,20 +17,32 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - run: npm run check
         env:
           NEXT_TELEMETRY_DISABLED: 1
-      - name: Package isolated workspace without credentials
+      - name: Install isolated browser verification tools
         run: |
-          mkdir -p /tmp/corporate-artifacts
-          tar --exclude=.git --exclude=node_modules --exclude=.next --exclude='.env*' -czf /tmp/corporate-artifacts/source.tar.gz .
-          tar -czf /tmp/corporate-artifacts/runtime.tar.gz node_modules .next
+          npm install --prefix /tmp/volta-browser --no-package-lock --no-audit --no-fund playwright@1.57.0 @axe-core/playwright@4.11.0
+          /tmp/volta-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Verify production build in the browser
+        run: |
+          npm start > /tmp/corporate-server.log 2>&1 &
+          for attempt in $(seq 1 30); do curl -fsS http://localhost:3000 >/dev/null && break; sleep 1; done
+          node scripts/verify-browser.mjs
+      - name: Package reproducible source and build
+        if: always()
+        run: |
+          mkdir -p /tmp/corporate-evidence
+          cp /tmp/corporate-server.log /tmp/corporate-evidence/ 2>/dev/null || true
+          tar --exclude=.git --exclude=node_modules --exclude=.next --exclude='.env*' -czf /tmp/corporate-evidence/source.tar.gz .
+          if [ -d .next ]; then tar -czf /tmp/corporate-evidence/build.tar.gz .next; fi
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: corporate-workspace
-          path: /tmp/corporate-artifacts
-          retention-days: 1
+          name: corporate-hub-evidence
+          path: /tmp/corporate-evidence
+          retention-days: 3
           compression-level: 0

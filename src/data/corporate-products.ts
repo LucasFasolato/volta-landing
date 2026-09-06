@@ -1,27 +1,30 @@
-export type CorporateProductKey = "store" | "booking" | "portfolio" | "automate";
-
+/** Public presentation only. Lifecycle authority stays in volta-foundation.
+ * Capabilities and destinations checked against each product repository, 2026-09-06.
+ */
+export type CorporateProductKey = "store" | "booking" | "portfolio";
 export type CorporateProduct = {
   key: CorporateProductKey;
   name: string;
   shortName: string;
   intent: string;
+  audience: string;
   title: string;
   description: string;
   points: readonly string[];
-  href: string | null;
-  status: "Disponible" | "En evolución" | "En exploración";
+  href: string;
+  status: "Disponible" | "En evolución";
 };
 
-export const corporateProducts: readonly CorporateProduct[] = [
+export const corporateProducts = [
   {
     key: "store",
     name: "VOLTA Store",
     shortName: "Store",
-    intent: "Vender",
-    title: "Tu tienda online, lista para vender por WhatsApp.",
-    description:
-      "Mostrá productos, armá pedidos y llevá la compra a una conversación ya ordenada.",
-    points: ["Catálogo y carrito", "Identidad personalizable", "Pedidos por WhatsApp"],
+    intent: "Vender online",
+    audience: "Para negocios y emprendimientos",
+    title: "Tu catálogo online. Tus pedidos, por WhatsApp.",
+    description: "Mostrá lo que vendés en una tienda con tu identidad. Tus clientes eligen, arman su carrito y te envían un pedido ordenado por WhatsApp.",
+    points: ["Catálogo y carrito", "Tu marca, tu estilo", "Pedidos organizados"],
     href: "https://www.voltastore.app",
     status: "Disponible",
   },
@@ -29,11 +32,11 @@ export const corporateProducts: readonly CorporateProduct[] = [
     key: "booking",
     name: "VOLTA Booking",
     shortName: "Booking",
-    intent: "Reservas",
-    title: "Tus clientes reservan. Tu agenda queda ordenada.",
-    description:
-      "Servicios, profesionales y disponibilidad en una experiencia simple para reservar y gestionar turnos.",
-    points: ["Reservas online", "Agenda y disponibilidad", "Gestión desde el negocio"],
+    intent: "Organizar reservas",
+    audience: "Para profesionales y negocios con turnos",
+    title: "Menos ida y vuelta. Más orden en tu agenda.",
+    description: "Compartí tus servicios y horarios disponibles. Tus clientes reservan online y vos gestionás la agenda desde el celular.",
+    points: ["Reservas online", "Servicios y disponibilidad", "Gestión de turnos"],
     href: "https://volta-booking.vercel.app",
     status: "En evolución",
   },
@@ -41,24 +44,39 @@ export const corporateProducts: readonly CorporateProduct[] = [
     key: "portfolio",
     name: "VOLTA Portfolio",
     shortName: "Portfolio",
-    intent: "Mostrarte",
-    title: "Tu trabajo merece una presencia a su altura.",
-    description:
-      "Proyectos, legajos y contenido profesional con composición guiada y una identidad propia.",
-    points: ["Proyectos y legajos", "Dirección visual", "Publicación responsive"],
-    href: "https://volta-portfolio-psi.vercel.app",
+    intent: "Mostrar tu trabajo",
+    audience: "Para profesionales, estudiantes y estudios",
+    title: "Una presencia a la altura de tu trabajo.",
+    description: "Convertí tus proyectos, legajos y experiencia en un portfolio que te represente. Vos elegís qué contar; VOLTA cuida cómo se ve.",
+    points: ["Proyectos y legajos", "Identidad propia", "Diseño guiado"],
+    href: "https://www.voltaportfolio.app",
     status: "Disponible",
+  },
+] as const satisfies readonly CorporateProduct[];
+
+export const upcomingInitiatives = [
+  {
+    key: "shield",
+    name: "VOLTA Shield",
+    status: "En desarrollo",
+    title: "IA para trabajar. Control para tu empresa.",
+    description: "Un espacio de IA empresarial en desarrollo: una experiencia simple para las personas, con políticas de datos, modelos autorizados y control de uso y costos para la organización.",
+    detail: "Estamos construyendo un MVP para validarlo en entornos controlados. La protección de información tiene límites explícitos: no es una garantía de seguridad total ni una certificación de cumplimiento.",
+  },
+  {
+    key: "bridge",
+    name: "VOLTA Bridge",
+    status: "En desarrollo",
+    title: "Tu capacidad, conectada con proyectos reales.",
+    description: "Una plataforma en desarrollo para conectar profesionales que están construyendo su trayectoria con emprendimientos y organizaciones que tienen proyectos concretos.",
+    detail: "El foco es crear oportunidades claras y justas, con selección por parte de quien lidera el proyecto y evidencia del trabajo realizado. No es una promesa de empleo ni un mercado de trabajo gratuito.",
   },
   {
     key: "automate",
     name: "VOLTA Automate",
-    shortName: "Automate",
-    intent: "Automatizar",
-    title: "Lo repetitivo no debería depender de vos.",
-    description:
-      "Una línea de exploración de VOLTA para convertir procesos repetitivos en flujos claros, confiables y cada vez más automatizados.",
-    points: ["Exploración de flujos", "Menos tareas repetitivas", "Orientado a resultados"],
-    href: null,
     status: "En exploración",
+    title: "Menos tareas repetidas. Más tiempo para avanzar.",
+    description: "Exploramos cómo convertir procesos operativos repetitivos en flujos más simples y confiables. Primero, un problema real; después, la automatización que tenga sentido.",
+    detail: "Esta iniciativa todavía no es un producto disponible. Su alcance e integraciones se definirán a partir de la validación de problemas concretos, sin fechas de lanzamiento prometidas.",
   },
 ] as const;

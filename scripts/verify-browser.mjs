@@ -22,7 +22,7 @@ try {
   const page = await context.newPage();
   page.on("pageerror", error => errors.push(error.message));
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
-  const response = await page.goto(base, { waitUntil: "networkidle" });
+  const response = await page.goto(base, { waitUntil: "domcontentloaded" });
   assert.equal(response.status(), 200);
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.locator("h1").count(), 1);

@@ -84,7 +84,7 @@ export default function Home() {
               <div><p className="volta-eyebrow">Tecnología que toca la realidad</p><h2 id="reality-title">No queremos que VOLTA se vea tecnológica.<br /><span>Queremos que la tecnología se note en lo que mejora.</span></h2></div>
               <p>La misma compañía puede ayudar a un emprendimiento a vender, a un profesional a ordenar su agenda, a alguien a mostrar su trabajo o a una organización a usar IA con más control. El hilo conductor es el resultado.</p>
             </div>
-            <div className={styles.realityGallery}>
+            <div className={styles.realityGallery} role="region" aria-label="Contextos de uso de VOLTA" tabIndex={0}>
               <figure className={`${styles.realityCard} ${styles.realityCardTall}`}>
                 <div className={styles.realityImage} style={{ backgroundImage: `url(${creatorEditorial})` }} />
                 <figcaption><span>Crear y mostrar</span><strong>Herramientas que acompañan el trabajo, no lo reemplazan.</strong></figcaption>

@@ -16,13 +16,24 @@ try {
   await page.evaluate(() => document.fonts.ready);
   for (const width of [1440, 1280, 1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 1000 });
-    const confirmation = await page.locator(".sample-confirmation").boundingBox();
-    const caption = await page.locator(".product-moment-booking .moment-caption").boundingBox();
-    assert.ok(confirmation && caption);
-    const gap = caption.y - (confirmation.y + confirmation.height);
-    assert.ok(gap >= 8, `Booking example caption overlaps or crowds confirmation at ${width}px: ${gap}px`);
+    // Resize/scroll anchoring may update between two protocol calls. Measure the
+    // pair atomically after layout settles instead of comparing different frames.
+    const gap = await page.evaluate(async () => {
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      const confirmation = document.querySelector(".sample-confirmation")?.getBoundingClientRect();
+      const caption = document.querySelector(".product-moment-booking .moment-caption")?.getBoundingClientRect();
+      if (!confirmation || !caption) throw new Error("Missing Booking illustration");
+      return caption.top - confirmation.bottom;
+    });
     results.push({ width, captionGap: gap });
+    if (width === 390 || width === 1280) {
+      await page.locator(".product-moment-booking").screenshot({ path: `${output}/booking-illustration-${width}.png` });
+    }
   }
+  assert.deepEqual(results.filter(result => result.captionGap < 8), [], "Booking example caption must remain clear of the confirmation");
+} catch (error) {
+  writeFileSync(`${output}/illustration-failure.txt`, error.stack || String(error));
+  throw error;
 } finally {
   writeFileSync(`${output}/illustration-spacing.json`, JSON.stringify(results, null, 2));
   await browser.close();

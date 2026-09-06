@@ -11,8 +11,9 @@ const principles = [
   ["03", "Bien hecho", "Producto, diseño, ingeniería y confianza forman parte de una misma experiencia."],
 ] as const;
 
-const storeEditorial = "https://raw.githubusercontent.com/LucasFasolato/volta-store-template/main/public/landing/nova/hero-editorial.jpg";
-const storeProduct = "https://raw.githubusercontent.com/LucasFasolato/volta-store-template/main/public/landing/nova-product.webp";
+// Vitaly Gariev / Unsplash. Free under the Unsplash License. Used as editorial context, not product evidence.
+const heroEditorial = "https://images.unsplash.com/photo-1753162658084-3902c8d0dec0?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=82&w=2200";
+const storeEditorial = "https://images.unsplash.com/photo-1753162661809-ce0cb99b6fdb?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=82&w=1800";
 
 export default function Home() {
   return (
@@ -33,10 +34,10 @@ export default function Home() {
                 </div>
                 <p className="hero-footnote">Tecnología avanzada adentro. Una experiencia clara afuera.</p>
               </div>
-              <div className={styles.heroVisual} aria-label="Ejemplo editorial de una marca presentada con VOLTA Store" role="img">
-                <div className={styles.heroImage} style={{ backgroundImage: `url(${storeEditorial})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+              <div className={styles.heroVisual} aria-label="Emprendedora trabajando con tecnología en su estudio" role="img">
+                <div className={styles.heroImage} style={{ backgroundImage: `url(${heroEditorial})`, backgroundSize: "cover", backgroundPosition: "center" }} />
                 <div className={styles.heroShade} />
-                <div className={styles.heroVisualTop}><span>VOLTA · tecnología aplicada</span><span>Producto real · Store</span></div>
+                <div className={styles.heroVisualTop}><span>VOLTA · tecnología aplicada</span><span>Tecnología → trabajo real</span></div>
                 <div className={styles.heroVisualBottom}>
                   <div><strong>La tecnología se vuelve valiosa cuando se vuelve parte de la realidad.</strong><small>Una tienda, una agenda, una carrera o una empresa: empezamos por lo que necesitás lograr.</small></div>
                   <span className={styles.heroVisualBadge}>The Shift → progreso</span>
@@ -65,7 +66,7 @@ export default function Home() {
                     <ul className="product-points">{product.points.map(point => <li key={point}><Check size={15} aria-hidden="true" />{point}</li>)}</ul>
                     <a className="product-link" href={product.href} target="_blank" rel="noopener noreferrer" data-product-placement="products">Conocer {product.shortName}<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre en otra pestaña)</span></a>
                   </div>
-                  {product.key === "store" ? <div className={styles.proofFrame} role="img" aria-label="Ejemplo visual de producto presentado con VOLTA Store"><div className={styles.proofImage} style={{ backgroundImage: `url(${storeProduct})`, backgroundSize: "cover", backgroundPosition: "center" }} /><div className={styles.proofOverlay}><strong>Producto real, contexto real.</strong><span>La identidad del negocio primero. La tecnología queda detrás.</span></div></div> : <ProductMomentV2 type={product.key} />}
+                  {product.key === "store" ? <div className={styles.proofFrame} role="img" aria-label="Profesional usando tecnología en un estudio creativo"><div className={styles.proofImage} style={{ backgroundImage: `url(${storeEditorial})`, backgroundSize: "cover", backgroundPosition: "center" }} /><div className={styles.proofOverlay}><strong>Contexto real, tecnología útil.</strong><span>La identidad y el trabajo primero. La tecnología queda detrás.</span></div></div> : <ProductMomentV2 type={product.key} />}
                 </article>); })}
             </div>
             <p className="products-note"><span className="status-dot" aria-hidden="true" /><strong>Booking está en evolución:</strong> ya podés conocerlo mientras seguimos afinando la experiencia.</p>

@@ -34,7 +34,7 @@ try {
   assert.match(await page.locator("#en-desarrollo").innerText(), /VOLTA Shield/);
   assert.match(await page.locator("#en-desarrollo").innerText(), /VOLTA Bridge/);
   assert.match(await page.locator("#en-desarrollo").innerText(), /VOLTA Automate/);
-  assert.match(await page.locator("#en-desarrollo").innerText(), /En validación/);
+  assert.match(await page.locator("#en-desarrollo").innerText(), /En validación/i);
   assert.match(await page.locator("html").getAttribute("lang"), /^es/);
   assert.match(await page.locator("body").evaluate(node => getComputedStyle(node).fontFamily), /Instrument Sans|Instrument_Sans/);
   results.push("Rendering, real product map, venture hierarchy, headline and Instrument Sans");

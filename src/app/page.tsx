@@ -12,13 +12,11 @@ const principles = [
 ] as const;
 
 // Editorial photography is contextual only, never customer/product evidence.
-// Hero / Store: Vitaly Gariev, Unsplash. Free under the Unsplash License.
-const heroEditorial = "https://images.unsplash.com/photo-1753162658084-3902c8d0dec0?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=82&w=2200";
-const storeEditorial = "https://images.unsplash.com/photo-1753162661809-ce0cb99b6fdb?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=82&w=1800";
-// Additional editorial contexts: Ivan S / RDNE Stock project / Thirdman, Pexels. Free to use under the Pexels License.
-const creatorEditorial = "https://images.pexels.com/photos/5428715/pexels-photo-5428715.jpeg?auto=compress&cs=tinysrgb&w=1800";
-const serviceEditorial = "https://images.pexels.com/photos/7755499/pexels-photo-7755499.jpeg?auto=compress&cs=tinysrgb&w=1800";
-const teamEditorial = "https://images.pexels.com/photos/7413872/pexels-photo-7413872.jpeg?auto=compress&cs=tinysrgb&w=1800";
+// Pexels images below are free to use under the Pexels License.
+const commerceEditorial = "https://images.pexels.com/photos/7289725/pexels-photo-7289725.jpeg?auto=compress&cs=tinysrgb&w=1800";
+const workspaceEditorial = "https://images.pexels.com/photos/26966416/pexels-photo-26966416.jpeg?auto=compress&cs=tinysrgb&w=1800";
+const deskEditorial = "https://images.pexels.com/photos/15599167/pexels-photo-15599167.jpeg?auto=compress&cs=tinysrgb&w=1800";
+const teamEditorial = "https://images.pexels.com/photos/6805157/pexels-photo-6805157.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 export default function Home() {
   return (
@@ -39,16 +37,26 @@ export default function Home() {
                 </div>
                 <p className="hero-footnote">Tecnología avanzada adentro. Una experiencia clara afuera.</p>
               </div>
-              <div className={styles.heroVisual} aria-label="Emprendedora trabajando con tecnología en su estudio" role="img">
-                <div className={styles.heroImage} style={{ backgroundImage: `url(${heroEditorial})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-                <div className={styles.heroShade} />
-                <div className={styles.heroVisualTop}><span>VOLTA · tecnología aplicada</span><span>Tecnología → trabajo real</span></div>
-                <div className={styles.heroVisualBottom}>
-                  <div><strong>La tecnología se vuelve valiosa cuando se vuelve parte de la realidad.</strong><small>Una tienda, una agenda, una carrera o una empresa: empezamos por lo que necesitás lograr.</small></div>
-                  <span className={styles.heroVisualBadge}>The Shift → progreso</span>
+
+              <div className={styles.heroSystem} role="img" aria-label="Mapa visual del ecosistema VOLTA: productos disponibles y nuevas apuestas conectadas por una misma compañía">
+                <div className={styles.heroSystemHeader}><span><i />VOLTA · COMPANY SYSTEM</span><span>Una compañía. Múltiples productos.</span></div>
+                <div className={styles.heroGridLines} aria-hidden="true" />
+                <div className={styles.heroSystemCore} aria-hidden="true">
+                  <span className={styles.heroCoreMark}>V</span>
+                  <strong>VOLTA</strong>
+                  <small>producto · tecnología · criterio</small>
                 </div>
+                <div className={`${styles.heroNode} ${styles.heroNodeStore}`}><span>Producto</span><strong>Store</strong><small>Vender online · Disponible</small></div>
+                <div className={`${styles.heroNode} ${styles.heroNodeBooking}`}><span>Producto</span><strong>Booking</strong><small>Reservas · En evolución</small></div>
+                <div className={`${styles.heroNode} ${styles.heroNodePortfolio}`}><span>Producto</span><strong>Portfolio</strong><small>Mostrar trabajo · Disponible</small></div>
+                <div className={`${styles.heroNode} ${styles.heroNodeShield}`}><span>Prioridad</span><strong>Shield</strong><small>Company AI · En validación</small></div>
+                <div className={`${styles.heroNode} ${styles.heroNodeBridge}`}><span>En desarrollo</span><strong>Bridge</strong><small>Capacidad → oportunidad</small></div>
+                <div className={`${styles.heroNode} ${styles.heroNodeAutomate}`}><span>Exploración</span><strong>Automate</strong><small>Procesos → sistemas</small></div>
+                <div className={styles.heroConnectorA} aria-hidden="true" /><div className={styles.heroConnectorB} aria-hidden="true" /><div className={styles.heroConnectorC} aria-hidden="true" />
+                <div className={styles.heroSystemFooter}><strong>Lo que cambia es el problema.</strong><span>El estándar VOLTA permanece.</span></div>
               </div>
             </div>
+
             <nav className="quick-routes" aria-label="Encontrá un producto según tu objetivo">
               <p>¿Qué querés<br /><strong>poner en movimiento?</strong></p>
               {corporateProducts.map(product => { const Icon = productIcons[product.key]; return <a key={product.key} href={`#${product.key}`}><Icon size={20} aria-hidden="true" /><span>{product.intent}<small>{product.name}</small></span><ArrowUpRight size={18} aria-hidden="true" /></a>; })}
@@ -71,7 +79,14 @@ export default function Home() {
                     <ul className="product-points">{product.points.map(point => <li key={point}><Check size={15} aria-hidden="true" />{point}</li>)}</ul>
                     <a className="product-link" href={product.href} target="_blank" rel="noopener noreferrer" data-product-placement="products">Conocer {product.shortName}<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre en otra pestaña)</span></a>
                   </div>
-                  {product.key === "store" ? <div className={styles.proofFrame} role="img" aria-label="Profesional usando tecnología en un estudio creativo"><div className={styles.proofImage} style={{ backgroundImage: `url(${storeEditorial})`, backgroundSize: "cover", backgroundPosition: "center" }} /><div className={styles.proofOverlay}><strong>Contexto real, tecnología útil.</strong><span>La identidad y el trabajo primero. La tecnología queda detrás.</span></div></div> : <ProductMomentV2 type={product.key} />}
+                  {product.key === "store" ? (
+                    <div className={styles.commerceFrame} role="img" aria-label="Emprendimiento preparando pedidos de una tienda online">
+                      <div className={styles.commerceImage} style={{ backgroundImage: `url(${commerceEditorial})` }} />
+                      <div className={styles.commerceShade} />
+                      <div className={styles.commerceTop}><span>Del catálogo al pedido</span><span>Producto real → operación real</span></div>
+                      <div className={styles.commerceBottom}><strong>Vender online tiene que terminar en algo concreto.</strong><span>Un pedido claro, listo para preparar y responder.</span></div>
+                    </div>
+                  ) : <ProductMomentV2 type={product.key} />}
                 </article>); })}
             </div>
             <p className="products-note"><span className="status-dot" aria-hidden="true" /><strong>Booking está en evolución:</strong> ya podés conocerlo mientras seguimos afinando la experiencia.</p>
@@ -81,21 +96,21 @@ export default function Home() {
         <section className={styles.realitySection} aria-labelledby="reality-title">
           <div className="volta-container">
             <div className={styles.realityLead}>
-              <div><p className="volta-eyebrow">Tecnología que toca la realidad</p><h2 id="reality-title">No queremos que VOLTA se vea tecnológica.<br /><span>Queremos que la tecnología se note en lo que mejora.</span></h2></div>
-              <p>La misma compañía puede ayudar a un emprendimiento a vender, a un profesional a ordenar su agenda, a alguien a mostrar su trabajo o a una organización a usar IA con más control. El hilo conductor es el resultado.</p>
+              <div><p className="volta-eyebrow">Tecnología que toca la realidad</p><h2 id="reality-title">VOLTA no necesita parecer futurista.<br /><span>Necesita hacer que el progreso se sienta real.</span></h2></div>
+              <p>Una tienda, una agenda, un portfolio o una capa de IA empresarial son problemas distintos. Lo que los une es el estándar: tecnología seria, experiencia simple y una mejora que se pueda entender.</p>
             </div>
             <div className={styles.realityGallery} role="region" aria-label="Contextos de uso de VOLTA" tabIndex={0}>
               <figure className={`${styles.realityCard} ${styles.realityCardTall}`}>
-                <div className={styles.realityImage} style={{ backgroundImage: `url(${creatorEditorial})` }} />
-                <figcaption><span>Crear y mostrar</span><strong>Herramientas que acompañan el trabajo, no lo reemplazan.</strong></figcaption>
+                <div className={styles.realityImage} style={{ backgroundImage: `url(${workspaceEditorial})`, backgroundPosition: "center" }} />
+                <figcaption><span>Sistemas para trabajar</span><strong>La infraestructura importa cuando deja de estorbar.</strong></figcaption>
               </figure>
               <figure className={styles.realityCard}>
-                <div className={styles.realityImage} style={{ backgroundImage: `url(${serviceEditorial})` }} />
-                <figcaption><span>Organizar y atender</span><strong>Menos coordinación manual. Más tiempo para hacer.</strong></figcaption>
+                <div className={styles.realityImage} style={{ backgroundImage: `url(${deskEditorial})`, backgroundPosition: "center" }} />
+                <figcaption><span>Herramientas para hacer</span><strong>Menos fricción entre una intención y un resultado.</strong></figcaption>
               </figure>
               <figure className={`${styles.realityCard} ${styles.realityCardDark}`}>
-                <div className={styles.realityImage} style={{ backgroundImage: `url(${teamEditorial})` }} />
-                <figcaption><span>Trabajar y decidir</span><strong>Tecnología seria para equipos que no quieren cargar con la complejidad.</strong></figcaption>
+                <div className={styles.realityImage} style={{ backgroundImage: `url(${teamEditorial})`, backgroundPosition: "center 42%" }} />
+                <figcaption><span>Tecnología para decidir</span><strong>Más capacidad para equipos que necesitan claridad, control y velocidad.</strong></figcaption>
               </figure>
             </div>
             <p className={styles.editorialNote}>Imágenes editoriales para representar contextos de uso. No representan clientes ni resultados medidos de VOLTA.</p>
@@ -120,7 +135,7 @@ export default function Home() {
                 <p className={styles.ventureTruth}>Objetivo actual: validar el valor del producto y sus controles en entornos reales antes de aumentar la inversión.</p>
               </article>
               <article className={`${styles.venture} ${styles.ventureSecondary} ${styles.bridgeVenture}`}>
-                <div className={styles.bridgeImage} style={{ backgroundImage: `url(${creatorEditorial})` }} aria-hidden="true" />
+                <div className={styles.bridgeImage} style={{ backgroundImage: `url(${teamEditorial})` }} aria-hidden="true" />
                 <div className={styles.bridgeShade} aria-hidden="true" />
                 <div className={styles.bridgeContent}>
                   <span className={styles.ventureNumber}>02 / OPPORTUNITY · PRODUCTO EN DESARROLLO</span><div className={styles.ventureHead}><div className={styles.ventureName}><span className={styles.ventureIcon}><Network size={20} aria-hidden="true" /></span>VOLTA Bridge</div><span className={styles.ventureStatus}>En desarrollo</span></div>

@@ -31,16 +31,6 @@ export function VoltaHeader() {
   );
 }
 
-export function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
-  return (
-    <div className="section-heading">
-      <p className="volta-eyebrow">{eyebrow}</p>
-      <h2 className="volta-h2">{title}</h2>
-      {copy && <p className="volta-copy">{copy}</p>}
-    </div>
-  );
-}
-
 export function VoltaFooter() {
   return (
     <footer className="site-footer">

@@ -20,6 +20,15 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Prepare scoped security patch for review
+        run: |
+          mkdir -p /tmp/corporate-evidence
+          npm audit --omit=dev --json > /tmp/corporate-evidence/audit-before.json || true
+          npm install --save-exact next@16.3.3 eslint-config-next@16.3.3
+          npm audit --json > /tmp/corporate-evidence/audit-after.json || true
+          npm audit --omit=dev --json > /tmp/corporate-evidence/audit-production.json || true
+          git diff -- package.json package-lock.json > /tmp/corporate-evidence/security.patch
+          cp package.json package-lock.json /tmp/corporate-evidence/
       - run: npm run check
         env:
           NEXT_TELEMETRY_DISABLED: 1

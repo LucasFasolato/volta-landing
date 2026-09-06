@@ -23,7 +23,7 @@
 .ceramic-cup::before { content: ""; position: absolute; width: 28px; height: 37px; right: -24px; top: 8px; border: 9px solid #c28c69; border-left: 0; border-radius: 0 45% 45% 0; }
 .ceramic-cup::after { content: ""; position: absolute; inset: 3px 3px auto; height: 9px; border-radius: 50%; background: #9c6747; border-top: 2px solid #e1ae8c; }
 .sample-products p { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 11px; color: #354032; font-weight: 550; }
-.sample-products p span { color: #717663; font-size: 10px; font-weight: 400; }
+.sample-products p span { color: #59604e; font-size: 10px; font-weight: 400; }
 .sample-order { display: grid; grid-template-columns: 36px 1fr; align-items: center; position: absolute; right: -8px; bottom: 0; width: min(290px, 95%); gap: 12px; padding: 18px; border: 1px solid #080b0a0d; border-radius: 12px; background: var(--ink-0); box-shadow: 0 16px 40px #27382a14; }
 .sample-order-icon { display: flex; align-items: center; justify-content: center; height: 36px; width: 36px; background: var(--ink-100); border-radius: 8px; }
 .sample-caption { display: block; font-size: 10px; color: var(--ink-500); }
@@ -122,4 +122,3 @@
 .footer-links svg { color: #8b9b90; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-block: 24px; border-top: 1px solid #ffffff20; color: #9daaa2; font-size: 12px; }
 .footer-bottom a { display: flex; align-items: center; gap: 10px; min-height: 44px; }
-

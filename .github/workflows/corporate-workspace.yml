@@ -1,0 +1,37 @@
+name: Corporate isolated verification workspace
+on:
+  push:
+    branches: [feat/corporate-hub-20260906]
+    paths: [.github/workflows/corporate-workspace.yml]
+permissions:
+  contents: read
+concurrency:
+  group: corporate-workspace-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  workspace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+      - name: Package isolated workspace without credentials
+        run: |
+          mkdir -p /tmp/corporate-artifacts
+          tar --exclude=.git --exclude=node_modules --exclude=.next --exclude='.env*' -czf /tmp/corporate-artifacts/source.tar.gz .
+          tar -czf /tmp/corporate-artifacts/runtime.tar.gz node_modules .next
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corporate-workspace
+          path: /tmp/corporate-artifacts
+          retention-days: 1
+          compression-level: 0

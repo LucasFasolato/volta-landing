@@ -1,59 +1,51 @@
 # VOLTA Corporate — Current State
 
-**Last reviewed:** 2026-09-06  
-**Entity type:** Brand / Distribution Asset  
-**Strategic roles:** BRAND_DISTRIBUTION · ECOSYSTEM_ASSET  
-**Investment posture:** MAINTAIN  
-**Authoritative branch:** `main`  
+**Review:** 2026-09-07 (2026-09-06 in Argentina)  
+**Presentation baseline:** Corporate v1  
+**Entity:** Brand / Distribution Asset · OPERATE · MAINTAIN  
 **Production origin:** https://volta-landing-delta.vercel.app
 
-## Role
+## Role and authority
 
-VOLTA Corporate is the public home of the company and a routing surface into independent products. It is not a standalone SaaS, a WhatsApp-only brand, a shared identity platform or a source of product lifecycle authority.
+The public home of a product and technology company, routing into independent products. Not a SaaS suite, shared account platform, AI-only company or source of lifecycle authority. The founder explicitly authorized the final five-chapter redesign; [CORP-DDR-002](decisions/CORP-DDR-002-corporate-v1-final.md) records its scope.
 
-The approved headline remains **Tu próximo paso, online.** The explanation now names concrete outcomes before technology.
+## Implemented presentation
 
-## Implemented experience
+1. **Company:** the approved “Tu próximo paso, online.”, one simple explanation and an accessible product directory. No people photography, floating dashboard nodes or invented corporate metrics.
+2. **Products:** three editorial showcases with alternating composition. Audience, outcome, supported capabilities, maturity and authoritative external action. Each visual has a visible source/example caption and an enlargement link.
+3. **The VOLTA approach:** “Lo complejo, adentro. Lo simple, para vos.” and three short principles.
+4. **In development:** Shield is the full-width primary presentation; Bridge follows; Automate is a smaller exploratory item.
+5. **Closing:** one company statement and one product-discovery action. No redundant getting-started steps or separate stock-photo gallery.
 
-The September corporate hub redesign, recorded in [CORP-DDR-001](decisions/CORP-DDR-001-corporate-hub.md), contains five content chapters:
+Instrument Sans, canonical green `#00E878`, semantic contrast pairs, restrained offset geometry, generous spacing, keyboard navigation, reduced motion and forced colors remain. The interim V + dot lockup is retained, not replaced by a newly approved logo.
 
-1. Company introduction, illustrative product composition and goal-based shortcuts.
-2. Store, Booking and Portfolio: audience, outcome, three supported capabilities and one external action per product.
-3. The VOLTA approach: useful technology, simple adoption and execution quality.
-4. Shield, Bridge and Automate, explicitly separated as development/exploration initiatives.
-5. Getting started with the three publishing products, followed by the footer.
+## Public product truth
 
-The page uses Instrument Sans Variable, the canonical `#00E878` brand anchor, semantic interface colors, restrained Shift-derived composition, visible focus and reduced-motion/forced-color modes. The previous Inter/legacy-green shell debt is removed from the active presentation. The interim V + dot lockup is retained; this release does not approve a new logo.
-
-Mobile navigation is a labeled disclosure with Escape/focus return, outside-click dismissal, selection dismissal and desktop-resize recovery. Product illustrations are labeled examples, not customer evidence or screenshots.
-
-## Public portfolio treatment
-
-| Initiative | Public treatment | Destination |
+| Initiative | Public label | Destination |
 | --- | --- | --- |
-| VOLTA Store | Disponible | https://www.voltastore.app |
-| VOLTA Booking | En evolución | https://volta-booking.vercel.app |
-| VOLTA Portfolio | Disponible | https://www.voltaportfolio.app |
-| VOLTA Shield | En desarrollo; not generally available | None |
-| VOLTA Bridge | En desarrollo; not generally available | None |
-| VOLTA Automate | En exploración; not available | None |
+| Store | Disponible | https://www.voltastore.app |
+| Booking | En evolución | https://volta-booking.vercel.app |
+| Portfolio | Disponible | https://www.voltaportfolio.app |
+| Shield | En validación; controlled MVP development | No general-availability action |
+| Bridge | En desarrollo | No general-availability action |
+| Automate | En exploración; no launch date | No general-availability action |
 
-Strategy classification remains in `volta-foundation/registry/portfolio.yaml`. Shield and Bridge's current product documents describe validation-stage development, not generally available products. Automate remains exploratory.
+`src/data/corporate-products.ts` is the single presentation cache for stories, future labels and footer; it does not replace Foundation's portfolio registry. Shield's **visual priority is founder-authorized**, not a change to its formal VALIDATE / INCUBATE classification.
 
-**Destination reconciliation:** the registry/older Corporate documentation still contained Portfolio's legacy Vercel hostname. The newer product-owned `src/lib/config.ts`, `docs/auth-production-setup.md` and `docs/production-web-presence.md` establish `https://www.voltaportfolio.app` as its operational canonical origin. Corporate uses that origin without changing Strategy's lifecycle classification.
+Portfolio's product-owned `src/lib/config.ts`, `docs/auth-production-setup.md` and `docs/production-web-presence.md` establish the `.app` origin, superseding the registry's older Vercel destination. Bridge's current Product document uses **professionals**, not talent as a domain identity.
 
-## Measurement and technical state
+## Media: exactly what the visitor sees
 
-`Product selected` records only product key and placement (`products`, `footer`, or fallback `other`). The destination map is shared with presentation rather than duplicated in the tracker. This is instrumentation, not evidence of increased conversion.
+The three images are browser captures of the **public demonstrations on the product sites**, not screenshots of authenticated customer operations. Store shows NOVA Studio; Booking shows its published reservation demonstration; Portfolio shows its published architectural example. Visible captions and alt text preserve that distinction.
 
-The application is static/prerendered, without a database or authentication. Metadata, canonical origin, robots, sitemap, Open Graph image and manifest are defined centrally. See [SYSTEM](SYSTEM.md) for verification and delivery commands.
+Capture URL, timestamp, selector and original dimensions live in `public/showcase/provenance.json`. The images are shipped as local responsive WebP variants (640, 960 and maximum-source resolution). No external image requests, runtime screenshot service or Vercel image transformations are needed. Store also links to the public Strong.Protein storefront already promoted by the Store site, without claiming endorsement or commercial results.
 
-GitHub checks, PR evidence and the Vercel deployment are the authorities for execution/release status. Do not infer production promotion from this document or from a successful build alone.
+## Verification and release
 
-## Remaining work
+`npm run check` covers source/media contracts, lint and the production build including TypeScript. The expanded Chromium suite checks ten widths from 320 to 1920px, decodes every image before capturing, checks selected WCAG rules, keyboard/mobile navigation, anchors, tracked product links, media budgets, metadata, forced colors and text spacing.
 
-- Maintain product truth after real product/domain changes.
-- Accumulate actual routing and comprehension evidence before further structural redesign.
-- Replace interim brand assets only when a final logo is centrally approved.
-- Preserve the public distinction between available products and controlled development.
-- Resolve the repository-description metadata debt through an authorized metadata-write path; it does not affect the rendered homepage.
+See GitHub Actions artifacts/PR and Vercel for exact execution status. A document or successful local build is not proof of production promotion. The merge-triggered quality workflow also checks the public production version and reruns browser verification without sending analytics or making product transactions.
+
+## Maintenance baseline
+
+Close visual iteration around this v1. Change the page for real product/domain/status changes, accessibility/performance defects or evidence from actual visitors—not aesthetic restlessness. Comprehension, trust and conversion improvement remain unmeasured. Final logo approval remains a separate company decision.

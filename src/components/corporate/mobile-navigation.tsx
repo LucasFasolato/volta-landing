@@ -7,7 +7,7 @@ const links = [
   ["Productos", "#productos"],
   ["Por qué VOLTA", "#criterio"],
   ["Lo que viene", "#en-desarrollo"],
-  ["Cómo empezar", "#como-funciona"],
+  ["Encontrá tu VOLTA", "#como-funciona"],
 ] as const;
 
 export function MobileNavigation() {
@@ -41,24 +41,12 @@ export function MobileNavigation() {
 
   return (
     <div className="mobile-navigation" ref={root}>
-      <button
-        className="menu-trigger"
-        type="button"
-        ref={trigger}
-        aria-label={open ? "Cerrar menú" : "Abrir menú"}
-        aria-expanded={open}
-        aria-controls="mobile-menu"
-        onClick={() => setOpen(!open)}
-      >
+      <button className="menu-trigger" type="button" ref={trigger} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>
         {open ? <X aria-hidden="true" size={21} /> : <Menu aria-hidden="true" size={21} />}
       </button>
       <nav id="mobile-menu" aria-label="Navegación móvil" hidden={!open} className="mobile-menu">
         <p className="mobile-menu-label">Explorá VOLTA</p>
-        {links.map(([label, href]) => (
-          <a key={href} href={href} onClick={() => setOpen(false)}>
-            {label}<ArrowUpRight size={19} aria-hidden="true" />
-          </a>
-        ))}
+        {links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={19} aria-hidden="true" /></a>)}
       </nav>
     </div>
   );

@@ -4,8 +4,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { ProductIntentAnalytics } from "@/components/analytics/product-intent-analytics";
 import { siteDescription, siteTitle, siteUrl } from "@/data/site";
 import "./globals.css";
-import "./corporate-sections.css";
-import "./corporate-responsive.css";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],

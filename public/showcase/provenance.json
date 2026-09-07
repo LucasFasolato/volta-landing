@@ -15,11 +15,12 @@
     "url": "https://volta-booking.vercel.app",
     "selector": "[class*=\"max-w-[590px]\"]",
     "kind": "Published reservation demonstration; not a booked appointment",
-    "capturedAt": "2026-09-07T00:41:32.747Z",
-    "width": 1182,
-    "height": 818,
+    "capturedAt": "2026-09-07T00:54:57.164Z",
+    "width": 1180,
+    "height": 880,
     "images": 0,
-    "text": "RESERVA ONLINE\nDISPONIBLE\n1 · SERVICIO\nCorte + barba\n50 min · Vos\n2 · DÍA\nMAR 25\nMIÉ 26\nJUE 27\n3 · HORARIO\n13:30\n14:30\n16:00\n17:30\n18:15\n19:00\nLISTO PARA CONFIRMAR\nMiércoles · 14:30\nCorte + barba · 50 min\nConfirmar reserva\nReserva confirmada"
+    "text": "RESERVA ONLINE\nDISPONIBLE\n1 · SERVICIO\nCorte + barba\n50 min · Vos\n2 · DÍA\nMAR 25\nMIÉ 26\nJUE 27\n3 · HORARIO\n13:30\n14:30\n16:00\n17:30\n18:15\n19:00\nLISTO PARA CONFIRMAR\nMiércoles · 14:30\nCorte + barba · 50 min\nConfirmar reserva\nReserva confirmada",
+    "cropNote": "Includes the original floating confirmation label; no content edits."
   },
   {
     "key": "portfolio",

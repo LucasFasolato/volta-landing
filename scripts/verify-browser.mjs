@@ -14,6 +14,14 @@ const results = [];
 const errors = [];
 const imageEvidence = [];
 const widths = [1440, 1920, 1280, 1024, 900, 768, 640, 390, 360, 320];
+// The SDK may include an own `options: undefined`; the event/data privacy contract is exact.
+function assertSelection(event, product, placement) {
+  assert.ok(event?.[1], "A product-selection event was emitted");
+  assert.equal(event[1].name, "Product selected");
+  assert.deepEqual(event[1].data, { product, placement });
+  assert.equal(event[1].options, undefined);
+  assert.deepEqual(Object.keys(event[1]).filter(key => key !== "options").sort(), ["data", "name"]);
+}
 try {
   const context = await browser.newContext({ reducedMotion: "reduce", viewport: { width: 1440, height: 1000 } });
   await context.route("**/_vercel/insights/**", route => route.fulfill({ status: 200, contentType: "application/javascript", body: "" }));
@@ -106,12 +114,12 @@ try {
     await link.evaluate(n => n.addEventListener("click", e => e.preventDefault(), { once: true }));
     await link.click();
     let event = await page.evaluate(() => window.__events.filter(e => e[0] === "event").at(-1));
-    assert.deepEqual(event[1], { name: "Product selected", data: { product: key, placement: "products" } });
+    assertSelection(event, key, "products");
     const footerLink = page.locator(`footer a[href="${href}"]`);
     await footerLink.evaluate(n => n.addEventListener("auxclick", e => e.preventDefault(), { once: true }));
     await footerLink.dispatchEvent("auxclick", { button: 1, bubbles: true });
     event = await page.evaluate(() => window.__events.filter(e => e[0] === "event").at(-1));
-    assert.deepEqual(event[1], { name: "Product selected", data: { product: key, placement: "footer" } });
+    assertSelection(event, key, "footer");
   }
   results.push("Product destinations, noopener and click/middle-click analytics limited to product/placement");
 

@@ -1,0 +1,35 @@
+name: Corporate source capture
+on:
+  push:
+    branches: [feat/corporate-v1-final]
+    paths: [.github/workflows/corporate-capture.yml, scripts/capture-public.mjs]
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: |
+          npm install --prefix /tmp/volta-browser --no-package-lock --no-audit --no-fund playwright@1.57.0 @axe-core/playwright@4.11.0 agent-browser
+          /tmp/volta-browser/node_modules/.bin/playwright install --with-deps chromium
+          mkdir -p /tmp/volta-capture
+          node scripts/capture-public.mjs
+      - run: |
+          tar --exclude=.git --exclude=node_modules --exclude=.next -czf /tmp/volta-capture/source.tar.gz .
+          tar -czf /tmp/volta-capture/runtime.tar.gz node_modules
+          tar -czf /tmp/volta-capture/browser.tar.gz -C /tmp volta-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corporate-public-source
+          path: /tmp/volta-capture
+          retention-days: 7

@@ -1,45 +1,30 @@
 # VOLTA Corporate — Local Web Design Contract
 
-**Scope:** this repository's active presentation.  
-**Last reviewed:** 2026-09-06.  
-**Authority:** implementation guidance beneath `VOLTA-VIS-001`, `VOLTA-DSN-001` and `VOLTA-BRD-001`.
+**Baseline:** Corporate v1 · 2026-09-07 UTC  
+**Authority:** implementation guidance beneath VOLTA-VIS-001 / VOLTA-DSN-001 / VOLTA-BRD-001. Stable filename retained for existing agent links.
 
-The stable filename is retained for existing agent links. This is not a company-wide design system or a parallel source of foundational tokens.
+## Five chapters
 
-## Composition
+Company introduction with an editorial directory; three product showcases; VOLTA principles; current development; closing. No stock-gallery chapter, redundant process steps, floating pseudo-dashboard nodes or repeated promotional sections. Each product is an independent destination, not part of a required suite.
 
-The homepage has five content chapters plus header/footer: introduction and goal routing, available products, company approach, development initiatives, and getting started. Each chapter adds distinct understanding. Do not revive the retired animated Flow rail or add repetitive closing sections.
+The main hero is typographic and navigable. Products use spacious alternating text/image bands; source imagery is never stretched or cropped to hide essential content. Principles and Shield use deliberate dark contrast. Bridge remains secondary; Automate has a smaller exploratory presentation. The closing has one discovery action.
 
-Use spacious light surfaces with a purposeful dark company chapter. The Shift appears through offset planes, controlled edges and resolved visual hierarchy, not ambient glow. Green is emphasis, not wallpaper. Preserve the approved headline and interim logo.
+## Brand execution
 
-## Typography and tokens
+Instrument Sans Variable, canonical `#00E878`, neutral surfaces and semantic text/action pairs. `globals.css` owns primitives and semantics; `home.module.css` owns chapter composition and breakpoints. Bright green uses dark text. The Shift is an offset edge/plane or hierarchy device, not a new company logo. Keep the interim V + dot lockup.
 
-Instrument Sans Variable is the corporate family, loaded with `next/font` and swap/fallback behavior. Semantic typography uses scale, weight and reading measure rather than numerous typefaces. A serif in Portfolio's illustrative content is product-expression content, not a second corporate font.
+Controls use 8px radius; large controlled surfaces use 12/16px. Prefer spacing and alignment to heavy shadows and containers. Public demo imagery may retain the individual product's expression without changing corporate tokens.
 
-`globals.css` owns the primitive-to-semantic color relationships, including `#00E878`, neutral anchors, action foreground/background, focus and muted text. Bright green pairs with dark foreground. The active shell no longer uses the legacy Inter/`#12E89A` baseline.
+## Images and copy
 
-Control radius is 10px; ordinary and feature surfaces use 16px/24px. Prefer space, borders and alignment over heavy shadows. Product illustrations may use restrained depth where it explains grouping.
+Follow [MEDIA](MEDIA.md). Captures of published demonstrations are visibly labeled examples, never represented as customer screens. Width/height reserve space; responsive local WebP and object-fit contain preserve sharpness and composition. Enlargement is a real link, not a fake control.
 
-## Product stories
+Short audience, outcome, explanation and supported capabilities precede one primary product action. The Store published-example link is secondary evidence of an actual public surface, not social proof. Future products keep explicit maturity and no GA launch controls. Shield's priority is a presentation decision, not formal investment promotion.
 
-Audience, concrete outcome, explanatory copy, three relevant capabilities and one real action. Product cards have a reason to exist; company principles do not need cards.
+## Responsive and accessibility
 
-Product Moments are lightweight, clearly labeled **illustrations** of verified flows. They are not screenshots, real customer work or interactive demos. Do not add focusable decorative controls. Keep equivalent product meaning in the semantic story.
+Mobile has its own single-column order: copy then visual. Do not retain a miniature desktop diagram or horizontal content rail. Links/buttons target at least 44px, with a 46px menu trigger, visible keyboard focus, skip link, logical headings and 104px anchor clearance.
 
-Development initiatives live outside the available-product grid and have explicit labels. Native disclosures provide optional nuance without creating fake sign-up or launch actions.
+The mobile menu is a non-modal disclosure with expanded/controls state, Escape/focus return, outside-click and selection dismissal, and recovery above the 900px desktop breakpoint. Reduced motion removes transitions and smooth scrolling. Forced colors retain boundaries. Text-spacing overrides must reflow without horizontal overflow.
 
-## Responsive interaction
-
-Desktop and mobile are intentional compositions. Mobile navigation has readable links, a minimum 46px trigger, expanded/controls semantics, Escape and focus return, outside-click/selection dismissal and resize recovery. It is a non-modal disclosure, not a dialog.
-
-Preserve the skip link, logical heading hierarchy, anchor clearance beneath the sticky header, visible focus and meaningful touch targets. Check 320px reflow rather than masking content overflow. Essential product understanding must not depend on miniature illustrative text.
-
-## Motion and resilience
-
-Hover movement is small and fast. Reduced motion removes unnecessary movement and smooth scrolling. Forced-color modes retain controls and hierarchy. No autoplay, heavy animation library, scroll hijacking or client-only hero rendering.
-
-## Acceptance
-
-Run the source/lint/build checks and real browser verification described in [SYSTEM](SYSTEM.md). Inspect representative desktop/mobile screenshots, contrast, disclosure states, outgoing links and social-preview rendering. A passing build is not proof of a good visual experience.
-
-Aesthetic changes do not prove increased conversion. Preserve that distinction in [EVIDENCE](EVIDENCE.md).
+Run [SYSTEM](SYSTEM.md) checks and inspect representative screenshots. A passing axe scan is not complete WCAG certification or evidence of user comprehension. Freeze aesthetic iteration after this baseline unless a documented defect or actual evidence justifies it.

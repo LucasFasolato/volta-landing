@@ -25,7 +25,7 @@ The primary outcome is **accurate representation and qualified product routing**
 
 ## Public product representation
 
-The current presentation map lives in `src/data/corporate-products.ts`; [CURRENT_STATE](CURRENT_STATE.md) documents destination reconciliation. Portfolio classifications remain owned by `volta-foundation/registry/portfolio.yaml`.
+The presentation map lives in `src/data/corporate-products.ts`; [CURRENT_STATE](CURRENT_STATE.md) documents destination reconciliation. Portfolio classifications remain owned by `volta-foundation/registry/portfolio.yaml`.
 
 - **Store:** a branded catalog/cart that sends an organized order to WhatsApp. The merchant and shopper coordinate payment and delivery; Corporate does not claim integrated shopper payments.
 - **Booking:** online appointment selection and mobile agenda operation. Publicly visible with **En evolución**. Do not claim deferred reminders, full Calendar synchronization, payments or conversational AI.
@@ -35,17 +35,17 @@ These products work independently. Corporate does not imply that users must buy 
 
 ## Development chapter
 
-The founder requested a comprehensive central hub redesign on 2026-09-06. [CORP-DDR-001](decisions/CORP-DDR-001-corporate-hub.md) records the resulting presentation decision without changing company strategy.
+The founder explicitly authorized the final presentation in [CORP-DDR-002](decisions/CORP-DDR-002-corporate-v1-final.md), including five chapters and Shield as the visual priority. The original hub decision is preserved in [CORP-DDR-001](decisions/CORP-DDR-001-corporate-hub.md); neither record changes company strategy.
 
-- **Shield:** an enterprise AI workspace under development, with organization policy, protection boundaries, authorized model/provider routing and usage/cost governance. No total-security, compliance or ROI guarantees.
-- **Bridge:** a platform under development connecting professionals building their careers with real, clearly scoped opportunities. Use professional/project-owner language, not a free-labor or guaranteed-employment proposition.
+- **Shield:** a general-purpose company AI workspace under development, with organization policy, protection boundaries, authorized model/provider routing and usage/cost governance. Publicly En validación, with controlled MVP development and no general availability. No total-security, compliance or ROI guarantees.
+- **Bridge:** a platform under development connecting professionals building their careers with real, clearly scoped opportunities. Use professional/project-owner language, not a talent-domain identity, free-labor or guaranteed-employment proposition.
 - **Automate:** exploration of useful automation for repetitive operational problems. No invented available integrations or committed launch date.
 
-These initiatives have separate visual hierarchy, explicit status and explanatory disclosures. They do not receive external launch buttons or pretend sign-up flows.
+Shield has the primary future-product presentation, followed by Bridge and a smaller Automate item. Explicit status and concise non-availability wording remain. They do not receive external launch buttons or pretend sign-up flows.
 
 ## Experience and evidence
 
-Outcome before technology. One action per product story. Mobile first-class. Premium through execution. Illustrations explain verified flow concepts but are clearly labeled examples; they are not product screenshots or real customers.
+Outcome before technology. One primary action per product story. Mobile first-class. Premium through execution. Visuals are high-resolution browser captures of public product demonstrations, clearly labeled as examples. They are not authenticated app sessions or real customer results. Store also links to its existing public storefront example. See [MEDIA](MEDIA.md).
 
 Keep `Product selected` with product key and placement only. [EVIDENCE](EVIDENCE.md) distinguishes implemented quality from still-unproven comprehension, trust transfer and acquisition impact.
 

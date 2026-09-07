@@ -1,8 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "git": {
-    "deploymentEnabled": {
-      "feat/corporate-hub-20260906": false
-    }
-  }
+  "git": { "deploymentEnabled": { "feat/corporate-v1-final": false } }
 }

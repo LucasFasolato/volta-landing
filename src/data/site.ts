@@ -4,4 +4,4 @@ export const siteUrl = configured
   ? new URL(configured.startsWith("http") ? configured : `https://${configured}`).origin
   : "https://volta-landing-delta.vercel.app";
 export const siteTitle = "VOLTA | Tu próximo paso, online.";
-export const siteDescription = "Productos y tecnología para vender, organizar reservas y mostrar tu trabajo. Conocé VOLTA Store, Booking y Portfolio, y las iniciativas que estamos construyendo.";
+export const siteDescription = "VOLTA es una compañía de productos y tecnología. Conocé Store, Booking y Portfolio, y descubrí lo que estamos construyendo con Shield, Bridge y Automate.";

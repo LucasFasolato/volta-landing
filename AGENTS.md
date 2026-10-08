@@ -105,3 +105,8 @@ Follow `VOLTA-AGT-PROFILE-VERCEL-001`.
 There is no legacy shipping protocol that overrides `VOLTA-DLV-001`.
 
 Update `docs/CURRENT_STATE.md` after material changes. Use `docs/HANDOFF.md` only when unresolved continuation context is valuable.
+
+
+## VOLTA harness
+
+Operational adapter: [`.volta/HARNESS.md`](.volta/HARNESS.md), with repository-specific commands in [`.volta/harness.json`](.volta/harness.json). The Company OS in `volta-foundation` remains authoritative; existing local product rules remain in force. Run `node .volta/check.mjs` to verify this contract. Run `node .volta/check.mjs --verify` for declared local baseline checks; browser, security and data checks remain task-dependent. Structural success is not product or production acceptance. Keep delivery local-first and batch one coherent hosted candidate according to the existing VOLTA delivery profile.

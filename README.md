@@ -18,7 +18,9 @@ Corporate is a **Brand / Distribution Asset**, not another SaaS product or a sha
 
 ## Development
 
-Use the committed npm lockfile. CI and production use Node 24.
+Use the committed npm lockfile. `.github/workflows/corporate-quality.yml` installs dependencies and runs `npm run check` plus the browser suite on Node 24. `package.json` does not declare `engines`, and this repository does not record the production Node runtime.
+
+Styles are hand-authored CSS in `src/app/globals.css` and `src/app/home.module.css`. `tailwind.config.ts` is vestigial; see [SYSTEM](docs/SYSTEM.md).
 
 ```bash
 npm ci

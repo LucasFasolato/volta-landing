@@ -14,7 +14,11 @@ A lightweight Next.js App Router application on Vercel. The homepage and metadat
 - `home.module.css`: the five chapter compositions and responsive behavior.
 - `layout.tsx`, `robots.ts`, `sitemap.ts`, `opengraph-image.tsx`: fonts, metadata and discovery assets.
 
-The root imports global CSS; the page imports its CSS module. No remote media, runtime capture service or Vercel image transform is required. Do not add a parallel token system.
+The root imports global CSS; the page imports its CSS module. Neither stylesheet imports Tailwind: there is no `@import "tailwindcss"`, `@tailwind`, `@theme` or `@config`. Class names on the page and shell are those custom global classes and CSS-module identifiers.
+
+`tailwind.config.ts` is vestigial. It is a Tailwind v3 `content` / `theme` / `plugins` config, no stylesheet points at it, and its `content` globs include `./src/lib`, which is not in this repository. `postcss.config.mjs` still registers `@tailwindcss/postcss`, and `tailwindcss` plus `@tailwindcss/postcss` remain devDependencies. That wiring does not make the page a Tailwind utility stylesheet. Do not add utilities or extend `tailwind.config.ts`.
+
+No remote media, runtime capture service or Vercel image transform is required. Do not add a parallel token system.
 
 ## Measurement
 
@@ -31,7 +35,7 @@ npm run check
 
 This runs source/content/media contracts, ESLint and the production build including TypeScript. The lockfile is the exact dependency authority. The source check also verifies real WebP dimensions and byte budgets using Sharp already supplied by the Next.js dependency graph.
 
-For the browser suite, use Node 24 and a running production build:
+Run the browser suite on Node 24, the version `.github/workflows/corporate-quality.yml` uses for install, `npm run check` and this suite, against a running production build. `package.json` does not declare `engines`, and this repository does not record the production Node runtime.
 
 ```bash
 npm install --prefix /tmp/volta-browser --no-package-lock --no-audit --no-fund playwright@1.57.0 @axe-core/playwright@4.11.0

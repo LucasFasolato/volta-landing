@@ -20,7 +20,7 @@ The existing headline **Tu próximo paso, online.** remains. The current interim
 
 Normative sources: approved VOLTA Foundation, Principles, Strategy, Brand, Visual Foundation, Design, Product, Engineering, Security, Delivery, Agent and Documentation systems.
 
-Product sources reviewed: `docs/PRODUCT.md` in `volta-store-template`, `volta-booking`, `volta-portfolio`, `volta-shield` and `volta-bridge`, plus `volta-foundation/registry/portfolio.yaml`.
+Product sources reviewed: `docs/PRODUCT.md` in `volta-store`, `volta-booking`, `volta-portfolio`, `volta-shield` and `volta-bridge`, plus `volta-foundation/registry/portfolio.yaml`.
 
 Portfolio's newer `src/lib/config.ts`, `docs/auth-production-setup.md` and `docs/production-web-presence.md` establish `https://www.voltaportfolio.app` as its operational canonical URL. This supersedes the old destination in Corporate/registry presentation without changing portfolio classification.
 
